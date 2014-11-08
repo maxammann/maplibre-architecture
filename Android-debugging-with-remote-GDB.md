@@ -67,3 +67,5 @@ Listening on sockaddr socket debug-socket`
 12. Switch back to GDB. It should be paused at `nativeCreate`
 13. GDB now has control, so `c` will continue execution (set breakpoints first)
 14. Use GDB commands to debug
+
+Read http://condor.depaul.edu/glancast/373class/docs/gdb.html for GDB commands
