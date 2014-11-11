@@ -1,3 +1,6 @@
+Google I/O videos (lots on how the UI renderer uses OpenGL etc):
+https://www.youtube.com/user/GoogleDevelopers/playlists?shelf_id=6&view=50&sort=dd
+
 A good resource to help you understand JNI:
 http://developer.android.com/training/articles/perf-jni.html
 
