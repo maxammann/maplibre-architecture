@@ -8,7 +8,7 @@
 5. Exit with `exit`
 
 # Extract system binaries from device
-_(you will need to do this for every device and every Android OS version)_
+_(You will need to do this for every device and every Android OS version)_
 
 1. Create a folder to hold the Android system binaries locally e.g. `~/android`
 2. `cd` into the folder
@@ -43,7 +43,7 @@ _(you will need to do this for every device and every Android OS version)_
 1. Open a terminal
 2. Run `adb forward tcp:5039 localfilesystem:/data/data/com.mapbox.mapboxgl.app/debug-pipe`
 3. Run `adb shell run-as com.mapbox.mapboxgl.app /data/data/com.mapbox.mapboxgl.app/lib/gdbserver.so +debug-pipe --attach 31834`. Replace `31834` with the process ID from earlier.
-_(you will need to do this each time you restart the add as the PID will change)_
+_(You will need to do this each time you restart the app as the PID will change)_
 
 You should see:
 `Attached; pid = 31834
