@@ -66,6 +66,27 @@ Listening on sockaddr socket debug-socket`
 11. Click Run -> Resume Program
 12. Switch back to GDB. It should be paused at `nativeCreate`
 13. GDB now has control, so `c` will continue execution (set breakpoints first)
+**Note:**
+If you encounter this crash:
+```
+Program received signal SIGILL, Illegal instruction.
+0x7956a3a8 in _armv7_tick () from /home/leith/dev/mapbox-gl-native-mason/build/android/out/Debug/lib.target/libmapbox-gl.so
+(gdb) bt
+#0  0x7956a3a8 in _armv7_tick () from /home/leith/dev/mapbox-gl-native-mason/build/android/out/Debug/lib.target/libmapbox-gl.so
+#1  0x795d1ccc in OPENSSL_cpuid_setup () from /home/leith/dev/mapbox-gl-native-mason/build/android/out/Debug/lib.target/libmapbox-gl.so
+#2  0x400bd9c6 in ?? () from /home/leith/dev/android/linker
+#3  0x400bda9e in ?? () from /home/leith/dev/android/linker
+#4  0x400bdbf0 in ?? () from /home/leith/dev/android/linker
+#5  0x400bdc6e in ?? () from /home/leith/dev/android/linker
+#6  0x400bc1a6 in _start () from /home/leith/dev/android/linker
+#7  0x41643c86 in dvmLoadNativeCode(char const*, Object*, char**) () from /home/leith/dev/android/system_lib/libdvm.so
+#8  0x416600f4 in ?? () from /home/leith/dev/android/system_lib/libdvm.so
+#9  0x41613ee8 in dvmJitToInterpNoChain () from /home/leith/dev/android/system_lib/libdvm.so
+#10 0x41613ee8 in dvmJitToInterpNoChain () from /home/leith/dev/android/system_lib/libdvm.so
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+```
+You just need to `c` past it to the real crash. From https://bugs.launchpad.net/raspbian/+bug/1154042:
+> Afaict openssl probes the capabilities of the user's CPU by trying to do things and trapping the illegal instruction errors. So a couple of sigills during startup is normal. When using a debugger in order to find the real failure in your application you must continue past the startup sigills.
 14. Use GDB commands to debug
 
 Read http://condor.depaul.edu/glancast/373class/docs/gdb.html for GDB commands
