@@ -60,7 +60,7 @@ Listening on sockaddr socket debug-socket`
 5. `target remote :5039`
 6. Check that all the debug symbols were loaded with `info sharedlibrary`
 7. Check each .so has `Yes (*)` except for the last `libmapbox-gl.so` which must have only `Yes` i.e. (no star). If not double check your `solib-search-path`
-8. `b JNI.cpp:145`
+8. `b JNI.cpp:146`
 9. `c`
 10. Switch to Android Studio
 11. Click Run -> Resume Program
