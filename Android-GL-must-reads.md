@@ -19,7 +19,7 @@ http://developer.android.com/guide/topics/graphics/opengl.html
 http://developer.android.com/training/graphics/opengl/index.html
 http://developer.android.com/reference/android/opengl/GLSurfaceView.html
 
-One more thing, learn how to debug the native code in Android. It is very difficult and you will start swearing at Google but it was valuable in tracking down bugs.
+One more thing, [learn how to debug the native code in Android](https://github.com/mapbox/mapbox-gl-native/wiki/Android-debugging-with-remote-GDB). It is very difficult and you will start swearing at Google but it was valuable in tracking down bugs.
 
 Intel has a good overview (actually Intel have lots of good info on native Android):
 https://software.intel.com/en-us/android/articles/how-to-test-and-debug-ndk-based-android-applications
