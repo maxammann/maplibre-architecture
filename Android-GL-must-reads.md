@@ -21,6 +21,9 @@ Stuff from Android docs:
 - http://developer.android.com/guide/topics/graphics/opengl.html
 - http://developer.android.com/training/graphics/opengl/index.html
 - http://developer.android.com/reference/android/opengl/GLSurfaceView.html
+- https://source.android.com/devices/graphics/architecture.html
+- http://developer.android.com/reference/android/view/SurfaceView.html
+- http://developer.android.com/reference/android/view/TextureView.html
 
 #Debugging
 One more thing, [learn how to debug the native code in Android](https://github.com/mapbox/mapbox-gl-native/wiki/Android-debugging-with-remote-GDB). It is very difficult and you will start swearing at Google but it was valuable in tracking down bugs.
