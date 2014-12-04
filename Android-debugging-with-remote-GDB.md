@@ -56,8 +56,8 @@ Listening on sockaddr socket debug-socket`
 1. Open another terminal
 2. Go to the NDK folder `android-ndk/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin`
 3. Run `./arm-linux-androideabi-gdb ~/android/app_process`
-4. In GDB: `set solib-search-path ~/android/:~/android/system_lib:~/android/vendor_lib:~/android/vendor_lib/egl:~/path/to/mapbox-gl-native/build/android/out/Debug/lib.target/`
-5. `target remote :5039`
+4. `target remote :5039`
+5. In GDB: `set solib-search-path ~/android/:~/android/system_lib:~/android/vendor_lib:~/android/vendor_lib/egl:~/path/to/mapbox-gl-native/build/android/out/Debug/lib.target/`
 6. Check that all the debug symbols were loaded with `info sharedlibrary`
 7. Check each .so has `Yes (*)` except for the last `libmapbox-gl.so` which must have only `Yes` i.e. (no star). If not double check your `solib-search-path`
 8. `b jni.cpp:146`
