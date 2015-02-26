@@ -41,8 +41,8 @@ _(You will need to do this for every device and every Android OS version)_
 # Start gdbserver
 
 1. Open a terminal
-2. Run `adb forward tcp:5039 localfilesystem:/data/data/com.mapbox.mapboxgl.app/debug-pipe`
-3. Run `adb shell run-as com.mapbox.mapboxgl.app /data/data/com.mapbox.mapboxgl.app/lib/gdbserver.so +debug-pipe --attach 31834`. Replace `31834` with the process ID from earlier.
+2. Run `adb forward tcp:5039 localfilesystem:/data/data/com.mapbox.mapboxgl.testapp/debug-pipe`
+3. Run `adb shell run-as com.mapbox.mapboxgl.testapp /data/data/com.mapbox.mapboxgl.testapp/lib/gdbserver.so +debug-pipe --attach 31834`. Replace `31834` with the process ID from earlier.
 _(You will need to do this each time you restart the app as the PID will change)_
 
 You should see:
