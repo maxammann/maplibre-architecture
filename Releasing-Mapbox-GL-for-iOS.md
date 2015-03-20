@@ -2,8 +2,9 @@
 
 1. Choose a version number per [Semantic Versioning](http://semver.org/). Let's call it _x_._y_._z_.
 1. If necessary, update [the screenshot](https://github.com/mapbox/mapbox-gl-native/blob/master/ios/screenshot.png).
-1. Create a tag ios-v<i>x</i>._y_._z_ and push the tag. 
 1. Update the version [in the podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/ios/MapboxGL.podspec#L4). 
+1. Commit those two changes.
+1. Create a tag ios-v<i>x</i>._y_._z_ and push the tag. 
 
 ## CocoaPods
 
