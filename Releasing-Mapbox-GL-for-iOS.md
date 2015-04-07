@@ -13,6 +13,18 @@ $ git commit --allow-empty -m '[publish iosvX.Y.Z]'`
 
 ## CocoaPods
 
+Your app's `Podfile` should be as follows (plus any other pods used): 
+
+```ruby
+pod 'MapboxGL', :git => 'https://github.com/mapbox/mapbox-gl-native'
+
+use_frameworks!
+```
+
+Then, to update to the latest published version: 
+
 ```bash
 $ pod update
 ```
+
+There is no way to pin versions right now; that will come when we release officially and on the CocoaPods master repository. 
