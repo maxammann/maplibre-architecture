@@ -8,7 +8,7 @@
 1. Create and push a deploy commit. 
 
 ```bash
-$ git commit --allow-empty -m '[publish iosvX.Y.Z]'
+$ git commit --allow-empty -m '[publish ios-vX.Y.Z]'
 ```
 
 ## CocoaPods
