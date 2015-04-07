@@ -13,10 +13,10 @@ $ git commit --allow-empty -m '[publish ios-vX.Y.Z]'
 
 ## CocoaPods
 
-Your app's `Podfile` should be as follows (plus any other pods used): 
+Your app's `Podfile` should be as follows (plus normal lines for any other pods used): 
 
 ```ruby
-pod 'MapboxGL', :git => 'https://github.com/mapbox/mapbox-gl-native'
+pod 'MapboxGL', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/ios/MapboxGL.podspec'
 
 use_frameworks!
 ```
