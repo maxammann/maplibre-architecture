@@ -11,20 +11,4 @@
 $ git commit --allow-empty -m '[publish ios-vX.Y.Z]'
 ```
 
-## CocoaPods
-
-Your app's `Podfile` should be as follows (plus normal lines for any other pods used): 
-
-```ruby
-pod 'MapboxGL', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/ios/MapboxGL.podspec'
-
-use_frameworks!
-```
-
-Then, to update to the latest published version: 
-
-```bash
-$ pod update
-```
-
-There is no way to pin versions right now; that will come when we release officially and on the CocoaPods master repository. 
+Now you're ready to [install Mapbox GL](Installing Mapbox GL for iOS).
