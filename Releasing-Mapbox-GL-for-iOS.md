@@ -9,6 +9,7 @@
 
 ```bash
 $ git commit --allow-empty -m '[publish iosvX.Y.Z]'`
+```
 
 ## CocoaPods
 
