@@ -1,6 +1,7 @@
 There are two supported methods for installing Mapbox GL into your iOS project: via CocoaPods, or manually within Xcode.
 
-## Using CocoaPods
+## Installing the framework
+### Using CocoaPods
 
 Your app's `Podfile` should be as follows (plus normal lines for any other pods used):
 
@@ -18,7 +19,7 @@ $ pod update
 
 There is no way to pin versions right now; that will come when we release officially and on the CocoaPods master repository.
 
-## Using Xcode
+### Using Xcode
 
 1. Download and decompress a zip or tarball of the [latest iOS release](https://github.com/mapbox/mapbox-gl-native/releases). It contains a statically-linked `libMapboxGL.a`, a `MapboxGL.bundle` for resources, and a `Headers` folder.
 2. Drag these three items into the Project navigator of your project. When prompted, check the “Copy items if needed” box. Ensure that Xcode has made the following changes to your project:
@@ -41,6 +42,8 @@ There is no way to pin versions right now; that will come when we release offici
 
 To use any Mapbox-hosted map style, including a style bundled with Mapbox GL, you need a Mapbox access token. Log into your Mapbox account and [grab an access token](https://www.mapbox.com/account/apps/).
 
+### Using Interface Builder
+
 The easiest way to get started is with a storyboard:
 
 1. Drag a UIView out from the Object library into a `UIViewController` in a storyboard.
@@ -50,7 +53,11 @@ The easiest way to get started is with a storyboard:
 
 ![designable](https://cloud.githubusercontent.com/assets/1231218/6969674/3bc96d8a-d925-11e4-97a9-2bca4cf707f4.gif)
 
-From there, you can hook up the `MGLMapView` to an outlet and reference it in code. If you need more customization options at launch, you can instantiate the `MGLMapView` programmatically as well. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
+From there, you can hook up the `MGLMapView` to an outlet and reference it in code.
+
+### In code
+
+If you need more customization options at launch, you can instead instantiate the `MGLMapView` programmatically. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
 
 ```objc
 // AppDelegate.m
