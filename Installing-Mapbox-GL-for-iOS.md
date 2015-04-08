@@ -41,10 +41,19 @@ There is no way to pin versions right now; that will come when we release offici
 
 To use any Mapbox-hosted map style, including a style bundled with Mapbox GL, you need a Mapbox access token. Log into your Mapbox account and [grab an access token](https://www.mapbox.com/account/apps/).
 
-Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
+The easiest way to get started is with a storyboard:
+
+1. Drag a UIView out from the Object library into a `UIViewController` in a storyboard.
+1. In the Identity inspector, set the custom class to “MGLMapView”.
+1. In the Attributes inspector, set your access token. Optionally set an access token, initial coordinates, and initial zoom level.
+1. Build and run.
+
+![designable](https://cloud.githubusercontent.com/assets/1231218/6969674/3bc96d8a-d925-11e4-97a9-2bca4cf707f4.gif)
+
+From there, you can hook up the `MGLMapView` to an outlet and reference it in code. If you need more customization options at launch, you can instantiate the `MGLMapView` programmatically as well. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
 
 ```objc
-// Objective-C
+// AppDelegate.m
 #import "MapboxGL.h"
 
 // …
@@ -62,7 +71,7 @@ Insert the following lines into your view controller’s `-viewDidLoad`, substit
 ```
 
 ```swift
-// Swift
+// AppDelegate.swift
 import MapboxGL
 
 // …
