@@ -1,6 +1,7 @@
+## Installing the framework
+
 There are two supported methods for installing Mapbox GL into your iOS project: via CocoaPods, or manually within Xcode.
 
-## Installing the framework
 ### Using CocoaPods
 
 Your app's `Podfile` should be as follows (plus normal lines for any other pods used):
