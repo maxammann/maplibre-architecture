@@ -49,7 +49,7 @@ The easiest way to get started is with a storyboard:
 
 1. Drag a UIView out from the Object library into a `UIViewController` in a storyboard.
 1. In the Identity inspector, set the custom class to “MGLMapView”.
-1. In the Attributes inspector, set your access token. Optionally set a map ID (for Mapbox-hosted maps), initial coordinates, and initial zoom level.
+1. In the Attributes inspector, set your access token. Optionally set a map ID, initial coordinates, and initial zoom level.
 1. Build and run.
 
 ![designable](https://cloud.githubusercontent.com/assets/1231218/6969674/3bc96d8a-d925-11e4-97a9-2bca4cf707f4.gif)
