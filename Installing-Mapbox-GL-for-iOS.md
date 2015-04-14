@@ -1,8 +1,8 @@
 ## Installing the framework
 
-There are two supported methods for installing Mapbox GL into your iOS project: via CocoaPods, or manually within Xcode.
+There are two supported methods for installing Mapbox GL into your iOS project: via [CocoaPods](https://cocoapods.org/), or manually within Xcode.
 
-### Using CocoaPods
+### Using CocoaPods (recommended)
 
 Your app's `Podfile` should be as follows (plus normal lines for any other pods used):
 
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
 
 ### In code
 
-If you need more customization options at launch, you can instead instantiate the `MGLMapView` programmatically. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
+If you need more customization options at launch, you can instantiate the `MGLMapView` programmatically instead of designing a storyboard. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
 
 ```objc
 // ViewController.m
