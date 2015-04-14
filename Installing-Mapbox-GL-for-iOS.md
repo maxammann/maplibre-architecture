@@ -117,3 +117,13 @@ override func viewDidLoad() {
 ### Mapbox Metrics
 
 By default, Mapbox GL sends anonymized location and usage data to Mapbox whenever the host app causes it to be gathered. You should add a setting to your app’s entry in Settings that allows the user to opt out of Mapbox Metrics. [An example implementation of this setting](https://github.com/mapbox/mapbox-gl-native/tree/master/ios/app/Settings.bundle) is available as of the iOS demo app.
+
+You can pause and resume Mapbox Metrics as needed, by calling `-[MGLMapboxEvents pauseMetricsCollection]` in your `-[AppDelegate applicationDidEnterBackground:]` and `-[MGLMapboxEvents resumeMetricsCollection]` in your `-[AppDelegate applicationWillEnterForeground:]`. Typically, an app pauses Mapbox Metrics when:
+
+1. The app goes to the background
+2. While already in the background, the app stops listening for location updates via any `CLLocationManager` instance it may have
+
+and resumes when:
+
+1. While in the background, the app begins to listen for location updates from a `CLLocationManager`
+2. The app comes to the foreground after calling `-[MGLMapboxEvents pauseMetricsCollection]`.
