@@ -126,4 +126,4 @@ You can pause and resume Mapbox Metrics as needed, by calling `-[MGLMapboxEvents
 and resumes when:
 
 1. While in the background, the app begins to listen for location updates from a `CLLocationManager`
-2. The app comes to the foreground after calling `-[MGLMapboxEvents pauseMetricsCollection]`.
+2. The app comes to the foreground after calling `-[MGLMapboxEvents pauseMetricsCollection]`
