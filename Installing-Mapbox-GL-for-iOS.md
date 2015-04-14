@@ -116,14 +116,8 @@ override func viewDidLoad() {
 
 ## Setting up Mapbox Metrics
 
-By default, Mapbox GL sends anonymized location and usage data to Mapbox whenever the host app causes it to be gathered. You should add a setting to your app’s entry in Settings that allows the user to opt out of Mapbox Metrics. [An example implementation of this setting](https://github.com/mapbox/mapbox-gl-native/tree/master/ios/app/Settings.bundle) is available as of the iOS demo app.
+By default, Mapbox GL sends anonymized location and usage data to Mapbox whenever the host app causes it to be gathered. As part of the Mapbox Terms of Service, your app will need to provide it's users a way to individually Opt Out of this data gathering.  This can be done either by appending a control in the app's entry in the Settings app, or by integrating it in the app's own UI.  An [example implementation of this for the app's entry in the Settings app](https://github.com/mapbox/mapbox-gl-native/tree/master/ios/app/Settings.bundle) is available as of the iOS demo app.
 
-You can pause and resume Mapbox Metrics as needed, by calling `-[MGLMapboxEvents pauseMetricsCollection]` in your `-[AppDelegate applicationDidEnterBackground:]` and `-[MGLMapboxEvents resumeMetricsCollection]` in your `-[AppDelegate applicationWillEnterForeground:]`. Typically, an app pauses Mapbox Metrics when:
+Mapbox Metrics is fairly self contained and other than the Opt Out setting described above the only other time a developer would possibly need to interact with it is when `UIBackgroundMode`'s `location` is enabled, the app is in the background, and the app stops listening for location updates via any `CLLocationManager` instances it may have.  Generally speaking, if the app itself isn't listening for location updates from iOS while in the background then Mapbox Metrics shouldn't be either.
 
-1. The app goes to the background
-2. While already in the background, the app stops listening for location updates via any `CLLocationManager` instance it may have
-
-and resumes when:
-
-1. While in the background, the app begins to listen for location updates from a `CLLocationManager`
-2. The app comes to the foreground after calling `-[MGLMapboxEvents pauseMetricsCollection]`
+This can be done by calling `-[MGLMapboxEvents pauseMetricsCollection]` when the app's number of  `CLLocationManager` instances listening for UIBackgroundMode's location updates becomes zero and then restarted when the app itself first starts listening for UIBackground's location updates via any `CLLocationManager` instance by then calling `-[MGLMapboxEvents resumeMetricsCollection]`.
