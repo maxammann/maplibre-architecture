@@ -81,7 +81,7 @@ class ViewController: UIViewController {
 If you need more customization options at launch, you can instead instantiate the `MGLMapView` programmatically. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
 
 ```objc
-// AppDelegate.m
+// ViewController.m
 #import "MapboxGL.h"
 
 // …
@@ -99,7 +99,7 @@ If you need more customization options at launch, you can instead instantiate th
 ```
 
 ```swift
-// AppDelegate.swift
+// ViewController.swift
 import MapboxGL
 
 // …
