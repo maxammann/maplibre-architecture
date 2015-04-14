@@ -93,3 +93,7 @@ override func viewDidLoad() {
     view.addSubview(mapView)
 }
 ```
+
+### Mapbox Metrics
+
+By default, Mapbox GL sends anonymized location and usage data to Mapbox whenever the host app causes it to be gathered. You should add a setting to your app’s entry in Settings that allows the user to opt out of Mapbox Metrics. [An example implementation of this setting](https://github.com/mapbox/mapbox-gl-native/tree/master/ios/app/Settings.bundle) is available as of the iOS demo app.
