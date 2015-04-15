@@ -114,7 +114,7 @@ override func viewDidLoad() {
 }
 ```
 
-## Setting up Mapbox Metrics
+## Configuring Mapbox Metrics
 
 By default, Mapbox GL sends anonymized location and usage data to Mapbox whenever the host app causes it to be gathered, via a fairly self-contained feature called Mapbox Metrics. The Mapbox Terms of Service require your app to provide users with a way to individually opt out of Mapbox Metrics. You can either add a setting to your app’s section in the Settings app or integrating the setting directly into your app.  An [example implementation of a Settings app opt out](https://github.com/mapbox/mapbox-gl-native/tree/master/ios/app/Settings.bundle) is available as part of the iOS demo app.
 
