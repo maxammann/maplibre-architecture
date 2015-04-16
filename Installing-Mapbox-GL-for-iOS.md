@@ -20,6 +20,8 @@ $ pod update
 
 There is no way to pin versions right now; that will come when we release officially and on the CocoaPods master repository.
 
+Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview) and [configure Mapbox Metrics](#configuring-mapbox-metrics).
+
 ### Using Xcode
 
 1. Download and decompress a zip or tarball of the [latest iOS release](https://github.com/mapbox/mapbox-gl-native/releases). It contains a statically-linked `libMapboxGL.a`, a `MapboxGL.bundle` for resources, and a `Headers` folder.
@@ -38,6 +40,8 @@ There is no way to pin versions right now; that will come when we release offici
    - `libsqlite3.dylib`
    - `libz.dylib`
 4. Add `-ObjC` to your target's "Other Linker Flags" build setting (`OTHER_LDFLAGS`).
+
+Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview) and [configure Mapbox Metrics](#configuring-mapbox-metrics).
 
 ## Instantiating an `MGLMapView`
 
