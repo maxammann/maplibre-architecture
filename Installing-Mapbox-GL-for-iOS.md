@@ -92,7 +92,7 @@ If you need more customization options at launch, you can instantiate the `MGLMa
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:[[self view] bounds]
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
                                                 accessToken:@"my.accessToken1234567890"];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(-23.526, 148.162)
