@@ -24,7 +24,7 @@ Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview
 
 ### Using Xcode
 
-1. Download and decompress a zip or tarball of the [latest iOS release](https://github.com/mapbox/mapbox-gl-native/releases). It contains a statically-linked `libMapboxGL.a`, a `MapboxGL.bundle` for resources, and a `Headers` folder.
+1. Download and decompress a zip of the latest iOS release at `http://mapbox.s3.amazonaws.com/mapbox-gl-native/ios/builds/mapbox-gl-ios-$VERSION.zip`, where `$VERSION` is the [latest version number](https://github.com/mapbox/mapbox-gl-native/releases), e.g. “0.2.15”. It contains a statically-linked `libMapboxGL.a`, a `MapboxGL.bundle` for resources, and a `Headers` folder.
 2. Drag these three items into the Project navigator of your project. When prompted, check the “Copy items if needed” box. Ensure that Xcode has made the following changes to your project:
    - `Headers` is in your *Header Search Paths* (`HEADER_SEARCH_PATHS`) build setting.
    - `MapboxGL.bundle` is in your target's *Copy Bundle Resources* build phase.
