@@ -11,4 +11,6 @@
 $ git commit --allow-empty -m '[publish ios-vX.Y.Z]'
 ```
 
+1. When the publisher has created and uploaded a zip file to S3, publish it to [releases](https://github.com/mapbox/mapbox-gl-native/releases/new) as well. We'll automate this soon. 
+
 Now you're ready to [install Mapbox GL](Installing Mapbox GL for iOS).
