@@ -1,6 +1,7 @@
 * Make debug build: `BUILDTYPE=Debug ANDROID_ABI=x86 make android`.
 * Reproduce crash
 * Copy stack trace. It will look like:
+(You may need to switch Android Studio logcat filter to "No Filters")
 
   ```
 ********** Crash dump: **********
