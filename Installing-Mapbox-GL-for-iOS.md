@@ -47,7 +47,7 @@ Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview
 
 To use any Mapbox-hosted map style, including a style bundled with Mapbox GL, you need a Mapbox access token. Log into your Mapbox account and [grab an access token](https://www.mapbox.com/account/apps/).
 
-> **Coming in beta 2:** In order to use Mapbox-hosted maps, you need to set the access token globally. Open the Info.plist file under the Supporting Files group. Select “Information Property List” and go to Editor ‣ Add Item. Set the Key to “MGLMapboxAccessToken` and the Value to the access token you retrieved from the Mapbox website.
+> **Coming in beta 2:** In order to use Mapbox-hosted maps, you need to set the access token globally. Open the Info.plist file under the Supporting Files group. Select “Information Property List” and go to Editor ‣ Add Item. Set the Key to “MGLMapboxAccessToken” and the Value to the access token you retrieved from the Mapbox website.
 
 ### Using Interface Builder
 
