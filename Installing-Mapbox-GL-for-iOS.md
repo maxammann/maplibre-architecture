@@ -55,7 +55,7 @@ The easiest way to get started is with a storyboard:
 
 1. Drag a UIView out from the Object library into a `UIViewController` in a storyboard.
 1. In the Identity inspector, set the custom class to “MGLMapView”.
-1. In the Attributes inspector, set your access token. Optionally set a map ID, initial coordinates, and initial zoom level.
+1. In the Attributes inspector, set your access token _(beta 1 only)_. Optionally set a map ID, initial coordinates, and initial zoom level.  
 1. _(Optional)_ Set up the `MGLMapView`’s Auto Layout constraints, and set its `viewControllerForLayoutGuides` outlet to the containing view controller.
 1. Build and run.
 
