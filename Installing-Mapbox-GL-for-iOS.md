@@ -85,7 +85,7 @@ class ViewController: UIViewController {
 
 ### In code
 
-If you need more customization options at launch, you can instantiate the `MGLMapView` programmatically instead of designing a storyboard. Insert the following lines into your view controller’s `-viewDidLoad`, substituting your access token:
+If you need more customization options at launch, you can instantiate the `MGLMapView` programmatically instead of designing a storyboard. Insert the following lines into your view controller’s `-viewDidLoad`, substituting `<#your access token#>` with a string literal containing your access token:
 
 ```objc
 // ViewController.m
