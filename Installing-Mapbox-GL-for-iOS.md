@@ -96,7 +96,7 @@ If you need more customization options at launch, you can instantiate the `MGLMa
 - (void)viewDidLoad {
     [super viewDidLoad];
     MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-                                                accessToken:@"my.accessToken1234567890"];
+                                                accessToken:<#your access token#>];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(-23.526, 148.162)
                        zoomLevel:15
@@ -113,7 +113,7 @@ import MapboxGL
 
 override func viewDidLoad() {
     super.viewDidLoad()
-    let mapView = MGLMapView(frame: view.bounds, accessToken: "my.accessToken1234567890")
+    let mapView = MGLMapView(frame: view.bounds, accessToken: <#your access token#>)
     mapView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
     mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: -23.526, longitude: 148.162),
         zoomLevel: 15, animated: false)
