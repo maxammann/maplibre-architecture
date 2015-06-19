@@ -22,7 +22,7 @@ Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview
 
 ### Using Xcode
 
-1. Download and decompress a zip of the latest iOS release at `http://mapbox.s3.amazonaws.com/mapbox-gl-native/ios/builds/mapbox-gl-ios-$VERSION.zip`, where `$VERSION` is the [latest version number](https://github.com/mapbox/mapbox-gl-native/releases), e.g. “0.2.15”. It contains a statically-linked `libMapboxGL.a`, a `MapboxGL.bundle` for resources, and a `Headers` folder.
+1. Download and decompress a zip of the [latest iOS release](https://github.com/mapbox/mapbox-gl-native/releases/latest). Choose the version with `symbols` if you'd like symbolicated crash logs for GL. The zip contains a statically-linked `libMapboxGL.a`, a `MapboxGL.bundle` for resources, and a `Headers` folder.
 2. Drag these three items into the Project navigator of your project. When prompted, check the “Copy items if needed” box. Ensure that Xcode has made the following changes to your project:
    - `Headers` is in your *Header Search Paths* (`HEADER_SEARCH_PATHS`) build setting.
    - `MapboxGL.bundle` is in your target's *Copy Bundle Resources* build phase.
@@ -45,7 +45,7 @@ Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview
 
 To use any Mapbox-hosted map style, including a style bundled with Mapbox GL, you need a Mapbox access token. Log into your Mapbox account and [grab an access token](https://www.mapbox.com/account/apps/).
 
-> **Coming in beta 2:** In order to use Mapbox-hosted maps, you need to set the access token globally. Open the Info.plist file under the Supporting Files group. Select “Information Property List” and go to Editor ‣ Add Item. Set the Key to “MGLMapboxAccessToken” and the Value to the access token you retrieved from the Mapbox website.
+> In order to use Mapbox-hosted maps, you need to set the access token globally. Open the `Info.plist` file under the Supporting Files group. Select “Information Property List” and go to Editor ‣ Add Item. Set the `Key` to `MGLMapboxAccessToken` and the `Value` to the access token you retrieved from the Mapbox website.
 
 ### Using Interface Builder
 
@@ -53,7 +53,7 @@ The easiest way to get started is with a storyboard:
 
 1. Drag a UIView out from the Object library into a `UIViewController` in a storyboard.
 1. In the Identity inspector, set the custom class to “MGLMapView”.
-1. In the Attributes inspector, set your access token _(beta 1 only)_. Optionally set a map ID, initial coordinates, and initial zoom level.  
+1. In the Attributes inspector, optionally set a map ID, initial coordinates, and initial zoom level.  
 1. _(Optional)_ Set up the `MGLMapView`’s Auto Layout constraints, and set its `viewControllerForLayoutGuides` outlet to the containing view controller.
 1. Build and run.
 
