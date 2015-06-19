@@ -7,7 +7,7 @@ There are two supported methods for installing Mapbox GL into your iOS project: 
 Your app's `Podfile` should be as follows (plus normal lines for any other pods used):
 
 ```ruby
-pod 'MapboxGL', :podspec => 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/ios/MapboxGL.podspec'
+pod 'MapboxGL'
 
 use_frameworks!
 ```
@@ -17,8 +17,6 @@ Then, to update to the latest published version:
 ```bash
 $ pod update
 ```
-
-There is no way to pin versions right now; that will come when we release officially and on the CocoaPods master repository.
 
 Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview) and [configure Mapbox Metrics](#configuring-mapbox-metrics).
 
