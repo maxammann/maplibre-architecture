@@ -61,7 +61,7 @@ Listening on sockaddr socket debug-socket`
 5. In GDB: `set solib-search-path ~/android/:~/android/system_lib:~/android/vendor_lib:~/android/vendor_lib/egl:~/path/to/mapbox-gl-native/build/android-arm-v7/Debug/lib.target/`
 6. Check that all the debug symbols were loaded with `info sharedlibrary`
 7. Check each .so has `Yes (*)` except for the last `libmapbox-gl.so` which must have only `Yes` i.e. (no star). If not double check your `solib-search-path`
-8. `b jni.cpp:146`
+8. `b jni.cpp:183` (the first line of `nativeCreate`)
 9. `c`
 10. Switch to Android Studio
 11. Click Run -> Resume Program
