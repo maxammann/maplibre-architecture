@@ -24,7 +24,7 @@ _(You will need to do this for every device and every Android OS version)_
 # Install GDB server
 
 1. Go to the NDK folder.
-2. Copy `gdbserver` from `android-ndk/prebuilt/android-arm/gdbserver/gdbserver` to `mapbox-gl-native/android/java/lib/src/main/jniLibs/armeabi-v7a/gdbserver.so`
+2. Copy `gdbserver` from `android-ndk/prebuilt/android-arm/gdbserver/gdbserver` to `mapbox-gl-native/android/java/MapboxGLAndroidSDK/src/main/jniLibs/armeabi-v7a/gdbserver.so`
 **IMPORTANT** it must be renamed a .so file
 3. Build and run the app in Android Studio
 4. Android studio will copy and install the APK with gdbserver in it to your device
