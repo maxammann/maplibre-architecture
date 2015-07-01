@@ -57,7 +57,13 @@ The easiest way to get started is with a storyboard:
 
 ![designable](https://cloud.githubusercontent.com/assets/1231218/6969674/3bc96d8a-d925-11e4-97a9-2bca4cf707f4.gif)
 
-If you need to interact with the map programmatically after launch, hook the `MGLMapView` up to an outlet by Control-dragging from the map view in Interface Builder to your view controller’s implementation, and import Mapbox GL’s umbrella header into that file. The resulting outlet declaration should look something like:
+If you need to interact with the map programmatically after launch, hook the `MGLMapView` up to an outlet:
+
+1. Switch to the Assistant Editor.
+1. Control-drag from the map view in Interface Builder to your view controller’s implementation.
+1. Import Mapbox GL’s umbrella header into that file.
+
+The resulting outlet declaration should look something like:
 
 ```objc
 // ViewController.m
