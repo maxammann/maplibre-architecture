@@ -43,9 +43,7 @@ Now you’re ready to [instantiate an `MGLMapView`](#instantiating-an-mglmapview
 
 ## Instantiating an `MGLMapView`
 
-To use any Mapbox-hosted map style, including a style bundled with Mapbox GL, you need a Mapbox access token. Log into your Mapbox account and [grab an access token](https://www.mapbox.com/account/apps/).
-
-> In order to use Mapbox-hosted maps, you need to set the access token globally. Open the `Info.plist` file under the Supporting Files group. Select “Information Property List” and go to Editor ‣ Add Item. Set the `Key` to `MGLMapboxAccessToken` and the `Value` to the access token you retrieved from the Mapbox website.
+To use any Mapbox-hosted map style, including a style bundled with Mapbox GL, you need a Mapbox access token. Log into your Mapbox account and [grab an access token](https://www.mapbox.com/account/apps/). Then set the access token globally. Open the `Info.plist` file under the Supporting Files group. Select “Information Property List” and go to Editor ‣ Add Item. Set the `Key` to `MGLMapboxAccessToken` and the `Value` to the access token you retrieved from the Mapbox website.
 
 ### Using Interface Builder
 
@@ -54,7 +52,7 @@ The easiest way to get started is with a storyboard:
 1. Drag a UIView out from the Object library into a `UIViewController` in a storyboard.
 1. In the Identity inspector, set the custom class to “MGLMapView”.
 1. In the Attributes inspector, optionally set a map ID, initial coordinates, and initial zoom level.  
-1. _(Optional)_ Set up the `MGLMapView`’s Auto Layout constraints, and set its `viewControllerForLayoutGuides` outlet to the containing view controller.
+1. _(Optional)_ Set up the `MGLMapView`’s Auto Layout constraints.
 1. Build and run.
 
 ![designable](https://cloud.githubusercontent.com/assets/1231218/6969674/3bc96d8a-d925-11e4-97a9-2bca4cf707f4.gif)
@@ -83,7 +81,7 @@ class ViewController: UIViewController {
 
 ### In code
 
-If you need more customization options at launch, you can instantiate the `MGLMapView` programmatically instead of designing a storyboard. Insert the following lines into your view controller’s `-viewDidLoad`, substituting `<#your access token#>` with a string literal containing your access token:
+If your user interface is constructed in code rather than a storyboard, you can instantiate the `MGLMapView` programmatically too. Insert the following lines into your view controller’s `-viewDidLoad`:
 
 ```objc
 // ViewController.m
@@ -93,8 +91,7 @@ If you need more customization options at launch, you can instantiate the `MGLMa
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds
-                                                accessToken:<#your access token#>];
+    MGLMapView *mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(-23.526, 148.162)
                        zoomLevel:15
@@ -111,15 +108,13 @@ import MapboxGL
 
 override func viewDidLoad() {
     super.viewDidLoad()
-    let mapView = MGLMapView(frame: view.bounds, accessToken: <#your access token#>)
+    let mapView = MGLMapView(frame: view.bounds)
     mapView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
     mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: -23.526, longitude: 148.162),
         zoomLevel: 15, animated: false)
     view.addSubview(mapView)
 }
 ```
-
-> **Coming in beta 2:** The `accessToken` parameter has been removed from `MGLMapView`’s initializers. To initialize an `MGLMapView`, call `-initWithFrame:`.
 
 ## Configuring Mapbox Metrics
 
