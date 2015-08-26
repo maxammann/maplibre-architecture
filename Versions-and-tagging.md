@@ -1,4 +1,4 @@
-In all cases, we follow [semantic versioning](http://semver.org) to indicate compatibility, breaking changes, and other intentions. 
+In all cases, we follow [Semantic Versioning](http://semver.org) to indicate compatibility, breaking changes, and other intentions. 
 
 ## Prefix
 
@@ -18,6 +18,6 @@ Examples:
 
 ## Core tags
 
-**In addition** to any per-platform tags, we should also tag core itself (again, following semantic versioning) on the same commit. 
+**In addition** to any per-platform tags, we should also tag core itself (again, following Semantic Versioning) on the same commit. 
 
 Example: `v0.5.5 = ios-v2.1.0-pre.1 = 85124b8`
