@@ -8,7 +8,7 @@ Example: `v0.5.4`
 
 ## Per-platform tags
 
-For iOS, Android, Node.js, and other per-platform bindings that are integrated into this repository, we use prefixes on versions to indicate platform-specific versions as required by tagging needs or marketing. 
+For iOS, Android, Node.js, and other per-platform bindings that are integrated into this repository, we use prefixes on tags to indicate platform-specific versions as required by tagging needs or marketing. 
 
 Examples: 
 
