@@ -45,6 +45,8 @@ _(You will need to do this for every device and every Android OS version)_
 3. Run `adb shell run-as com.mapbox.mapboxgl.testapp /data/data/com.mapbox.mapboxgl.testapp/lib/gdbserver.so +debug-pipe --attach 31834`. Replace `31834` with the process ID from earlier.
 _(You will need to do this each time you restart the app as the PID will change)_
 
+If you get the error `` then you have a version of Android not compatible with `adb run-as`. See [this page] for information. It appears to affect Android updates in 4.2.2, 4.3, 5.0, 5.1.1. Workaround appears to be to load a fresh image.
+
 You should see:
 `Attached; pid = 31834
 Listening on sockaddr socket debug-socket`
