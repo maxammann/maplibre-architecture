@@ -19,7 +19,7 @@ _(You will need to do this for every device and every Android OS version)_
 7. `adb pull /vendor/lib`. If you get permissions error you will need to get a list of each file and folder in `adb shell` then copy each file one at a time with `adb pull /vendor/lib/file`
 8. `cd ..`
 9. `adb pull /system/bin/app_process` (or on 64 bit phones `adb pull /system/bin/app_process32` and `adb pull /system/bin/app_process64`)
-9. `adb pull /system/bin/linker`
+9. `adb pull /system/bin/linker` (and on 64 bit phones `adb pull /system/bin/linker64`)
 
 # Install GDB server
 
