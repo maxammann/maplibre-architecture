@@ -16,7 +16,7 @@ The resulting outlet declaration should look something like:
 
 ```objc
 // ViewController.m
-#import "MapboxGL.h"
+#import "Mapbox.h"
 
 @interface ViewController : UIViewController
 
@@ -27,7 +27,7 @@ The resulting outlet declaration should look something like:
 
 ```swift
 // ViewController.swift
-import MapboxGL
+import Mapbox
 
 class ViewController: UIViewController {
     @IBOutlet var mapView: MGLMapView!
