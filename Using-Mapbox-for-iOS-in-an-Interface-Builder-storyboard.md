@@ -1,6 +1,6 @@
 1. Drag a `UIView` out from the Object library into a `UIViewController` in a storyboard.
 1. In the Identity inspector, set the custom class to `MGLMapView`.
-1. In the Attributes inspector, optionally set a map ID, initial coordinates, and initial zoom level.  
+1. In the Attributes inspector, optionally set a custom style URL (in the form `mapbox://styles/STYLE_ID`), initial coordinates, and initial zoom level.  
 1. _(Optional)_ Set up the `MGLMapView`’s Auto Layout constraints.
 1. Build and run.
 
