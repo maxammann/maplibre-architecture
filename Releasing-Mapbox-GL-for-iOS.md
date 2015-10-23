@@ -5,7 +5,8 @@
 1. Update the version [in the podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/ios/MapboxGL.podspec#L4). 
   - Use `ios-vX.Y.Z` for stable releases to provide smaller, non-symbolicated downloads. 
   - Add the `-symbols` suffix when using intermediary dev releases to gather useful crash info (e.g. `ios-vX.Y.Z-pre.1-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
-1. Push those two changes.
+1. Update the version in `+[MGLAccountManager kitDisplayVersion]` for Fabric. 
+1. Push those changes.
 1. Create a tag `ios-vX.Y.Z` and push the tag. 
 1. Create and push a deploy commit with `git commit --allow-empty -m '[publish ios-vX.Y.Z]'`. 
 1. When the publisher has created and uploaded zip files (stripped as well as with debug symbols; URLs obtained from the Travis publisher output log) to S3, publish them to [releases](https://github.com/mapbox/mapbox-gl-native/releases/new) as well. We'll automate this soon. 
