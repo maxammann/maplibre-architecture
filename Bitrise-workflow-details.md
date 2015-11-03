@@ -1,6 +1,6 @@
 Here's the deal with Bitrise. 
 
-1. As of [`f59d4ba`](https://github.com/mapbox/mapbox-gl-native/commit/f59d4ba920bcd132a9e0841a993f1559d96fd480) (already in `master`), the config for running thorough our steps for Bitrise has been moved out of their GUI workflow builder and into [`bitrise.yml`](https://github.com/mapbox/mapbox-gl-native/blob/f59d4ba920bcd132a9e0841a993f1559d96fd480/bitrise.yml) in the repo root (for whatever branch). 
+1. As of [`f59d4ba`](https://github.com/mapbox/mapbox-gl-native/commit/f59d4ba920bcd132a9e0841a993f1559d96fd480) (already in `master`), the config for running through our steps for Bitrise has been moved out of their GUI workflow builder and into [`bitrise.yml`](https://github.com/mapbox/mapbox-gl-native/blob/f59d4ba920bcd132a9e0841a993f1559d96fd480/bitrise.yml) in the repo root (for whatever branch). 
 
 1. The Bitrise config for the repo has been set to just run the relevant branch's `bitrise.yml`. 
 
