@@ -10,6 +10,6 @@ Here's the deal with Bitrise.
 
 1. You can also create custom non-branch-related workflows in the `bitrise.yml` beyond the default `primary` one, such as eventually where we will have a `roll_build` or similar workflow to address [#2844](https://github.com/mapbox/mapbox-gl-native/issues/2844). 
 
-1. Both `[skip ci]` and `[ci skip]` work for our Bitrise setup for this repo as of [`f5bb746`](https://github.com/mapbox/mapbox-gl-native/commit/f5bb746f6a3e68268c23125ca7acdf549a9cacda). 
+1. Both `[skip ci]` and `[ci skip]` anywhere in commit messages work for our Bitrise setup for this repo as of [`f5bb746`](https://github.com/mapbox/mapbox-gl-native/commit/f5bb746f6a3e68268c23125ca7acdf549a9cacda). 
 
 More on Bitrise's steps library (for example, we use the `select-xcode-version`, `script`, `xcode-test`, and `slack` steps): https://github.com/bitrise-io?utf8=✓&query=steps and http://www.steplib.com
