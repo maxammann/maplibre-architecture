@@ -10,3 +10,4 @@
 1. Create a tag `ios-vX.Y.Z` and push the tag. 
 1. Create and push a deploy commit with `git commit --allow-empty -m '[publish ios-vX.Y.Z]'`. 
 1. When the publisher has created and uploaded zip files (stripped as well as with debug symbols; URLs obtained from the Travis publisher output log) to S3, publish them to [releases](https://github.com/mapbox/mapbox-gl-native/releases/new) as well. We'll automate this soon. 
+1. If this is a public, stable release, push to CocoaPods with `pod trunk push`.
