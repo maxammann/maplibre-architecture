@@ -6,6 +6,7 @@
   - Use `ios-vX.Y.Z` for stable releases to provide smaller, non-symbolicated downloads. 
   - Add the `-symbols` suffix when using intermediary dev releases to gather useful crash info (e.g. `ios-vX.Y.Z-pre.1-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
 1. Update the version in `+[MGLAccountManager kitDisplayVersion]` for Fabric. 
+1. Update the `CHANGELOG.md` for the release. 
 1. Push those changes.
 1. Create a tag `ios-vX.Y.Z` and push the tag. 
 
