@@ -1,8 +1,8 @@
 Here's the deal with Bitrise. 
 
-1. As of [`f59d4ba`](https://github.com/mapbox/mapbox-gl-native/commit/f59d4ba920bcd132a9e0841a993f1559d96fd480) (already in `master`), the config for running through our steps for Bitrise has been moved out of their GUI workflow builder and into [`bitrise.yml`](https://github.com/mapbox/mapbox-gl-native/blob/f59d4ba920bcd132a9e0841a993f1559d96fd480/bitrise.yml) in the repo root (for whatever branch). 
-
-1. The Bitrise config for the repo has been set to just run the relevant branch's `bitrise.yml`. 
+1. We avoid their GUI for workflow configuration as much as possible, in favor of using `bitrise.yml` files checked into the repository. The GUI workflow has been set to run:
+  * `platform/ios/bitrise.yml` for iOS builds
+  * `platform/android/bitrise.yml` for Android builds
 
 1. If you want to change the `bitrise.yml`, do so and use the `bitrise` CLI tool (`brew install bitrise` or [manual install](https://github.com/bitrise-io/bitrise/releases)) to `bitrise validate`. 
 
