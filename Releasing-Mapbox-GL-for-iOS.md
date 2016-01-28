@@ -38,4 +38,4 @@ open https://github.com/mapbox/mapbox-gl-native/releases/new
 pod trunk push
 ```
 
-Now [update the documentation](Updating documentation on release).
+Now update the documentation.
