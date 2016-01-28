@@ -13,7 +13,7 @@
 ```bash
 TRAVIS_REPO_SLUG=mapbox-gl-native
 mbx auth …
-# Append -pre.1 for prerelease 1:
+# Append -pre.P for prerelease P:
 PUBLISH_VERSION=X.Y.Z
 make ipackage
 ./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" symbols
