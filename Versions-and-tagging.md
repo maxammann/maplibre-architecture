@@ -16,7 +16,7 @@ Examples:
 - `android-v0.1.3`
 - `node-v2.0.0`
 
-For the Mapbox iOS and OS X SDKs, the major version is incremented whenever a public, documented API is changed in a way that breaks backwards compatibility, particularly when a symbol is renamed or removed, but also potentially when the semantics of a symbol change significantly. Changes to the minimum deployment target are made with great care but do not necessarily warrant a major version bump. Undocumented APIs – even publicly visible ones – are subject to change without notice or major version bump.
+For the Mapbox iOS and OS X SDKs, the major version is incremented whenever a public, documented API is changed in a way that breaks backwards compatibility, particularly when a symbol is renamed or removed, but also potentially when the semantics of a symbol change significantly. Changes to the installation process or minimum deployment target are made with great care but do not necessarily warrant a major version bump. Undocumented APIs – even publicly visible ones – are subject to change without notice or major version bump.
 
 ## Core tags
 
