@@ -18,6 +18,6 @@ Examples:
 
 ## Core tags
 
-**In addition** to any per-platform tags, we should also tag core itself (again, following Semantic Versioning) on the same commit. 
+In the past, we used to also tag core itself (again, following Semantic Versioning) on the same commit. We no longer do so because all the SDKs are in the same repository, making it much easier to make cross-platform changes without worrying about versioning.
 
 Example: `v0.5.5 = ios-v2.1.0-pre.1 = 85124b8`
