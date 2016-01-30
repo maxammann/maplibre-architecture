@@ -16,6 +16,8 @@ Examples:
 - `android-v0.1.3`
 - `node-v2.0.0`
 
+For the Mapbox iOS and OS X SDKs, the major version is incremented whenever a public API is changed in a way that breaks backwards compatibility, particularly when a symbol is renamed or removed, but also potentially when the semantics of a symbol change significantly. Changes to the minimum deployment target are made with great care but do not necessarily warrant a major version bump.
+
 ## Core tags
 
 In the past, we used to also tag core itself (again, following Semantic Versioning) on the same commit. We no longer do so because all the SDKs are in the same repository, making it much easier to make cross-platform changes without worrying about versioning.
