@@ -11,7 +11,7 @@
 ## Build and deploy the packages
 
 ```bash
-TRAVIS_REPO_SLUG=mapbox-gl-native
+export TRAVIS_REPO_SLUG=mapbox-gl-native
 mbx auth …
 # Append -pre.P for prerelease P:
 PUBLISH_VERSION=X.Y.Z
