@@ -15,6 +15,7 @@ export TRAVIS_REPO_SLUG=mapbox-gl-native
 mbx auth …
 # Append -pre.P for prerelease P:
 PUBLISH_VERSION=X.Y.Z
+make clean && make distclean
 make ipackage
 ./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" symbols
 make ipackage-strip
