@@ -37,6 +37,7 @@ open https://github.com/mapbox/mapbox-gl-native/releases/new
 
 # For stable releases:
 pod trunk push
+# Repackage the static framework bundle for Fabric distribution.
 ```
 
 Now update the documentation.
