@@ -24,6 +24,8 @@ make iframework
 ./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" symbols-dynamic
 make iframework SYMBOLS=NO
 ./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" dynamic
+make ifabric
+./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" fabric
 ```
 
 ## Release the packages
