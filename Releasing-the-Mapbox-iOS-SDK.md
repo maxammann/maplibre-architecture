@@ -35,11 +35,15 @@ make ifabric
 git push
 git push --tags
 open https://github.com/mapbox/mapbox-gl-native/releases/new
-# Add release notes and attach the packages to the release.
-
-# For stable releases:
-pod trunk push
-# Repackage the static framework bundle for Fabric distribution.
+# In Github, Add release notes and attach the packages to the release.
 ```
 
-Now update the documentation.
+## For stable releases:
+
+- Run `pod trunk push`
+- Repackage the static framework bundle for Fabric distribution.
+  - unzip the `mapbox-ios-sdk-3.2.0-fabric.zip` file downloaded from s3 during the build and deploy step
+  - Create a project using the Fabric osx app's in-app instructions
+  - Replace the Mapbox.framework Fabric provides with the new one from the zip file
+  - As noted in the Fabric osx app, perform ⌘R to run your app -- verify that the Fabric app is happy
+- [update the documentation](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release).
