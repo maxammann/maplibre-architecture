@@ -24,7 +24,7 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 
 ###### cocoapods
 
-- Run `pod trunk push`
+- Run `pod trunk push` (if you are new, ask a team member to add you to the pods collaborator list)
 
 ###### Fabric
 
