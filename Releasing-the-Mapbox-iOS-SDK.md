@@ -40,10 +40,22 @@ open https://github.com/mapbox/mapbox-gl-native/releases/new
 
 ## For stable releases:
 
+###### cocoapods
+
 - Run `pod trunk push`
-- Repackage the static framework bundle for Fabric distribution.
-  - unzip the `mapbox-ios-sdk-3.2.0-fabric.zip` file downloaded from s3 during the build and deploy step
-  - Create a project using the Fabric osx app's in-app instructions
-  - Replace the Mapbox.framework Fabric provides with the new one from the zip file
-  - As noted in the Fabric osx app, perform ⌘R to run your app -- verify that the Fabric app is happy
+
+###### Fabric
+
+- Repackage the static framework bundle for Fabric distribution, test, and release:
+  - open fabric.io/kits/manage
+  - make a new release
+  - add the compressed result of `make ifabric` (Mapbox.framework.zip)
+  - make any other required adjustment to the release meta data then click "Submit for Review"
+  - Test:
+    - Make a new app (or update existing) app Mapbox framework with the fabric osx app making sure to get the new version you just submitted for review
+    - As noted in the Fabric osx app, perform ⌘R to run your app -- verify that the Fabric app is satisfied with the result
+    - Go back to the fabric.io/kits "new release" page and click the button to publish
+
+###### Documentation
+
 - [update the documentation](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release).
