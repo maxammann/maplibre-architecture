@@ -7,36 +7,18 @@
   - The `-symbols` suffix is used in [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4) for intermediary dev releases to gather useful crash info (e.g. `ios-vX.Y.Z-pre.1-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
 1. Update the `CHANGELOG.md` for the release.
 1. Create a tag `ios-vX.Y.Z`.
+1. git push
+1. git push --tags
 
-## Build and deploy the packages
+## Build and release
 
-```bash
-export TRAVIS_REPO_SLUG=mapbox-gl-native
-mbx auth …
-# Append -pre.P for prerelease P:
-export PUBLISH_VERSION=X.Y.Z
-make clean && make distclean
-make ipackage
-./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" symbols
-make ipackage-strip
-./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}"
-make iframework
-./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" symbols-dynamic
-make iframework SYMBOLS=NO
-./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" dynamic
-make ifabric
-./platform/ios/scripts/publish.sh "${PUBLISH_VERSION}" fabric
-```
+You can follow the manual instructions in [this gist](https://gist.github.com/boundsj/5fadf57e5114de4d45c3c4af40f9836e). However we expect to deprecate that approach in the future in favor of a more automated approach on a CI server. In the interim, [a script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh) automates most of the work so you can follow these simple steps:
 
-## Release the packages
-
-```bash
-# Download the packages from s3 to make sure they work.
-git push
-git push --tags
-open https://github.com/mapbox/mapbox-gl-native/releases/new
-# In Github, Add release notes and attach the packages to the release.
-```
+- Run `mbx auth ...` (if you are new, ask a team member for help with this)
+- Add `GITHUB_TOKEN` environment variable (again ask a team member for help if this does not make sense)
+- Run `./platform/ios/scripts/deploy-packages.sh {major}.{minor}.{patch}{-alphatag.N} ~/path/to/download -g` (e.g. `./platform/ios/scripts/deploy-packages.sh 42.42.42-alpha.1 ~/Downloads/tmp -g`). This will build all the packages (static and dynamic framework files and friends), upload to s3 (if you've run `mbx auth` above), test that downloads from s3 work, and then make a new Github release draft and upload all of the compressed release files to the Github release (if you've set your `GITHUB_TOKEN` as noted above).
+- Go to https://github.com/mapbox/mapbox-gl-native/releases to find the draft, confirm that it is valid, and add notes from the changelog.
+- When you are satisfied with the release draft, click the button to publish it.
 
 ## For stable releases:
 
