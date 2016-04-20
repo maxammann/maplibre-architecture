@@ -16,7 +16,11 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 
 - Run `mbx auth ...` (if you are new, ask a team member for help with this)
 - Add `GITHUB_TOKEN` environment variable to be able to create a github release from the command line with [github-release](https://github.com/aktau/github-release) (again ask a team member for help if this does not make sense)
-- Run `./platform/ios/scripts/deploy-packages.sh {major}.{minor}.{patch}{-alphatag.N} ~/path/to/download -g` (e.g. `./platform/ios/scripts/deploy-packages.sh 42.42.42-alpha.1 ~/Downloads/tmp -g`). This will build all the packages (static and dynamic framework files and friends), upload to s3 (if you've run `mbx auth` above), test that downloads from s3 work, and then make a new Github release draft and upload all of the compressed release files to the Github release (if you've set your `GITHUB_TOKEN` as noted above).
+- Run `./platform/ios/scripts/deploy-packages.sh {major}.{minor}.{patch}{-alphatag.N} ~/path/to/download -g` (e.g. `./platform/ios/scripts/deploy-packages.sh 42.42.42-alpha.1 ~/Downloads/tmp -g`). This will:
+ - Build all the packages (static and dynamic framework files and friends).
+ - Upload to s3 (if you've run `mbx auth` above).
+ - Test that downloads from s3 work.
+ - Make a new Github release draft and upload all of the compressed release files to the Github release (if you've set your `GITHUB_TOKEN` as noted above).
 - Go to https://github.com/mapbox/mapbox-gl-native/releases to find the draft, confirm that it is valid, and add notes from the changelog.
 - When you are satisfied with the release draft, click the button to publish it.
 
