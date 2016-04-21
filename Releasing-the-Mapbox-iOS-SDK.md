@@ -7,8 +7,8 @@
   - The `-symbols` suffix is used in [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4) for intermediary dev releases to gather useful crash info (e.g. `ios-vX.Y.Z-pre.1-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
 1. Update the `CHANGELOG.md` for the release.
 1. Create a tag `ios-vX.Y.Z`.
-1. git push
-1. git push --tags
+1. `git push`
+1. `git push --tags`
 
 ## Build and release
 
