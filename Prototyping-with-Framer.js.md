@@ -81,4 +81,20 @@ map = new mapboxgl.Map({
 
 That's it! The `map` object you have access to in Framer will have the same methods and properties as [the Mapbox GL JS API](http://mapbox.com/mapbox-gl-js).
 
+For instance, if you want to add a button that zooms the map, you can add this code to the bottom of the prototype:
+
+```coffeescript
+layerA = new Layer
+    x: 100
+    y: 100
+    width: 200
+    height: 200
+    borderRadius: 200
+    opacity: 1
+    backgroundColor: "white"
+
+layerA.onClick ->
+    map.zoomTo 10
+```
+
 Have fun prototyping!
