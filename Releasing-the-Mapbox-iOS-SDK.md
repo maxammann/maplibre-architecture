@@ -3,8 +3,8 @@
 1. Choose a version number per [Semantic Versioning](http://semver.org/) and [our tagging rules](./Versions-and-tagging). Let's call it `ios-vX.Y.Z`. If this is a pre-release, go with `ios-vX.Y.Z-pre.P`, where `P` begins at `1` and increments for each pre-release. 
 1. If necessary, update [the screenshot](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/screenshot.png).
 1. Update the version [in the podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK.podspec#L4) and [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4).
-  - Use `X.Y.Z{-alpha|beta}.1` to provide smaller, non-symbolicated downloads. 
-  - The `-symbols` suffix is used in [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4) for intermediary dev releases to gather useful crash info (e.g. `ios-vX.Y.Z-pre.1-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
+  - Use `X.Y.Z{-alpha|beta.P}` to provide smaller, non-symbolicated downloads. 
+  - The `-symbols` suffix is used in [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4) for intermediary dev releases to gather useful crash info (e.g. `X.Y.Z{-alpha|beta.P}-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
 1. Update the `CHANGELOG.md` for the release. #protip: you can use the compare feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3)
 1. Create a tag `ios-vX.Y.Z`.
 1. `git push`
