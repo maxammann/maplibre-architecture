@@ -5,17 +5,20 @@
 1. Update the version [in the podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK.podspec#L4) and [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4).
   - Use `X.Y.Z{-alpha|beta.P}` to provide smaller, non-symbolicated downloads. 
   - The `-symbols` suffix is used in [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4) for intermediary dev releases to gather useful crash info (e.g. `X.Y.Z{-alpha|beta.P}-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
-1. Update the `CHANGELOG.md` for the release. #protip: you can use the compare (ios-v#.#.#-previous-beta.#...release-N|master) feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3)
+1. Update the `CHANGELOG.md` for the release.
+  - #protip: you can use the compare (`ios-v#.#.#-previous-beta.#...release-N|master`) feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3).
 1. Create a tag `ios-vX.Y.Z`.
 1. `git push`
 1. `git push --tags`
 
 ## Build and release
 
-You can follow the manual instructions in [this gist](https://gist.github.com/boundsj/5fadf57e5114de4d45c3c4af40f9836e). However we expect to deprecate that approach in the future in favor of a more automated approach on a CI server. In the interim, [a script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh) automates most of the work so you can follow these simple steps:
+You can follow the manual instructions in [this gist](https://gist.github.com/boundsj/5fadf57e5114de4d45c3c4af40f9836e). However, we expect to deprecate that approach in the future in favor of a more automated approach on a CI server. In the interim, [a script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh) automates most of the work so you can follow these simple steps:
 
-- Run `mbx auth ...` (if you are new, ask a team member for help with this)
-- Add `GITHUB_TOKEN` environment variable to be able to create a github release from the command line with [github-release](https://github.com/aktau/github-release) (again ask a team member for help if this does not make sense)
+- Run `mbx auth ...` _(If you do not already have AWS credentials, ask a team member for help in setting this up.)_
+- _[First time only]_ To create a GitHub release from the command line, you will need to:
+   - [Create a new GitHub access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) and add it as the `GITHUB_TOKEN` environment variable — e.g., `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` in your `~/.bash_profile`.
+   - Install [github-release](https://github.com/aktau/github-release): `brew install github-release`
 - Run `./platform/ios/scripts/deploy-packages.sh {major}.{minor}.{patch}{-alphatag.N} ~/path/to/download -g` (e.g. `./platform/ios/scripts/deploy-packages.sh 42.42.42-alpha.1 ~/Downloads/tmp -g`). This will:
  - Build all the packages (static and dynamic framework files and friends).
  - Upload to s3 (if you've run `mbx auth` above).
