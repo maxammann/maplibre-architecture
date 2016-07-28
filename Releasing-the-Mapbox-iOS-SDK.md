@@ -29,11 +29,13 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 
 ## For stable releases:
 
-###### cocoapods
+### cocoapods
 
-- Run `pod trunk push` (if you are new, ask a team member to add you to the pods collaborator list)
+You should first be added to the pods collaborator list.
 
-###### Fabric
+- Run `pod trunk push platform/ios/Mapbox-iOS-SDK.podspec`.
+
+### Fabric
 
 - Repackage the static framework bundle for Fabric distribution, test, and release:
   - open fabric.io/kits/manage
@@ -45,6 +47,6 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
     - As noted in the Fabric osx app, perform ⌘R to run your app -- verify that the Fabric app is satisfied with the result
     - Go back to the fabric.io/kits "new release" page and click the button to publish
 
-###### Documentation
+### Documentation
 
-- [update the documentation](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release).
+- [Update the documentation.](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release)
