@@ -9,7 +9,7 @@
   - #protip: you can use the compare (`ios-v#.#.#-previous-beta.#...release-N|master`) feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3).
 1. Create a tag `ios-vX.Y.Z`.
 1. `git push`
-1. `git push --tags`
+1. `git push origin ios-vX.Y.Z`
 
 ## Build and release
 
