@@ -1,4 +1,4 @@
-Currently, the Mapbox Android SDK v4.1 adds about 11MB to your app. This document describes a few strategies that can be used to reduce the resulting APK size.
+This document describes a few strategies that can be used to reduce the resulting APK size when using the Mapbox Android SDK.
 
 ### Use ProGuard
 
