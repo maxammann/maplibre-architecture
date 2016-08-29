@@ -17,7 +17,7 @@ The Mapbox SDK ships with 6 architectures:
 ./x86_64/libmapbox-gl.so
 ```
 
-Each of these files add about 1.7-1.9 MB to the resulting APK. If, for example, your app doesn't need x86 support, you could drop `x86` and `x86_64` and save about 3.6MB. See "ABI splitting" below for details.
+Each of these files add up to the resulting APK. If, for example, your app doesn't need x86 support, you could drop `x86` and `x86_64` and save some space. See "ABI splitting" below for details.
 
 ### ABI splitting
 
