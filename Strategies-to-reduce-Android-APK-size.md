@@ -27,9 +27,6 @@ If you distribute your app via Google Play, you can benefit from this approach t
 
 ### Next
 
-The Mapbox team is actively looking at other ways to reduce the SDK size. Some examples are:
-* https://github.com/mapbox/mapbox-gl-native/issues/5656
-* https://github.com/mapbox/mapbox-gl-native/issues/2354
-* https://github.com/mapbox/mapbox-gl-native/issues/2355
+The Mapbox team is actively looking at other ways to reduce the SDK size ((for example)[https://github.com/mapbox/mapbox-gl-native/issues/5656])
 
-If you have questions or any other ideas, please get in touch with us.
+If you have questions or any other ideas, please [get in touch with us](https://github.com/mapbox/mapbox-gl-native/issues/new).
