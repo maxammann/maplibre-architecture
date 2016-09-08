@@ -26,7 +26,7 @@ Stack frame #14 pc 000211a8  /system/lib/libc.so (__pthread_start(void*)+56)
 Stack frame #15 pc 0001c529  /system/lib/libc.so (__start_thread+25)
 Stack frame #16 pc 000130f6  /system/lib/libc.so (__bionic_clone+70)
   ```
-* Run `pbpaste | ndk-stack -sym build/android-x86/Debug/obj.target/android`. You should get output with file and line numbers, like:
+* Run `pbpaste | ndk-stack -sym build/android-x86/Debug`. You should get output with file and line numbers, like:
 
   ```
 ********** Crash dump: **********
