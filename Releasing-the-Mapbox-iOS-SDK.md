@@ -28,7 +28,7 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 - Go to https://github.com/mapbox/mapbox-gl-native/releases to find the draft, confirm that it is valid, and add notes from the changelog.
 - When you are satisfied with the release draft, click the button to publish it.
 
-## For stable releases:
+## Stable releases
 
 ### cocoapods
 
@@ -51,3 +51,9 @@ You should first be added to the pods collaborator list.
 ### Documentation
 
 - [Update the documentation.](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release)
+
+## Pre-releases
+
+### Documentation
+
+Publish API documentation in the [mapbox/ios-sdk](mapbox/ios-sdk) repo. After generating the docs, only commit the new `api/X.X.X/` folder — this makes them publicly available, but leaves the stable version as the default.
