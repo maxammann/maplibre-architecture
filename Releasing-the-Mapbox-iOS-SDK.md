@@ -19,8 +19,7 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 - _[First time only]_ To create a GitHub release from the command line, you will need to:
    - [Create a new GitHub access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) and add it as the `GITHUB_TOKEN` environment variable — e.g., `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` in your `~/.bash_profile`.
    - Install [github-release](https://github.com/aktau/github-release): `brew install github-release`
-- Run `./platform/ios/scripts/deploy-packages.sh {major}.{minor}.{patch}{-alphatag.N} ~/path/to/download -g`. 
- - E.g. `./platform/ios/scripts/deploy-packages.sh 42.42.42-alpha.1 ~/Downloads/tmp -g`). This will:
+- Run `make ideploy`. This will:
  - Build all the packages (static and dynamic framework files and friends).
  - Upload to s3 (if you've run `mbx auth` above).
  - Test that downloads from s3 work.
