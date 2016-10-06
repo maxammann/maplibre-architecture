@@ -54,4 +54,4 @@ You should first be added to the pods collaborator list.
 
 ### Documentation
 
-Publish API documentation in the [mapbox/ios-sdk](mapbox/ios-sdk) repo. After generating the docs, only commit the new `api/X.X.X/` folder — this makes them publicly available, but leaves the stable version as the default.
+Publish API documentation in the [mapbox/ios-sdk](https://github.com/mapbox/ios-sdk) repo. After generating the docs, only commit the new `api/X.X.X/` folder — this makes them publicly available, but leaves the stable version as the default.
