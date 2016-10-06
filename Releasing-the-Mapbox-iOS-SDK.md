@@ -18,7 +18,6 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 - Run `mbx auth ...` _(If you do not already have AWS credentials, ask a team member for help in setting this up.)_
 - _[First time only]_ To create a GitHub release from the command line, you will need to:
    - [Create a new GitHub access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) and add it as the `GITHUB_TOKEN` environment variable — e.g., `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` in your `~/.bash_profile`.
-   - Install [github-release](https://github.com/aktau/github-release): `brew install github-release`
 - Run `make ideploy`. This will:
  - Build all the packages (static and dynamic framework files and friends).
  - Upload to s3 (if you've run `mbx auth` above).
