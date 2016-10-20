@@ -26,7 +26,7 @@ We tag alpha releases to provide development snapshots as we work towards a beta
 
 The Mapbox macOS SDK has yet to reach version 1.0. Therefore, backwards-incompatible changes may be introduced in every release.
 
-### Mapbox Qt SDK
+## Mapbox Qt SDK
 
 The Mapbox Qt SDK has yet to be tagged for a release or prerelease.
 
