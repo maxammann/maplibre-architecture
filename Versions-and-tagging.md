@@ -26,6 +26,10 @@ We tag alpha releases to provide development snapshots as we work towards a beta
 
 The Mapbox macOS SDK has yet to reach version 1.0. Therefore, backwards-incompatible changes may be introduced in every release.
 
+### Mapbox Qt SDK
+
+The Mapbox Qt SDK has yet to be tagged for a release or prerelease.
+
 ## Core tags
 
 In the past, we used to also tag core itself (again, following Semantic Versioning) on the same commit. We no longer do so because all the SDKs are in the same repository, making it much easier to make cross-platform changes without worrying about versioning.
