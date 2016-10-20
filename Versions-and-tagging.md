@@ -12,11 +12,13 @@ For iOS, Android, Node.js, and other per-platform bindings that are integrated i
 
 Examples: 
 
-- `ios-v2.0.0-pre.1`
+- `ios-v3.4.0-beta.1`
 - `android-v0.1.3`
 - `node-v2.0.0`
 
 For the Mapbox iOS and macOS SDKs, the major version is incremented whenever a public, documented API is changed in a way that breaks backwards compatibility, particularly when a symbol is renamed or removed, but also potentially when the semantics of a symbol change significantly.
+
+For the Mapbox iOS SDK, we tag alpha releases to provide development snapshots as we work towards a beta. Alphas are unstable and should not be used for production development. We issue a beta release once the major features have landed and we feel confident that a developer can begin working with these features in a shippable application, with an eye towards using the final SDK release in the final application. New APIs may be fluid and unstable until the release candidates. We issue a release candidate once we’ve fixed all the bugs we intend to fix for the final release (allowing for the possibility that additional bugs may be found in the RC).
 
 Changes to the installation process or minimum deployment target are made with great care but do not necessarily warrant a major version bump. As much as possible, symbols are marked deprecated long before being marked unavailable, long before being removed outright. Undocumented APIs – even publicly visible ones – are subject to change without notice or major version bump. Undocumented behavior in documented APIs is handled on a case-by-case basis.
 
