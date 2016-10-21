@@ -10,9 +10,28 @@ Examples:
 
 ## Mapbox Android SDK
 
-For the Mapbox Android SDK, the major version is incremented whenever a public, documented API is changed in a way that breaks backwards compatibility.
+The Android SDK currently offers three products (from less stable to more stable):
 
-Nightly snapshots and beta releases are not intended for production use.
+1. `SNAPSHOT` releases: built nightly automatically. E.g., `v4.2.0-SNAPSHOT`.
+2. `beta` releases: Our main pre-release vehicle. E.g., `v4.2.0-beta.1`.
+3. Final release: The recommended product for our developers in production. E.g., `v4.2.0`
+
+Releases, betas, and snapshots are all built in release mode, by the same build environment under the same [settings](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/android/bitrise.yml). The only difference between them is its version naming (and therefore, level of stability and available features).
+
+They all are distributed either via Maven or Sonatype, like any other Java/Android package. You can get instructions on how to install them in your app in our [documentation page](https://www.mapbox.com/android-sdk/).
+
+### Final releases
+
+Final releases are the recommended product to ship with your apps in the app store. For the Mapbox Android SDK, the major version is incremented whenever a public, documented API is changed in a way that breaks backwards compatibility. E.g `v1.2.3` would be followed by `v2.0.0`.
+
+### Pre-releases
+
+In preparation for a release we will ship a number of betas with increased stability (at this moment, we don't use `alpha` or `rc`). All betas are publicly ticketed in this repo containing information about their features, known issues, and level of stability ([example](https://github.com/mapbox/mapbox-gl-native/issues/6418)). Betas are a great mechanism to get your apps ready before a final release, and to provide timely feedback to the Mapbox team to help us shape the final APIs and feature-set.
+
+### Snapshots
+
+Finally, we publish nightly snapshots. These are not intended for production use, instead they're useful to troubleshoot issues as they're easier to use than building this repo from scratch. Nightly snapshots are built from the `master` branch and include all the PRs changes landed the previous day.
+
 
 ## Mapbox iOS SDK
 
