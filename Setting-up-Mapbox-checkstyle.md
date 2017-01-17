@@ -1,8 +1,10 @@
 ## 1. Get the plugin for Android Studio
 Adding this plugin provides real-time feedback against a given CheckStyle profile by way of an inspection. to add, grab the [Checkstyle-idea plugin](https://github.com/jshiell/checkstyle-idea), install and restart Studio.
 
+You can install the plugin from within Android Studio by opening the <kbd>Preferences</kbd>, selecting <kbd>Plugins</kbd> in the sidebar, and clicking on <kbd>Browse repositories…</kbd>. Search for <kbd>CheckStyle-IDEA</kbd>, install and restart Android Studio.
+
 ## 2. Add the projects checkstyle
-Open `Preferences..` in Android Studio and navigate to `Other Settings`. Add the checkstyle by pressing the plus button:
+Open <kbd>Preferences</kbd> in Android Studio and navigate to <kbd>Other Settings</kbd>. Add the checkstyle by pressing the plus button:
 ![](http://i.imgur.com/Np0F5kh.png)
 
 and grabbing the `checkstyle.xml` file found in the cloned repo:
