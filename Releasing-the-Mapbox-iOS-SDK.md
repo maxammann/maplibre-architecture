@@ -7,6 +7,7 @@
   - The `-symbols` suffix is used in [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L4) for intermediary dev releases to gather useful crash info (e.g. `X.Y.Z{-alpha|beta.P}-symbols`). This causes the larger, symbolicated install to be used in the integrating project. 
 1. Update the `CHANGELOG.md` for the release.
   - #protip: you can use the compare (`ios-v#.#.#-previous-beta.#...release-N|master`) feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3).
+1. Run `tx pull -a` to [add or update translations](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/DEVELOPING.md#adding-a-localization).
 1. Create a pull request with these changes and have it approved/merged.
 1. Create a tag `ios-vX.Y.Z`.
 1. `git push origin ios-vX.Y.Z`
