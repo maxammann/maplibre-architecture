@@ -2,6 +2,18 @@
 
 We've been hard at work making our maps SDK work even better than previous versions. Both performance improvements and new features have been added to the SDK. This meant we had to change up some of the APIs you were using. This document walks through the steps to take when making the upgrade.
 
+### Manifest
+The telemetry service package has moved. You'll need to change this from:
+
+```xml
+<service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService"/>
+```
+to:
+```xml
+<service android:name="com.mapbox.services.android.telemetry.service.TelemetryService"/>
+```
+
+
 ### Adding new lifecycles
 
 Part of supporting Android Nougat means we have to also support the new Multi-Window feature. This required us to move some of the logic to the `onStart()` and `onStop()` methods. When switching over to 5.0 Android Studio won't complain about these missing but when compiling your application will immediately crash if you don't add them to the activity:
