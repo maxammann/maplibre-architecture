@@ -1,6 +1,6 @@
 # Upgrade from 4.x
 
-We've been hard at work making our maps SDK work even better then previous versions. Both performance improvements and new features have been added to the SDK. This meant we had to change up some of the APIs you were using. This document walks through the steps to take when making the upgrade.
+We've been hard at work making our maps SDK work even better than previous versions. Both performance improvements and new features have been added to the SDK. This meant we had to change up some of the APIs you were using. This document walks through the steps to take when making the upgrade.
 
 ### Adding new lifecycles
 
