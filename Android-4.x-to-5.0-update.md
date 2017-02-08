@@ -60,7 +60,8 @@ Mapbox.getAccessToken()
 
 ### Other methods you might be using
 
-| 4.x method names         | 5.0 method names              |
-| ------------------------ |:-----------------------------:|
-| `MapboxMap.getMaxZoom()` | `MapboxMap.getMaxZoomLevel()` |
-| `mapView.getStyleUrl()`  | `mapboxMap.getStyleUrl()`     |
+| 4.x method names                                              | 5.0 method names                      |
+| ------------------------------------------------------------- |:-------------------------------------:|
+| `MapboxMap.getMaxZoom()`                                      | `MapboxMap.getMaxZoomLevel()`         |
+| `mapView.getStyleUrl()`                                       | `mapboxMap.getStyleUrl()`             |
+| `map.getMarkerViewManager().scheduleViewMarkerInvalidation()` | `map.getMarkerViewManager().update()` |
