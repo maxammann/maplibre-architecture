@@ -36,6 +36,7 @@ We've made significant improvements to our attribution naming. All attributes no
 | `style_url`         | `mapbox_styleUrl`        |
 | `zoom_max`          | `mapbox_cameraZoomMax`   |
 | `zoom_min`          | `mapbox_cameraZoomMin`   |
+| `rotate_enabled`    | `mapbox_uiRotateGestures`|
 
 Note that the `access_token` attribution doesn't exist anymore, more on this in the next sections.
 
