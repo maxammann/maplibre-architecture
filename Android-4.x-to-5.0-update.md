@@ -91,7 +91,13 @@ layer.setProperties(fillColor(zoom(0.8f,
 and now, you have the options of having an exponential or interval behavior, here we are using exponential:
 
 ```java
-
+//Set a zoom function to update the color of the water
+          layer.setProperties(fillColor(zoom(exponential(
+                  stop(1f, fillColor(Color.GREEN)),
+                  stop(8.5f, fillColor(Color.BLUE)),
+                  stop(10f, fillColor(Color.RED)),
+                  stop(18f, fillColor(Color.YELLOW))
+          ))));
 ```
 
 ### Other methods you might be using
