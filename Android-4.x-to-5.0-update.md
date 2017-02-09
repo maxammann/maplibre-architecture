@@ -70,6 +70,30 @@ If you want to get the access token to pass into another API (common when using 
 Mapbox.getAccessToken()
 ```
 
+### User location changes
+TODO
+
+### Custom marker icon
+Starting in 5.0 we only allow creation of marker icons from a bitmap file. This means if you were creating the icon from a drawable before, you'll now need to convert it to a bitmap before creating the icon object.
+
+### Runtime zoom function
+With 5.0, we introduced data-driven-styling which includes changes to the zoom function you might have previously been using. In 4.x it looked like this:
+
+```java
+layer.setProperties(fillColor(zoom(0.8f,
+            stop(1, fillColor(Color.GREEN)),
+            stop(4, fillColor(Color.BLUE)),
+            stop(12, fillColor(Color.RED)),
+            stop(20, fillColor(Color.YELLOW))
+        )));
+```
+
+and now, you have the options of having an exponential or interval behavior, here we are using exponential:
+
+```java
+
+```
+
 ### Other methods you might be using
 
 | 4.x method names                                              | 5.0 method names                      |
