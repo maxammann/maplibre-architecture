@@ -74,7 +74,19 @@ Mapbox.getAccessToken()
 TODO
 
 ### Custom marker icon
-Starting in 5.0 we only allow creation of marker icons from a bitmap file. This means if you were creating the icon from a drawable before, you'll now need to convert it to a bitmap before creating the icon object.
+Starting in 5.0 we only allow creation of marker icons from a bitmap file. This means if you were creating the icon from a drawable before, you'll now need to convert it to a bitmap before creating the icon object. Which means `fromDrawable()` method of `IconFactory` is not available anymore.
+
+Old code:
+```java
+IconFactory iconFactory = IconFactory.getInstance(FooActivity.this);
+Drawable iconDrawable = ContextCompat.getDrawable(FooActivity.this, R.drawable.foo_icon);
+Icon icon = iconFactory.fromDrawable(iconDrawable);
+```
+New code:
+```java
+IconFactory iconFactory = IconFactory.getInstance(FooActivity.this);
+Icon icon = iconFactory.fromResource(R.drawable.foo_icon);
+```
 
 ### Runtime zoom function
 With 5.0, we introduced data-driven-styling which includes changes to the zoom function you might have previously been using. In 4.x it looked like this:
