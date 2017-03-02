@@ -51,10 +51,6 @@ You should first be added to the pods collaborator list.
 
 - [Update the documentation.](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release)
 
-### Mapbox.com
-
-- Create a new issue in the [mapbox.com repo](https://github.com/mapbox/www2.mapbox.com/issues) to request that the version number in constants.js be updated to the new version number that was [chosen previously](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK#version-the-packages)
-
 ## Pre-releases
 
 ### Documentation
