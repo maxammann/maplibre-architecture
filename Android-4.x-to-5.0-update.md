@@ -71,7 +71,13 @@ Mapbox.getAccessToken()
 ```
 
 ### User location changes
-TODO
+In 5.0 we have made significant changes to the way developers get user location information. We have introduced the `LocationSource` object and the `LocationEngine`. Inside your onCreate() method you can include this:
+
+```
+LocationEngine locationEngine = LocationSource.getLocationEngine(this);
+```
+
+Using the locationEngine object you can now add listeners to handle location changes, request and remove location request and much more. For more information, checkout our [new documentation](https://www.mapbox.com/mapbox-java/#locationengine).
 
 ### Custom marker icon
 Starting in 5.0 we only allow creation of marker icons from a bitmap file. This means if you were creating the icon from a drawable before, you'll now need to convert it to a bitmap before creating the icon object. Which means `fromDrawable()` method of `IconFactory` is not available anymore.
