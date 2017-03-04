@@ -125,3 +125,19 @@ and now, you have the options of having an exponential or interval behavior, her
 | `MapboxMap.getMaxZoom()`                                      | `MapboxMap.getMaxZoomLevel()`         |
 | `mapView.getStyleUrl()`                                       | `mapboxMap.getStyleUrl()`             |
 | `map.getMarkerViewManager().scheduleViewMarkerInvalidation()` | `map.getMarkerViewManager().update()` |
+
+---
+
+This is not actually a migration issue but something you should be aware of when working with SDK and MAS in the same project. You might run into a dependencies conflict when mixing different versions of them because some depend on each other (nested dependencies). In order to avoid it you should tell Gradle what to do within the `build.gradle` file. For example:
+
+```
+compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0-beta.2@aar') {
+        transitive = true
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-java-geojson'
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
+}
+
+compile('com.mapbox.mapboxsdk:mapbox-android-ui:2.0.0-beta.1@aar') {
+    transitive = true
+}
+```
