@@ -118,6 +118,9 @@ and now, you have the options of having an exponential or interval behavior, her
           ))));
 ```
 
+### Runtime `NoSuchLayerException` removed
+In 5.0 we have removed the `NoSuchLayerException` commonly used to check if the layer exist in the map or not. The new, more appropriate way of handling this will be first acquiring the layer and then checking if it is null before interacting with it.
+
 ### Other methods you might be using
 
 | 4.x method names                                              | 5.0 method names                      |
