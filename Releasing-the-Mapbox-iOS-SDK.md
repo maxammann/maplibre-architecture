@@ -31,7 +31,7 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 
 ### cocoapods
 
-#### Note: You should first [register a CocoaPods id](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#getting-started) and [be added as a CocoaPods collaborator](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#adding-other-people-as-contributors) for the [Mapbox-iOS-SDK pod](https://cocoapods.org/?q=Mapbox-iOS-SDK)
+##### Note: You should first [register a CocoaPods id](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#getting-started) and [be added as a CocoaPods collaborator](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#adding-other-people-as-contributors) for the [Mapbox-iOS-SDK pod](https://cocoapods.org/?q=Mapbox-iOS-SDK)
 
 - Run `pod trunk push platform/ios/Mapbox-iOS-SDK.podspec`.
 
