@@ -3,15 +3,7 @@
 We've been hard at work making our maps SDK work even better than previous versions. Both performance improvements and new features have been added to the SDK. This meant we had to change up some of the APIs you were using. This document walks through the steps to take when making the upgrade.
 
 ### Manifest
-The telemetry service package has moved. You'll need to change this from:
-
-```xml
-<service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService"/>
-```
-to:
-```xml
-<service android:name="com.mapbox.services.android.telemetry.service.TelemetryService"/>
-```
+If your project's manifest file contains The telemetry service, you can remove it. It is now merged automatically using Manifest Merging.
 
 
 ### Adding new lifecycles
@@ -134,13 +126,11 @@ In 5.0 we have removed the `NoSuchLayerException` commonly used to check if the 
 This is not actually a migration issue but something you should be aware of when working with SDK and MAS in the same project. You might run into a dependencies conflict when mixing different versions of them because some depend on each other (nested dependencies). In order to avoid it you should tell Gradle what to do within the `build.gradle` file. For example:
 
 ```
-compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0-beta.2@aar') {
+compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0@aar') {
         transitive = true
         exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-java-geojson'
         exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
 }
 
-compile('com.mapbox.mapboxsdk:mapbox-android-ui:2.0.0-beta.1@aar') {
-    transitive = true
-}
+compile 'com.mapbox.mapboxsdk:mapbox-android-ui:2.0.0'
 ```
