@@ -125,7 +125,7 @@ In 5.0 we have removed the `NoSuchLayerException` commonly used to check if the 
 
 This is not actually a migration issue but something you should be aware of when working with SDK and MAS in the same project. You might run into a dependencies conflict when mixing different versions of them because some depend on each other (nested dependencies). In order to avoid it you should tell Gradle what to do within the `build.gradle` file. For example:
 
-```
+```groovy
 compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0@aar') {
         transitive = true
         exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-java-geojson'
