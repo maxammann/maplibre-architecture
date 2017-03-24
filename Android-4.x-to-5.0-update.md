@@ -3,7 +3,7 @@
 We've been hard at work making our maps SDK work even better than previous versions. Both performance improvements and new features have been added to the SDK. This meant we had to change up some of the APIs you were using. This document walks through the steps to take when making the upgrade.
 
 ### Manifest
-If your project's manifest file contains The telemetry service, you can remove it. It is now merged automatically using Manifest Merging.
+If your project's manifest file contains the telemetry service. _You can remove it_. It is now merged automatically using Manifest Merging.
 
 
 ### Adding new lifecycles
