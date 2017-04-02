@@ -1,6 +1,7 @@
 * Replace `0.9.8` with the macOS SDK release version.
 * Replace `9.8.7` with the corresponding iOS SDK release version.
 * Replace `0.9.7` with the previous macOS SDK release version.
+* List notable changes since the previous release. This list should be cumulative across all the intervening prereleases.
 * If any category has fewer than three items, combine it with another category or combine it with “Other changes”.
 * If there are fewer than three categories, use a single, flat list of changes.
 
