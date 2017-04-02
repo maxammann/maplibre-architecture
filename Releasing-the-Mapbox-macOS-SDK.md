@@ -22,6 +22,7 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
 1. If this is your first time releasing the Mapbox macOS SDK:
    1. Install `wget` and `github-release` from Homebrew.
    1. Add `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` to your .bash_profile, where _8BADF00DDEADBEEFC00010FF_ is a [new GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+   1. Optionally, to code-sign Mapbox GL.app, you’ll need to install a provisioning profile for your Mac Developer Program membership.
 1. Make sure your Mac is plugged in, then run `make xdeploy`. A script will build the SDK, package it up, and finally upload the package to a new GitHub release, all the while keeping your computer from falling asleep.
 1. While you wait, [draft a new release](https://github.com/mapbox/mapbox-gl-native/releases/new/). Add release notes based on the release’s section in the changelog. Use the following preface (_9.8.7_ being the corresponding iOS SDK release, _0.9.8_ being the new macOS SDK release, and _0.9.7_ being the previous macOS SDK release):
    ```markdown
