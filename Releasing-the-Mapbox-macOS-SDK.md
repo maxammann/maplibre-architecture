@@ -30,6 +30,7 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    ```
    For a release, append the following footer text:
    ```markdown
+   Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8/) or as part of the download.
    ```
    If this is a prerelease, append the following footer text instead:
    ```markdown
