@@ -24,23 +24,9 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    1. Add `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` to your .bash_profile, where _8BADF00DDEADBEEFC00010FF_ is a [new GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
    1. Optionally, to code-sign Mapbox GL.app, you’ll need to install a provisioning profile for your Mac Developer Program membership.
 1. Make sure your Mac is plugged in, then run `make xdeploy`. A script will build the SDK, package it up, and finally upload the package to a new GitHub release, all the while keeping your computer from falling asleep.
-1. While you wait, [draft a new release](https://github.com/mapbox/mapbox-gl-native/releases/new/). Add release notes based on the release’s section in the changelog. Use the following preface (_9.8.7_ being the corresponding iOS SDK release, _0.9.8_ being the new macOS SDK release, and _0.9.7_ being the previous macOS SDK release):
-   ```markdown
-   This version of the Mapbox macOS SDK corresponds to version 9.8.7 of the Mapbox iOS SDK. [Changes](https://github.com/mapbox/mapbox-gl-native/compare/macos-v0.9.7...macos-v0.9.8) since [macos-v0.9.7](https://github.com/mapbox/mapbox-gl-native/releases/tag/macos-v0.9.7):
-   ```
-   For a release, append the following footer text:
-   ```markdown
-   Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8/) or as part of the download.
-   ```
-   If this is a prerelease, append the following footer text instead:
-   ```markdown
-   To install this prerelease via CocoaPods, point your Podfile to either of these URLs:
-   
-   * https://raw.githubusercontent.com/mapbox/mapbox-gl-native/macos-v0.9.8-alpha.1/platform/macos/Mapbox-macOS-SDK.podspec
-   * https://raw.githubusercontent.com/mapbox/mapbox-gl-native/macos-v0.9.8-alpha.1/platform/macos/Mapbox-macOS-SDK-symbols.podspec.
-   
-   Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8-alpha.1/) or as part of the download.
-   ```
+1. While you wait, [draft a new release](https://github.com/mapbox/mapbox-gl-native/releases/new/). Add release notes based on the release’s section in the changelog. Use one of these templates:
+   * [Release notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Release-notes-template-for-macOS)
+   * [Prerelease notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Prerelease-notes-template-for-macOS)
 1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Save the draft.
 1. Optionally, build Mapbox GL.app:
    1. Run `make xproj` and switch to the macosapp scheme.
