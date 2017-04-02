@@ -28,7 +28,10 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    ```markdown
    This version of the Mapbox macOS SDK corresponds to version 9.8.7 of the Mapbox iOS SDK. [Changes](https://github.com/mapbox/mapbox-gl-native/compare/macos-v0.9.7...macos-v0.9.8) since [macos-v0.9.7](https://github.com/mapbox/mapbox-gl-native/releases/tag/macos-v0.9.7):
    ```
-   For a prerelease, append the following footer text:
+   For a release, append the following footer text:
+   ```markdown
+   ```
+   If this is a prerelease, append the following footer text instead:
    ```markdown
    To install this prerelease via CocoaPods, point your Podfile to either of these URLs:
    
@@ -36,10 +39,6 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    * https://raw.githubusercontent.com/mapbox/mapbox-gl-native/macos-v0.9.8-alpha.1/platform/macos/Mapbox-macOS-SDK-symbols.podspec.
    
    Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8-alpha.1/) or as part of the download.
-   ```
-   If this is a prerelease, append the following footer text instead:
-   ```markdown
-   Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8/) or as part of the download.
    ```
 1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Save the draft.
 1. Optionally, build Mapbox GL.app:
