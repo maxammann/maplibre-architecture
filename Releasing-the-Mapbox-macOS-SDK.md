@@ -45,9 +45,10 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    1. In mapbox-gl-native-pages, edit [macos/Mapbox-macOS-SDK.json](https://github.com/mapbox/mapbox-gl-native/blob/gh-pages/macos/Mapbox-macOS-SDK.json) and [macos/Mapbox-macOS-SDK-symbols.json](https://github.com/mapbox/mapbox-gl-native/blob/gh-pages/macos/Mapbox-macOS-SDK-symbols.json).
    1. Commit and push your changes to the `gh-pages` branch.
 1. If any new style properties or features are supported in the new release, update the “SDK support” tables in the [style specification documentation](https://www.mapbox.com/mapbox-gl-js/style-spec/):
+   1. If this is your first time updating the style specification documentation, install `yarn` from Homebrew.
    1. Update the `sdk-support` objects in [v8.json](https://github.com/mapbox/mapbox-gl-js/blob/master/src/style-spec/reference/v8.json). The `macos` key in an `sdk-support` object for a particular property indicates the minimum macOS SDK version that supports that property. If the `sdk-support` object is missing a `macos` key, the property is assumed to be unsupported in the macOS SDK.
    1. If the release adds support for features other than properties, update [docs/style-spec/_generate/index.html](https://github.com/mapbox/mapbox-gl-js/blob/master/docs/style-spec/_generate/index.html).
-   1. Run `npm install && npm run build-docs` to generate the style specification site.
+   1. Run `yarn install && yarn run build-docs` to generate the style specification site.
    1. Commit these changes and open a PR in the mapbox-gl-js repository to get them reviewed and merged. (Keep going while you wait for a review.)
    1. Once the PR is merged, cherry-pick the changes into the mb-pages branch, so that they go live on mapbox.com ahead of the next Mapbox GL JS release.
 1. Edit [this table](https://wiki.openstreetmap.org/wiki/Mapbox_GL#Features) at the OpenStreetMap Wiki to correctly indicate the status of any new features.
