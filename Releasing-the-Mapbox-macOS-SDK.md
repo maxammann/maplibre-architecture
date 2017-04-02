@@ -34,7 +34,7 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    1. After macosapp finishes archiving, go to the Archives tab of the Organizer window. Select the macosapp archive, then click Export in the right sidebar.
    1. In the sheet that appears, select “Export a Developer ID–signed Application”.
    1. Zip up the exported .app and attach it to the release draft.
-1. Check “This is a pre-release” if applicable, then click “Publish release”.
+1. Check “This is a pre-release” if applicable, then click “Publish release”. Delete the other draft you made.
 
 ## Update the documentation
 
