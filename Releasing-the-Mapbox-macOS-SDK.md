@@ -49,6 +49,7 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    1. If the release adds support for features other than properties, update [docs/style-spec/_generate/index.html](https://github.com/mapbox/mapbox-gl-js/blob/master/docs/style-spec/_generate/index.html).
    1. Run `node docs/style-spec/_generate/generate.js` to generate the style specification site.
    1. Commit these changes and open a PR in the mapbox-gl-js repository to get them reviewed and merged. (Keep going while you wait for a review.)
+   1. Once the PR is merged, cherry-pick the changes into the mb-pages branch, so that they go live on mapbox.com ahead of the next Mapbox GL JS release.
 1. Edit [this table](https://wiki.openstreetmap.org/wiki/Mapbox_GL#Features) at the OpenStreetMap Wiki to correctly indicate the status of any new features.
 
 ## Tell your friends!
