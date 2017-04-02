@@ -1,3 +1,5 @@
+(Consider [releasing the Mapbox macOS SDK](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-macOS-SDK) at the same time.)
+
 ## Version the packages
 
 1. Choose a version number per [Semantic Versioning](http://semver.org/) and [our tagging rules](./Versions-and-tagging). Let's call it `ios-vX.Y.Z`. If this is a pre-release, go with `ios-vX.Y.Z-pre.P`, where `P` begins at `1` and increments for each pre-release. 
