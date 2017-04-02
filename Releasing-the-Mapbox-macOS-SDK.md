@@ -40,7 +40,14 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    ```markdown
    Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8/) or as part of the download.
    ```
-1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Check “This is a pre-release” if applicable, then click “Publish release”.
+1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Save the draft.
+1. Optionally, build Mapbox GL.app:
+   1. Run `make xproj` and switch to the macosapp scheme.
+   1. Go to Product ‣ Archive.
+   1. After macosapp finishes archiving, go to the Archives tab of the Organizer window. Select the macosapp archive, then click Export in the right sidebar.
+   1. In the sheet that appears, select “Export a Developer ID–signed Application”.
+   1. Zip up the exported .app and attach it to the release draft.
+1. Check “This is a pre-release” if applicable, then click “Publish release”.
 
 ## Update the documentation
 
