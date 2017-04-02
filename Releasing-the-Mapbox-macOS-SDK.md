@@ -42,7 +42,7 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
    ```
 1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Check “This is a pre-release” if applicable, then click “Publish release”.
 
-## Update the documentation documentation
+## Update the documentation
 
 1. Update the [Mapbox macOS SDK documentation site](https://mapbox.github.io/mapbox-gl-native/macos/) (which is also bundled with the SDK):
    1. Clone mapbox-gl-native to a mapbox-gl-native-pages folder alongside your main mapbox-gl-native clone, and check out the `gh-pages` branch.
