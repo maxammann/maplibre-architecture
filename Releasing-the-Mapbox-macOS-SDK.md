@@ -66,4 +66,4 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
 1. Copy `pod`’s success message and let Mapbox’s Mobile team know about the new release by sending this message to the `#mobile` Slack channel if you work for Mapbox or the `#gl-collab` Slack channel if you don’t.
 1. Submit an update to the [OSM Software Watchlist](https://wambachers-osm.website/index.php/osm-software) to get a mention in the next issue of [WeeklyOSM](http://www.weeklyosm.eu/). ([Jinal](https://www.mapbox.com/about/team/jinal-foflia/) can help you submit the update.)
 
-Whew!
+Whew! Now you can close the release’s [milestone](https://github.com/mapbox/mapbox-gl-native/milestones/) and create one for the next release!
