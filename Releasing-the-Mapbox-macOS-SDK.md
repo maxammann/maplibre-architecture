@@ -1,6 +1,6 @@
 ## When to release
 
-To the extent possible, we release the Mapbox macOS SDK in tandem with the Mapbox iOS SDK, so that developers who work on both platforms can count on feature parity and the same bug fixes between the two SDKs. However, if a critical bug fix affects only macOS, we may issue an out-of-band release of the macOS SDK; conversely, we may delay the macOS SDK release if a critical issue arises in the iOS SDK.
+To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapbox iOS SDK](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK), so that developers who work on both platforms can count on feature parity and the same bug fixes between the two SDKs. However, if a critical bug fix affects only macOS, we may issue an out-of-band release of the macOS SDK; conversely, we may delay the macOS SDK release if a critical issue arises in the iOS SDK.
 
 ## Prepare for release
 
