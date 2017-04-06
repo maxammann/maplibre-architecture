@@ -8,7 +8,7 @@ If your project's manifest file contains the telemetry service. _You can remove 
 
 ### Adding new lifecycles
 
-Part of supporting Android Nougat means we have to also support the new Multi-Window feature. This required us to move some of the logic to the `onStart()` and `onStop()` methods. When switching over to 5.0 Android Studio won't complain about these missing but when compiling your application will immediately crash if you don't add them to the activity:
+Part of supporting Android Nougat means we have to also support the new Multi-Window feature. This required us to move some of the logic to the `onStart()` and `onStop()` methods. When switching over to 5.0, Android Studio won't complain about these missing but when compiling your application will immediately crash if you don't add them to the activity:
 
 ```java
 @Override
