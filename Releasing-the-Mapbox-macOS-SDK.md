@@ -1,8 +1,12 @@
+Congratulations, you’re the proud owner of a new Mapbox macOS SDK release! The process below takes 20–30 minutes.
+
 ## When to release
 
 To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapbox iOS SDK](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK), so that developers who work on both platforms can count on feature parity and the same bug fixes between the two SDKs. However, if a critical bug fix affects only macOS, we may issue an out-of-band release of the macOS SDK; conversely, we may delay the macOS SDK release if a critical issue arises in the iOS SDK.
 
 ## Prepare for release
+
+_Takes under 5 minutes_
 
 1. Skim the [issues tagged <kbd>macOS</kbd>](https://github.com/mapbox/mapbox-gl-native/issues?q=is%3Aopen+is%3Aissue+label%3AmacOS) or [issues mentioning “macOS”](https://github.com/mapbox/mapbox-gl-native/issues?utf8=✓&q=is%3Aopen%20is%3Aissue%20macOS%20) in case there are any showstoppers.
 1. Run `tx pull -a` to [add or update translations](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/DEVELOPING.md#adding-a-localization).
@@ -12,11 +16,15 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
 
 ## Tag the release
 
+_Takes under 5 minutes_
+
 1. Decide on a semver-compliant version number according to [these guidelines](https://github.com/mapbox/mapbox-gl-native/wiki/Versions-and-tagging). The version number should be of the form 0.9.8-alpha.1, 0.9.8-beta.1, 0.9.8-rc.1 (for a release candidate), or 0.9.8 (for a final release).
 1. Update the `version` variable in [Mapbox-macOS-SDK.podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/Mapbox-macOS-SDK.podspec) and [Mapbox-macOS-SDK-symbols.podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/Mapbox-macOS-SDK-symbols.podspec). Commit this change with a commit message like `macos-v0.9.8` and open a PR to get it reviewed and merged.
 1. Tag the merged podspec changes as `macos-v0.9.8`, where _0.9.8_ is the semver-compliant version you chose in step 1. Push the tag.
 
 ## Publish the release
+
+_Takes 10–15 minutes_
 
 1. Run `xcodebuild -version` or `xcode-select -p` to make sure you’re building with the right version of Xcode.
 1. If this is your first time releasing the Mapbox macOS SDK:
@@ -38,6 +46,8 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
 
 ## Update the documentation
 
+_Takes 5–10 minutes_
+
 1. Update the [Mapbox macOS SDK documentation site](https://mapbox.github.io/mapbox-gl-native/macos/) (which is also bundled with the SDK):
    1. Clone mapbox-gl-native to a mapbox-gl-native-pages folder alongside your main mapbox-gl-native clone, and check out the `gh-pages` branch.
    1. In your main mapbox-gl-native clone, check out the release branch and run `make xdocument STANDALONE=1 OUTPUT=../mapbox-gl-native-pages/macos/0.9.8`, where _0.9.8_ is the new SDK version.
@@ -54,6 +64,8 @@ To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapb
 1. Edit [this table](https://wiki.openstreetmap.org/wiki/Mapbox_GL#Features) at the OpenStreetMap Wiki to correctly indicate the status of any new features.
 
 ## Tell your friends!
+
+_Takes under 5 minutes_
 
 1. If this is your first time releasing the Mapbox macOS SDK:
    1. [Sign up for a CocoaPods trunk account](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#getting-started).
