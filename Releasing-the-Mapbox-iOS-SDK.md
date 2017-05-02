@@ -18,7 +18,7 @@
 
 You can follow the manual instructions in [this gist](https://gist.github.com/boundsj/5fadf57e5114de4d45c3c4af40f9836e). However, we expect to deprecate that approach in the future in favor of a more automated approach on a CI server. In the interim, [a script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh) automates most of the work so you can follow these simple steps:
 
-- Run `mbx auth ...` _(If you do not already have AWS credentials, ask a team member for help in setting this up.)_
+- Run `mbx auth <your-2fa-code>` _(If you do not already have AWS credentials, ask a team member for help in setting this up.)_
 - _[First time only]_ To create a GitHub release from the command line, you will need to:
    - [Create a new GitHub access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) and add it as the `GITHUB_TOKEN` environment variable — e.g., `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` in your `~/.bash_profile`.
 - Run `make ideploy`. This will:
