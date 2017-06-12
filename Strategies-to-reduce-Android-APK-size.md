@@ -1,8 +1,8 @@
 This document describes a few strategies that can be used to reduce the resulting APK size when using the Mapbox Android SDK.
 
-### 1. Use ProGuard
+### 1. Use ProGuard or DexGuard
 
-[ProGuard](https://developer.android.com/studio/build/shrink-code.html), even without obfuscation, will remove unused Java code from your code and its dependencies.
+[ProGuard](https://developer.android.com/studio/build/shrink-code.html) and [DexGuard](https://www.guardsquare.com/en/dexguard), even without obfuscation, will remove unused Java code from your code and its dependencies.
 
 ### 2. Drop architectures you don't need
 
@@ -25,8 +25,14 @@ This is a feature that lets you build an APK file for each CPU, only containing 
 
 If you distribute your app via Google Play, you can benefit from this approach through the [Multiple APK Support](https://developer.android.com/google/play/publishing/multiple-apks.html) distribution feature.
 
+#### Sample code
+
+Mapbox publishes a [Demo App](https://play.google.com/store/apps/details?id=com.mapbox.mapboxandroiddemo) to the Google Play store that showcases core SDK features.
+
+This app is [open source](https://github.com/mapbox/mapbox-android-demo) and benefits from APK splitting for smaller binary distribution. You can learn how we do this in the [`build.gradle`](https://github.com/mapbox/mapbox-android-demo/blob/master/MapboxAndroidDemo/build.gradle) file.
+
 ### Next
 
 The Mapbox team is actively looking at other ways to reduce the SDK size ([for example](https://github.com/mapbox/mapbox-gl-native/issues/5656)).
 
-If you have questions or any other ideas, please [get in touch with us](https://github.com/mapbox/mapbox-gl-native/issues/new).
+If you have questions or ideas that you'd like to share, please [get in touch with us](https://github.com/mapbox/mapbox-gl-native/issues/new).
