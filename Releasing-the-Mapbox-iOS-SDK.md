@@ -39,15 +39,8 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 
 ### Fabric
 
-- Repackage the static framework bundle for Fabric distribution, test, and release:
-  - open fabric.io/kits/manage
-  - make a new release
-  - add the compressed result of `make ifabric`: Make Mapbox.framework.zip from static/Mapbox.framework (which has everything stuffed inside)
-  - make any other required adjustment to the release meta data then click "Submit for Review"
-  - Test:
-    - Make a new app (or update existing) app Mapbox framework with the fabric osx app making sure to get the new version you just submitted for review
-    - As noted in the Fabric osx app, perform ⌘R to run your app -- verify that the Fabric app is satisfied with the result
-    - Go back to the fabric.io/kits "new release" page and click the button to publish
+- Make a new app (or update existing) using Mapbox with the fabric macOS app, making sure to get the new version that you submitted to CocoaPods.
+- As noted in the Fabric macOS app, perform ⌘R to run your app — verify that the Fabric app is satisfied with the result.
 
 ### Documentation
 
