@@ -3,7 +3,7 @@
 * Copy stack trace. It will look like:
 (You may need to switch Android Studio logcat filter to "No Filters")
 
-  ```
+```
 ********** Crash dump: **********
 Build fingerprint: 'generic_x86/sdk_google_phone_x86/generic_x86:5.1/LKY45/1737576:eng/test-keys'
 pid: 13072, tid: 13090, name: apboxgl.testapp  >>> com.mapbox.mapboxgl.testapp <<<
@@ -25,10 +25,10 @@ Stack frame #13 pc 001269b3  /data/app/com.mapbox.mapboxgl.testapp-1/lib/x86/lib
 Stack frame #14 pc 000211a8  /system/lib/libc.so (__pthread_start(void*)+56)
 Stack frame #15 pc 0001c529  /system/lib/libc.so (__start_thread+25)
 Stack frame #16 pc 000130f6  /system/lib/libc.so (__bionic_clone+70)
-  ```
+```
 * Run `pbpaste | ndk-stack -sym build/android-x86/Debug`. You should get output with file and line numbers, like:
 
-  ```
+```
 ********** Crash dump: **********
 Build fingerprint: 'generic_x86/sdk_google_phone_x86/generic_x86:5.1/LKY45/1737576:eng/test-keys'
 pid: 13072, tid: 13090, name: apboxgl.testapp  >>> com.mapbox.mapboxgl.testapp <<<
@@ -50,6 +50,6 @@ Stack frame #13 pc 001269b3  /data/app/com.mapbox.mapboxgl.testapp-1/lib/x86/lib
 Stack frame #14 pc 000211a8  /system/lib/libc.so (__pthread_start(void*)+56)
 Stack frame #15 pc 0001c529  /system/lib/libc.so (__start_thread+25)
 Stack frame #16 pc 000130f6  /system/lib/libc.so (__bionic_clone+70)
-  ```
+```
 
 For more information: `open $ANDROID_NDK_PATH/docs/Programmers_Guide/html/md_3__key__topics__debugging__n_d_k-_s_t_a_c_k.htm`.
