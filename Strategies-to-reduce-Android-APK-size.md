@@ -19,7 +19,7 @@ The Mapbox SDK ships with 6 architectures:
 
 Each of these files add up to the resulting APK. If, for example, your app doesn't need x86 support, you could drop `x86` and `x86_64` and save some space. See "ABI splitting" below for details.
 
-### 3. APK splitting
+### 3. ABI splitting
 
 This is a feature that lets you build an APK file for each CPU, only containing the relevant native libraries. This process is described in the [Android Studio Project Site](http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits#TOC-ABIs-Splits).
 
