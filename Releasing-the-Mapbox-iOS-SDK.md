@@ -37,11 +37,6 @@ You can follow the manual instructions in [this gist](https://gist.github.com/bo
 
 - Run `pod trunk push platform/ios/Mapbox-iOS-SDK.podspec`.
 
-### Fabric
-
-- Make a new app (or update existing) using Mapbox with the fabric macOS app, making sure to get the new version that you submitted to CocoaPods.
-- As noted in the Fabric macOS app, perform ⌘R to run your app — verify that the Fabric app is satisfied with the result.
-
 ### Documentation
 
 - [Update the documentation.](https://github.com/mapbox/gl-internal/wiki/Updating-documentation-on-release)
