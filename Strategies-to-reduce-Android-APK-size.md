@@ -27,6 +27,8 @@ If you distribute your app via Google Play, you can benefit from this approach t
 
 #### Sample code
 
+Leveraging apk splits is one of the tips we give users when it comes to shrinking their apk size. Splitting results in building different apks for the different supported abis in an application. Google Play is optimised to only download the apk for the abi of the device that is installing the app.
+
 Mapbox publishes a [Demo App](https://play.google.com/store/apps/details?id=com.mapbox.mapboxandroiddemo) to the Google Play store that showcases core SDK features.
 
 This app is [open source](https://github.com/mapbox/mapbox-android-demo) and benefits from APK splitting for smaller binary distribution. You can learn how we do this in the [`build.gradle`](https://github.com/mapbox/mapbox-android-demo/blob/master/MapboxAndroidDemo/build.gradle) file.
