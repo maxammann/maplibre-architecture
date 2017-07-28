@@ -6,7 +6,8 @@
 1. If necessary, update [the screenshot](https://github.com/mapbox/mapbox-gl-native/raw/ios-v3.6.0/platform/ios/docs/img/screenshot.png).
 1. Update the version [in the podspec](https://github.com/mapbox/mapbox-gl-native/blob/ios-v3.6.0/platform/ios/Mapbox-iOS-SDK.podspec#L3), [-symbols podspec](https://github.com/mapbox/mapbox-gl-native/blob/ios-v3.6.0/platform/ios/Mapbox-iOS-SDK-symbols.podspec#L3), and [-nightly-dynamic podspec](https://github.com/mapbox/mapbox-gl-native/blob/ios-v3.6.0/platform/ios/Mapbox-iOS-SDK-nightly-dynamic.podspec#L3).
 1. Update the `CHANGELOG.md` for the release.
-  - #protip: you can use the compare (`ios-v#.#.#-previous-beta.#...release-N|master`) feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3).
+   - Add today’s date to the header for the release.
+   - #protip: you can use the compare (`ios-v#.#.#-previous-beta.#...release-N|master`) feature in github to more easily find intra-release changes (i.e. https://github.com/mapbox/mapbox-gl-native/compare/ios-v3.3.0-alpha.2...ios-v3.3.0-alpha.3).
 1. Run `tx pull -a` to [add or update translations](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/DEVELOPING.md#adding-a-localization).
 1. Create a pull request with these changes and have it approved/merged.
 1. Create a tag `ios-vX.Y.Z`.
