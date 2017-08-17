@@ -45,13 +45,13 @@ However my favourite method is to simply select the lines from logcat (including
 
 As for the `ndk-stack` command, the two options it has are `-sym` and `-dump`.
 
-First `-sym` is the path to the Android `.so` file. We want to use the pre-stripped binaries which you will find at `mapbox-gl-native/build/android-arm-v7/Release/lib.target/`. Note that `Release` can also be `Debug` and `android-arm-v7` can also be `android-x86-v7` depending on the `make` command you built the library with.
+First `-sym` is the path to the Android `.so` file. We want to use the pre-stripped binaries which you will find at `platform/android/MapboxGLAndroidSDK/build/intermediates/cmake/debug/obj/armeabi-v7a/`. Note that `Release` can also be `Debug` and `android-arm-v7` can also be `android-x86-v7` depending on the `make` command you built the library with.
 
 Quick note on stripped binaries: To save download size, Android apps strip the debug symbols from their JNI `.so` libraries before they are shipped. Our `make` does this when copying the `.so` to the `jni-libs` directory in Android Studio.
 
 Next is `-dump`, this is simply the path to the `crash.txt` file you created.
 
-So you end up with `ndk-stack -sym mapbox-gl-native/build/android-arm-v7/Release/lib.target/ -dump crash.txt`. If this command fails saying it can't find `ndk-stack` you need to ensure that the root directory of the Android NDK is on your path. (You will have to download this from [here](http://developer.android.com/ndk/downloads/index.html) if you don't have it installed)
+So you end up with `ndk-stack -sym platform/android/MapboxGLAndroidSDK/build/intermediates/cmake/debug/obj/armeabi-v7a/ -dump crash.txt`. If this command fails saying it can't find `ndk-stack` you need to ensure that the root directory of the Android NDK is on your path. (You will have to download this from [here](http://developer.android.com/ndk/downloads/index.html) if you don't have it installed)
 
 The output from `ndk-stack` will be like:
 ```
