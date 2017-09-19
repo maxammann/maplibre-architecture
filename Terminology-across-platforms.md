@@ -17,7 +17,7 @@ The following terms in the Mapbox Style Specification and Mapbox GL JS API have 
 | point | 1D shape | unit of distance; 1D shape | 1D shape |
 | property | _JavaScript language feature_; an option for a style layer or vector feature | _Objective-C/Swift language feature_ | _Java language feature_; an option for a style layer or vector feature |
 
-These differences in terminology have led to a number of differences in the libraries’ public APIs, as illustrated below:
+These differences in terminology have led to a number of differences in the libraries’ public APIs, as illustrated in the following table. 🛣 denotes a term used in a client of the Mapbox Directions API that is used together with a GL library (Mapbox GL Directions, MapboxDirections.swift, Mapbox Java Services).
 
 | Web | iOS/macOS | Android | Qt |
 | --- | --- | --- | --- |
