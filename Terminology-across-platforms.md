@@ -41,7 +41,7 @@ These differences in terminology have led to a number of differences in the libr
 | property | attribute | property | property |
 | id | identifier | id | id |
 | class | style class | — | class |
-| icon | style image | image | image |
+| image | style image | image | image |
 | SDF icon | template image | — | — |
 | function | style function | function | — |
 | zoom function | camera style function | camera function | — |
