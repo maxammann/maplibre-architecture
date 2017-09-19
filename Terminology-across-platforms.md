@@ -1,6 +1,6 @@
 Each of the GL libraries uses different terminology in its public APIs. This is because each library attempts to feel natural to developers on that platform.
 
-## Comparing meanings of style specification terms on each platform
+## Style specification terms and their meanings on each platform
 
 The following terms in the Mapbox Style Specification and Mapbox GL JS API have different meanings on the native platforms. Definitions in _italics_ denote concepts that the Mapbox GL developers have no control over.
 
@@ -19,7 +19,7 @@ The following terms in the Mapbox Style Specification and Mapbox GL JS API have 
 | point | 1D shape | unit of distance; 1D shape | 1D shape |
 | property | _JavaScript language feature_; an option for a style layer or vector feature | _Objective-C/Swift language feature_ | _Java language feature_; an option for a style layer or vector feature |
 
-## Comparing public API terminology across platforms
+## Public API terminology on each platform
 
 These differences in terminology have led to a number of differences in the libraries’ public APIs, as illustrated in the following table. 🛣 denotes a term used in a client of the Mapbox Directions API that is used together with a GL library (Mapbox GL Directions, MapboxDirections.swift, Mapbox Java Services).
 
