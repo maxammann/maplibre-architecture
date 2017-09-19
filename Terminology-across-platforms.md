@@ -16,6 +16,7 @@ The following terms in the Mapbox Style Specification have different meanings on
 | layer | similar to an overlay, but part of the map | _Apple animation feature_ | similar to an overlay, but part of the map |
 | map view | an occasion a map is viewed | a container for a map | a container for a map |
 | region | — | akin to bounding box | bundle of resources for offline usage |
+| plugin | _browser feature_; GL helper library | GL helper library; _obscure application extension feature_ (macOS) | GL helper library
 | point | 1D shape | unit of distance; 1D shape | 1D shape |
 | property | _JavaScript language feature_; an option for a style layer or vector feature | _Objective-C/Swift language feature_ | _Java language feature_; an option for a style layer or vector feature |
 
