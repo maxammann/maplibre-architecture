@@ -48,6 +48,8 @@ These differences in terminology have led to a number of differences in the libr
 | property function | source style function | source function | — |
 | zoom-and-property function | composite style function | composite function | — |
 | filter | predicate | filter | — |
+| rendered features | visible features | rendered features | — |
+| source features | features in source | source features | — |
 | — | offline pack | offline region | — |
 | — | offline region | offline region definition | — |
 | — | offline storage | offline manager | offline cache database |
