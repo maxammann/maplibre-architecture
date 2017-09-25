@@ -35,6 +35,7 @@ _Takes 10–15 minutes_
 1. While you wait, [draft a new release](https://github.com/mapbox/mapbox-gl-native/releases/new/). Add release notes based on the release’s section in the changelog. Use one of these templates:
    * [Release notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Release-notes-template-for-macOS)
    * [Prerelease notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Prerelease-notes-template-for-macOS)
+   Note that release notes accept `#123` syntax for linking to PRs, unlike the changelog.
 1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Save the draft.
 1. Optionally, build Mapbox GL.app:
    1. Run `make xproj` and switch to the macosapp scheme.
