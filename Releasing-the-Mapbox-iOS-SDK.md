@@ -15,18 +15,20 @@
 
 ## Build and release
 
-You can follow the manual instructions in [this gist](https://gist.github.com/boundsj/5fadf57e5114de4d45c3c4af40f9836e). However, we expect to deprecate that approach in the future in favor of a more automated approach on a CI server. In the interim, [a script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh) automates most of the work so you can follow these simple steps:
+The release build and deployment process starts on Bitrise once you push the tag. This will automatically:
 
-- Run `mbx auth <your-2fa-code>` _(If you do not already have AWS credentials, ask a team member for help in setting this up.)_
-- _[First time only]_ To create a GitHub release from the command line, you will need to:
-   - [Create a new GitHub access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) and add it as the `GITHUB_TOKEN` environment variable — e.g., `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` in your `~/.bash_profile`.
-- Run `make ideploy`. This will:
- - Build all the packages (static and dynamic framework files and friends).
- - Upload to s3 (if you've run `mbx auth` above).
- - Test that downloads from s3 work.
- - Make a new Github release draft and upload all of the compressed release files to the Github release (if you've set your `GITHUB_TOKEN` as noted above).
-- Go to https://github.com/mapbox/mapbox-gl-native/releases to find the draft, confirm that it is valid, and add notes from the changelog.
-- When you are satisfied with the release draft, click the button to publish it.
+- Build, package, and upload the different release flavors to s3 and GitHub.
+- Create a draft release [on GitHub](https://github.com/mapbox/mapbox-gl-native/releases).
+
+Once the ~50 minute deployment process is finished, you should:
+
+- Copy the release notes to the draft GitHub release.
+- Check that the attached packages are valid.
+- Push the publish button. 💚
+
+### The old manual way
+
+You can follow the manual instructions in [this old revision](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK/8b2f745e62ebde5b8663e5016fe7b50072eaad77), which rely on [this script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh).
 
 ## Stable releases
 
