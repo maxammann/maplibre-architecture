@@ -28,7 +28,7 @@ Once the ~50 minute deployment process is finished, you should:
 
 ### The old manual way
 
-You can follow the manual instructions in [this old revision](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK/8b2f745e62ebde5b8663e5016fe7b50072eaad77), which rely on [this script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh).
+In times of dire need, you can still deploy manually by following the instructions in [this old revision](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK/8b2f745e62ebde5b8663e5016fe7b50072eaad77), which relys on [this script](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/scripts/deploy-packages.sh).
 
 ## Stable releases
 
