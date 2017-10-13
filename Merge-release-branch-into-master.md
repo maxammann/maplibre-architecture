@@ -40,7 +40,9 @@ Once the PR is approved.
 * `git push origin master`
 * `git branch -D [user]-merge-relase-[tag version]` e.g. `git branch -D fabian-merge-release-ios-v3.6.0` 
 
-**_Merging using github is discouraged._**
+**_Merging using github is discouraged._** 
+
+In any case do not use `squash and merge` option as this will break git history and introduce orphaned commits.
 
 # Troubleshooting.
 ## Android.
