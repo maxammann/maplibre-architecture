@@ -36,12 +36,6 @@ _Takes 10–15 minutes_
    * [Release notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Release-notes-template-for-macOS)
    * [Prerelease notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Prerelease-notes-template-for-macOS)
 1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Save the draft.
-1. Optionally, build Mapbox GL.app:
-   1. Run `make xproj` and switch to the macosapp scheme.
-   1. Go to Product ‣ Archive.
-   1. After macosapp finishes archiving, go to the Archives tab of the Organizer window. Select the macosapp archive, then click Export in the right sidebar.
-   1. In the sheet that appears, select “Export a Developer ID–signed Application”.
-   1. Zip up the exported .app and attach it to the release draft.
 1. Check “This is a pre-release” if applicable, then click “Publish release”. Delete the other draft you made.
 
 ## Update the documentation
