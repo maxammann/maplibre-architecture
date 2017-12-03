@@ -1,4 +1,4 @@
-This document describes a few strategies that can be used to reduce the resulting APK size when using the Mapbox Android SDK.
+This document describes a few strategies that can be used to reduce the resulting APK size when using the Mapbox Maps SDK for Android.
 
 ### 1. Use ProGuard or DexGuard
 
