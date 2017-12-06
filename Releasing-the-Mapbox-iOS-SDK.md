@@ -15,7 +15,7 @@
 
 ## Build and release
 
-The release build and deployment process starts on Bitrise once you push the tag. This will automatically:
+The release build and deployment process starts [on Bitrise](https://www.bitrise.io/app/7514e4cf3da2cc57) once you push the tag. This will automatically:
 
 - Build, package, and upload the different release flavors to s3 and GitHub.
 - Create a draft release [on GitHub](https://github.com/mapbox/mapbox-gl-native/releases).
