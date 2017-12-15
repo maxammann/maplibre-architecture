@@ -1,3 +1,7 @@
+**⚠️ We're no longer using Bitrise as of November 2017.** |
+-|
+This page only serves as documentation for legacy branches (pre-agua). |
+
 Here's the deal with Bitrise. 
 
 1. We avoid their GUI for workflow configuration as much as possible, in favor of using `bitrise.yml` files checked into the repository. The GUI workflow has been set to run:
