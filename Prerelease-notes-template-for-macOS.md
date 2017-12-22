@@ -6,7 +6,7 @@
 * If there are fewer than three categories, use a single, flat list of changes.
 
 ```markdown
-This version of the Mapbox macOS SDK corresponds to version 9.8.7-alpha.1 of the Mapbox iOS SDK. [Changes](https://github.com/mapbox/mapbox-gl-native/compare/macos-v0.9.7...macos-v0.9.8-alpha.1) since [macos-v0.9.7](https://github.com/mapbox/mapbox-gl-native/releases/tag/macos-v0.9.7):
+This version of the Mapbox Maps SDK for macOS corresponds to version 9.8.7-alpha.1 of the Mapbox Maps SDK for iOS. [Changes](https://github.com/mapbox/mapbox-gl-native/compare/macos-v0.9.7...macos-v0.9.8-alpha.1) since [macos-v0.9.7](https://github.com/mapbox/mapbox-gl-native/releases/tag/macos-v0.9.7):
 
 ## Packaging
 
