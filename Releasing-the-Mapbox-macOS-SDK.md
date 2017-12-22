@@ -1,8 +1,8 @@
-Congratulations, you’re the proud owner of a new Mapbox macOS SDK release! The process below takes 20–30 minutes.
+Congratulations, you’re the proud owner of a new release of the Mapbox Maps SDK for macOS! The process below takes 20–30 minutes.
 
 ## When to release
 
-To the extent possible, we release the Mapbox macOS SDK in tandem with the [Mapbox iOS SDK](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK), so that developers who work on both platforms can count on feature parity and the same bug fixes between the two SDKs. However, if a critical bug fix affects only macOS, we may issue an out-of-band release of the macOS SDK; conversely, we may delay the macOS SDK release if a critical issue arises in the iOS SDK.
+To the extent possible, we release the Mapbox Maps SDK for macOS in tandem with the [Mapbox Maps SDK for iOS](https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK), so that developers who work on both platforms can count on feature parity and the same bug fixes between the two SDKs. However, if a critical bug fix affects only macOS, we may issue an out-of-band release of the macOS SDK; conversely, we may delay the macOS SDK release if a critical issue arises in the iOS SDK.
 
 ## Prepare for release
 
@@ -27,7 +27,7 @@ _Takes under 5 minutes_
 _Takes 10–15 minutes_
 
 1. Run `xcodebuild -version` or `xcode-select -p` to make sure you’re building with the right version of Xcode.
-1. If this is your first time releasing the Mapbox macOS SDK:
+1. If this is your first time releasing the Mapbox Maps SDK for macOS:
    1. Install `wget` and [`github-release`](https://github.com/aktau/github-release/) from Homebrew and [`caffeinate`](https://rubygems.org/gems/caffeinate) from RubyGems.
    1. Add `export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'` to your .bash_profile, where _8BADF00DDEADBEEFC00010FF_ is a [new GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
    1. Optionally, to code-sign Mapbox GL.app, you’ll need to install a provisioning profile for your Mac Developer Program membership.
@@ -42,7 +42,7 @@ _Takes 10–15 minutes_
 
 _Takes 5–10 minutes_
 
-1. Update the [Mapbox macOS SDK documentation site](https://mapbox.github.io/mapbox-gl-native/macos/) (which is also bundled with the SDK):
+1. Update the [Mapbox Maps SDK for macOS documentation site](https://mapbox.github.io/mapbox-gl-native/macos/) (which is also bundled with the SDK):
    1. Clone mapbox-gl-native to a mapbox-gl-native-pages folder alongside your main mapbox-gl-native clone, and check out the `gh-pages` branch.
    1. In your main mapbox-gl-native clone, check out the release branch and run `make xdocument STANDALONE=1 OUTPUT=../mapbox-gl-native-pages/macos/0.9.8`, where _0.9.8_ is the new SDK version.
    1. In mapbox-gl-native-pages, edit [macos/index.html](https://github.com/mapbox/mapbox-gl-native/blob/gh-pages/macos/index.html) and macos/docsets/Mapbox.xml to refer to the new SDK version.
@@ -61,7 +61,7 @@ _Takes 5–10 minutes_
 
 _Takes under 5 minutes_
 
-1. If this is your first time releasing the Mapbox macOS SDK:
+1. If this is your first time releasing the Mapbox Maps SDK for macOS:
    1. [Sign up for a CocoaPods trunk account](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#getting-started).
    1. Get one of the [Mapbox-macOS-SDK pod](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#adding-other-people-as-contributors)’s owners to [add you as an owner](https://cocoapods.org/pods/Mapbox-macOS-SDK).
 1. Push the podspecs to CocoaPods trunk:
