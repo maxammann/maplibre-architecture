@@ -4,8 +4,7 @@ For some specific use cases, it may be desirable to [sideload](https://en.wikipe
 
 ### Requirements
 
-* A computer running macOS 10.10.0 or above
-* Xcode (optional, for adding metadata to an offline pack)
+A typical environment for developing native iOS or macOS applications.
 
 ### Generate the offline packs
 
