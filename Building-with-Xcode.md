@@ -1,8 +1,8 @@
 ## Building with Xcode
 
-Before getting started, make sure you've [[installed all prerequisites for building Mapbox GL|Workflow →Prerequisites]]
+Before getting started, make sure you've [[installed all prerequisites for building Mapbox GL|Prerequisites]]
 
-To use Xcode, you'll first need to generate a project based on the [[CMake|Workflow → CMake]] files. To do so, open a Terminal window, and run one of these commands [[from your checkout|Workflow → Code]] directory.
+To use Xcode, you'll first need to generate a project based on the [[CMake]] files. To do so, open a Terminal window, and run one of these commands [[from your checkout|Code]] directory.
 
 Run `make xproj` to create a project for building for **macOS**.  
 Run `make iproj` to create a project targeting **iOS**.  
