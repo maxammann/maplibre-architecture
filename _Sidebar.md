@@ -29,6 +29,10 @@
 [[Symbolication|Getting line numbers from an Android crash with ndk stack]]
 
 
+**iOS/macOS:**
+[[Sideloading offline maps]]
+
+
 **Releasing:**
 [[iOS|Releasing the Mapbox iOS SDK]],
 [[macOS|Releasing the Mapbox macOS SDK]],
