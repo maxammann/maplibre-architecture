@@ -1,3 +1,5 @@
+More details for [iOS](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/ios/DEVELOPING.md) and [macOS](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/DEVELOPING.md).
+
 ## Building with Xcode
 
 Before getting started, make sure you've [[installed all prerequisites for building Mapbox GL|Prerequisites]]
