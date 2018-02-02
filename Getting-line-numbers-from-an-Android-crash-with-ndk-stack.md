@@ -43,7 +43,7 @@ To make sense of this tombstone, you need to use `ndk-stack` which is documented
 
 To make integrating ndk-stack more easy, gl-native exposes a couple of make commands as `make android-ndk-stack-{abi}`. Since symbolication of arm-v8 doesn't always produce an actionable stacktrace, we advice building and running ndk-stack against arm-v7:
  - `make clean` # this will delete arm-v8 .so files)
- - `make platform/android/gradle/configuration.gradle` # make clean removes this file, need to regenerate it
+ - `make platform/android/gradle/configuration.gradle` # make clean removed this file
  - `make run-android-arm-v7`
  - `make android-ndk-stack` 
 
