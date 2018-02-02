@@ -41,17 +41,11 @@ This reveals the full native stack trace. However it reports everything using pr
 
 To make sense of this tombstone, you need to use `ndk-stack` which is documented [here](http://developer.android.com/ndk/guides/ndk-stack.html). That page lists a few ways to get a tombstone into `ndk-stack` via file or piping.
 
-However my favourite method is to simply select the lines from logcat (including the very important `*****...` line), paste into a text editor, and save as `crash.txt`.
-
-As for the `ndk-stack` command, the two options it has are `-sym` and `-dump`.
-
-First `-sym` is the path to the Android `.so` file. We want to use the pre-stripped binaries which you will find at `platform/android/MapboxGLAndroidSDK/build/intermediates/cmake/debug/obj/armeabi-v7a/`. Note that `Release` can also be `Debug` and `android-arm-v7` can also be `android-x86-v7` depending on the `make` command you built the library with.
-
-Quick note on stripped binaries: To save download size, Android apps strip the debug symbols from their JNI `.so` libraries before they are shipped. Our `make` does this when copying the `.so` to the `jni-libs` directory in Android Studio.
-
-Next is `-dump`, this is simply the path to the `crash.txt` file you created.
-
-So you end up with `ndk-stack -sym platform/android/MapboxGLAndroidSDK/build/intermediates/cmake/debug/obj/armeabi-v7a/ -dump crash.txt`. If this command fails saying it can't find `ndk-stack` you need to ensure that the root directory of the Android NDK is on your path. (You will have to download this from [here](http://developer.android.com/ndk/downloads/index.html) if you don't have it installed)
+To make integrating ndk-stack more easy, gl-native exposes a couple of make commands as `make android-ndk-stack-{abi}`. Since symbolication of arm-v8 doesn't always produce an actionable stacktrace, we advice building and running ndk-stack against arm-v7:
+ - `make clean` # this will delete arm-v8 .so files)
+ - `make platform/android/gradle/configuration.gradle` # make clean removes this file, need to regenerate it
+ - `make run-android-arm-v7`
+ - `make android-ndk-stack` 
 
 The output from `ndk-stack` will be like:
 ```
