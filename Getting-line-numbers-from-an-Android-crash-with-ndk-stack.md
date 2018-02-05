@@ -1,4 +1,6 @@
-Often when you encounter an Android native crash (ie one inside C++ not Java) or see a bug report with a log attached all you get is this from Android Studio's logcat:
+## Background Information
+
+Often when you encounter an Android native crash (i.e. one inside C++ not Java) or see a bug report with a log attached all you get is this from Android Studio's logcat:
 
 ```
 10-30 10:19:20.848 24358-25130/com.mapbox.mapboxgl.testapp I/mbgl: {Map}[Sprite]: Can't find sprite named 'marsh-16'
@@ -7,13 +9,16 @@ Often when you encounter an Android native crash (ie one inside C++ not Java) or
 10-30 10:19:22.078 24358-24551/com.mapbox.mapboxgl.testapp A/libc: Fatal signal 11 (SIGSEGV), code 1, fault addr 0x3c in tid 24551 (Tkj2y_5pUcsWvCQ)
 ```
 
-The actual crash is the last line. But beyond that it is a segment violation at virtual memory address `0x3c` we have no useful details.
+The actual crash is the last line. Beyond that it's a segment violation at virtual memory address `0x3c` we have no useful details.
 
-The first thing to fix this is to change the logcat filter. You want to set the far right box (probably set to "Show only selected application") to "No Filters". This will reveal all logs the entire Android system and other apps are spewing to logcat. Some phones (Samsung) are worse than others when it comes to logcat noise.
+## Getting full native logs
 
-Next you want to narrow these logs to reveal the "tombstone" (Android speak for a crash report). I have found the easiest way it to type "`/DEBUG`" into the middle textbox (the one with the magnifying glass icon).
+The first thing to fix is to change the logcat filter. You want to set the far right box (probably set to "Show only selected application") to "No Filters". This will reveal all logs the entire Android system and other apps are spewing to logcat. Some phones (Samsung) are worse than others when it comes to logcat noise.
+
+Next you want to narrow these logs to reveal the "tombstone" (Android speak for a crash report). I have found the easiest way it to type "`/DEBUG`" into the middle text box (the one with the magnifying glass icon).
 
 You should get something like this:
+
 ```
 10-30 10:19:22.138 2982-2982/? E/DEBUG: unexpected waitpid response: n=24551, status=0000000b
 10-30 10:19:22.138 2982-2982/? E/DEBUG: tid exited before attach completed: tid 24551
@@ -33,21 +38,25 @@ You should get something like this:
 10-30 10:27:02.688 2982-2982/? I/DEBUG:     #01 pc 00205868  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::_
 10-30 10:27:02.688 2982-2982/? I/DEBUG:     #02 pc 002033e0  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (mbgl::nativeOnResponse(_JNIEnv*, _jobject*, long long, int, _jstring*, _jstring*, _jstring*, _jstring*, _jstring*, _jbyteArray*)+1620)
 10-30 10:27:02.688 2982-2982/? I/DEBUG:     #03 pc 002798b7  /data/dalvik-cache/arm/data@app@com.mapbox.mapboxgl.testapp-2@base.apk@classes.dex
-a
 ```
 
 This reveals the full native stack trace. However it reports everything using program counter addresses (`#00 pc 00360cf8`) which does not mean much to us human types. And often the C++ symbols it does helpfully provide, are not so helpful:
+
 `mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::_`
+
+## Extracting source files and line numbers
 
 To make sense of this tombstone, you need to use `ndk-stack` which is documented [here](http://developer.android.com/ndk/guides/ndk-stack.html). That page lists a few ways to get a tombstone into `ndk-stack` via file or piping.
 
-To make integrating ndk-stack more easy, gl-native exposes a couple of make commands as `make android-ndk-stack-{abi}`. Since symbolication of arm-v8 doesn't always produce an actionable stacktrace, we advice building and running ndk-stack against arm-v7:
- - `make clean` # this will delete arm-v8 .so files)
+To make integrating ndk-stack more easy, this project exposes a couple of `make` commands such as `make android-ndk-stack-{abi}`. Since symbolication of arm-v8 doesn't always produce an actionable stacktrace, we advice building and running ndk-stack against arm-v7:
+
+ - `make clean` # this will delete arm-v8 .so files
  - `make platform/android/gradle/configuration.gradle` # make clean removed this file
  - `make run-android-arm-v7`
  - `make android-ndk-stack` 
 
 The output from `ndk-stack` will be like:
+
 ```
 ********** Crash dump: **********
 Build fingerprint: 'samsung/zerofltedv/zeroflte:5.1.1/LMY47X/G920IDVU3DOJ6:user/release-keys'
@@ -62,6 +71,8 @@ Stack frame #03 pc 002798b7  /data/dalvik-cache/arm/data@app@com.mapbox.mapboxgl
 To understand this, lets take `(mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::basic_string<char, std::_: Routine uv::async::send() at /home/leith/mb/mapbox-gl-native/build/android-arm-v7/../../src/mbgl/util/uv_detail.hpp:124` as an example. In this line we can see the function that crashed is `mbgl::HTTPAndroidRequest::onResponse` and the source file is `src/mbgl/util/uv_detail.hpp` on line 124.
 
 This line is [here](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/util/uv_detail.hpp#L124) which agrees with stack frame #00
+
+## Summary
 
 Note that debug symbols and PC addresses are specific to the last `make` command you ran. This means you need to reproduce the crash locally if someone gives you a raw stack trace from another device/build/etc.
 
