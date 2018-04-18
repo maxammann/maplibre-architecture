@@ -1,5 +1,3 @@
-## Mapbox Maps SDK for Android 6.x.x Migration Guide 
-
 This document describes the required changes needed to update your codebase using v5 of the SDK to the 6.0.0 version.
 
 ### Java 8:
