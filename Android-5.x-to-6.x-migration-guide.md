@@ -15,7 +15,7 @@ The 6.0.0 version of the Mapbox Maps SDK for Android introduces the use of Java 
 
 This can also be done via your project settings (File > Project Structure > Your_Module > Source Compatibility / Target Compatibility). This is no longer required with Android Studio 3.1.0, as the new dex compiler [D8](https://android-developers.googleblog.com/2017/08/next-generation-dex-compiler-now-in.html) will be enabled by default.
 
-### Using expressions vs functions / filters - tips 
+### Using expressions vs functions / filters 
 
 You don't need to worry about using expressions in your project if:
 * you don't style any part of your map at runtime
