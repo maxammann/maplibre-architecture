@@ -15,16 +15,25 @@ The 6.0.0 version of the Mapbox Maps SDK for Android introduces the use of Java 
 
 This can also be done via your project settings (File > Project Structure > Your_Module > Source Compatibility / Target Compatibility). This is no longer required with Android Studio 3.1.0, as the new dex compiler [D8](https://android-developers.googleblog.com/2017/08/next-generation-dex-compiler-now-in.html) will be enabled by default.
 
-
 ### Expressions vs functions / filters:
 
-The 6.0.0 release changes the syntax used to perform apply data driven styling of the map. Functions and filters have been replaced by [expressions](https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions). Any [layout property](https://www.mapbox.com/mapbox-gl-js/style-spec/#layout-property), [paint property](https://www.mapbox.com/mapbox-gl-js/style-spec/#paint-property), or [filter](https://www.mapbox.com/mapbox-gl-js/style-spec/#layer-filter) can now be specified as an *expression*. An expression defines a formula for computing the value of the property using the *operators* described below. The set of expression operators provided by Mapbox GL includes:
+You don't need to worry about using expressions in your project if:
+* you don't style any part of your map at runtime
+* your project only uses [professionally-designed Mapbox map styles](https://www.mapbox.com/maps/) (Streets, Outdoors, Satellite Streets, etc.)
+* your project only uses a style that you've designed via Mapbox Studio
+
+We've removed the old way of using `Stop` functions for runtime styling in the 6.0.0 release of the Maps SDK, so you must use expressions going forward.
+
+If you don't want to re-write your code with runtime styling expressions, you don't have to stop using Mapbox and stop building your project. Just use a version of the Mapbox Maps SDK for Android that is below 6.0.0 and you'll be completely fine until you decide to use 6.0.0 or higher!
+
+The 6.0.0 release changes the syntax used to perform apply data-driven styling of the map. Functions and filters have been replaced by [expressions](https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions). Any [layout property](https://www.mapbox.com/mapbox-gl-js/style-spec/#layout-property), [paint property](https://www.mapbox.com/mapbox-gl-js/style-spec/#paint-property), or [filter](https://www.mapbox.com/mapbox-gl-js/style-spec/#layer-filter) can now be specified as an *expression*. An expression defines a formula for computing the value of the property using the *operators* described below. The set of expression operators provided by Mapbox GL includes:
 
 - Mathematical operators for performing arithmetic and other operations on numeric values
 - Logical operators for manipulating boolean values and making conditional decisions
 - String operators for manipulating strings
 - Data operators, providing access to the properties of source features
 - Camera operators, providing access to the parameters defining the current map view
+
 ### Expressions tips & tricks:
 - Stops should be listed in ascending order
   - If you’ve got a list of stops where the `Object` value for each stop is a number, the stops must be in the order of their values from lowest to highest. In the example below, the two stops that affect the radius of the `CircleLayer`'s circles, are placed in the correct order because 2 is less than 180:
