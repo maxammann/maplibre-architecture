@@ -4,7 +4,6 @@ This document describes the required changes needed to update your codebase usin
 
 The 6.0.0 version of the Mapbox Maps SDK for Android introduces the use of Java 8. To fix any Java versioning issues, ensure that you are using Gradle version of `3.0` or greater. Once you’ve done that, add the following `compileOptions`  to the `android` section of your app-level `build.gradle` file like so:
 
-
     android {
       ...
       compileOptions {
@@ -14,6 +13,15 @@ The 6.0.0 version of the Mapbox Maps SDK for Android introduces the use of Java 
     }
 
 This can also be done via your project settings (File > Project Structure > Your_Module > Source Compatibility / Target Compatibility). This is no longer required with Android Studio 3.1.0, as the new dex compiler [D8](https://android-developers.googleblog.com/2017/08/next-generation-dex-compiler-now-in.html) will be enabled by default.
+
+Adding the `compileOptions` section above also solves the following error when updating the Maps SDK version: 
+```
+Static interface methods are only supported starting with Android N (--min-api 24): com.mapbox.geojson.Geometry com.mapbox.geojson.Geometry.fromJson(java.lang.String)
+Message{kind=ERROR, text=Static interface methods are only supported starting with Android N (--min-api 24): com.mapbox.geojson.Geometry com.mapbox.geojson.Geometry.fromJson(java.lang.String), sources=[Unknown source file], tool name=Optional.of(D8)}
+```
+
+The static interface method used in `com.mapbox.geojson.Geometry` is compatible with any minSdkVersion (see [Supported Java 8 Language Features and APIs](https://developer.android.com/studio/write/java8-support.html#supported_features)).  
+
 
 ### Using expressions vs functions / filters 
 
