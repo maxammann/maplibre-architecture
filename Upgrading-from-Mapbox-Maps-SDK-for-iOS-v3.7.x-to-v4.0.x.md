@@ -1,4 +1,4 @@
-Mapbox Maps SDK for iOS v4.0.0 is the first major version of this SDK since 2015. To upgrade, follow [the installation instructions](https://www.mapbox.com/install/ios/), or run `pod update` with CocoaPods or `carthage update` with Carthage.
+Mapbox Maps SDK for iOS v4.0.0 is the first major version of this SDK since 2015. To upgrade, follow [the installation instructions](https://www.mapbox.com/install/ios/). If you use CocoaPods or Carthage, update the version to `~> 4.0`, then run `pod update` or `carthage update`.
 
 Version 4.0.0 contains [a number of important changes](https://www.mapbox.com/ios-sdk/api/4.0.0/). There are several backwards-incompatible changes to be aware of as you upgrade, which are discussed below.
 
