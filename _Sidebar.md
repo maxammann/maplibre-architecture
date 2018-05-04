@@ -31,6 +31,7 @@
 
 **iOS/macOS:**
 [[Sideloading offline maps]]
+[[Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x|3→4]
 
 
 **Releasing:**
