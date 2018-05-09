@@ -12,7 +12,7 @@ The forward provides helpful links to related tags. When necessary, it also high
 Include only changes that impact developers or end users:
 
 * For final releases: list notable changes since the previous release. This list should be cumulative across all the intervening prereleases. To avoid confusion, omit fixes for regressions that were introduced since the previous release.
-* For prereleases: list notable changes since the previous release or prerelease. Omit fixes for regressions that were introduced since the previous prerelease.
+* For prereleases: list notable changes since the previous release or prerelease. Omit fixes for regressions that were introduced since the previous prerelease, but include fixes for regressions that were present in the preview prerelease. Those fixes may not be listed in the changelog, so you’ll have to make up something on the spot.
 
 ### Categories
 
