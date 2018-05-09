@@ -3,6 +3,12 @@ Release notes are the most visible form of documentation for the Mapbox Map SDK 
 * For **macOS releases**, insert the most recent section of [this changelog](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/CHANGELOG.md) into [this template](Release-notes-template-for-macOS). (The template looks similar for iOS.)
 * For **macOS prereleases**, insert the most recent section of [this changelog](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/CHANGELOG.md) into [this template](Prerelease-notes-template-for-macOS). (The template looks similar for iOS.)
 
+There’s a lot to read here, but it feels less daunting if you first take a look at some example release notes:
+
+* [iOS release](https://github.com/mapbox/mapbox-gl-native/releases/ios-v4.0.0)
+* [iOS prerelease](https://github.com/mapbox/mapbox-gl-native/releases/ios-v4.0.0-rc.1)
+* [macOS release](https://github.com/mapbox/mapbox-gl-native/releases/macos-v0.7.0)
+
 ## Foreword
 
 The forward provides helpful links to related tags. When necessary, it also highlights important compatibility notes, such as the corresponding iOS map SDK version or upcoming compatibility changes.
