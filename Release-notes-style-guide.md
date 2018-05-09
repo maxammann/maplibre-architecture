@@ -27,7 +27,7 @@ Each blurb describes a single change that is notable from the developer’s or e
 * Focus on what changed, not how we changed it.
 * Use complete sentences, but omit the subject “we” to avoid repetitiveness. Cast sentences in the past or past progressive tense, since this is a historical record.
 * Refer to symbols in backticks so that jazzy can automatically link them to the relevant documentation.
-* Link to the pull request that implemented the change. For cherry-picked changes, link to the original PR. There’s no need to use `[link](syntax)`; GitHub automatically links issue numbers.
+* Link to the pull request that implemented the change. For cherry-picked changes, link to the original PR.
 
 ### Example blurbs
 
