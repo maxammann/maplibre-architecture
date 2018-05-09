@@ -33,8 +33,8 @@ _Takes 10–15 minutes_
    1. Optionally, to code-sign Mapbox GL.app, you’ll need to install a provisioning profile for your Mac Developer Program membership.
 1. Make sure your Mac is plugged in, then run `make xdeploy`. A script will build the SDK, package it up, and finally upload the package to a new GitHub release, all the while keeping your computer from falling asleep.
 1. While you wait, [draft a new release](https://github.com/mapbox/mapbox-gl-native/releases/new/). Add release notes based on the release’s section in the changelog. (Unlike the changelog, release notes accept `#123` syntax for linking to PRs.) Use one of these templates:
-   * [Release notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Release-notes-template-for-macOS)
-   * [Prerelease notes template](https://github.com/mapbox/mapbox-gl-native/wiki/Prerelease-notes-template-for-macOS)
+   * [Release notes template](Release-notes-template-for-macOS)
+   * [Prerelease notes template](Prerelease-notes-template-for-macOS)
 1. Once the script runs to completion, it should have drafted a new [GitHub release](https://github.com/mapbox/mapbox-gl-native/releases/) with binary packages attached. Copy the release notes you drafted above into the new release. Title the release `macos-v0.9.8` (where _0.9.8_ is the new version). Save the draft.
 1. Check “This is a pre-release” if applicable, then click “Publish release”. Delete the other draft you made.
 
