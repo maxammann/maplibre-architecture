@@ -59,7 +59,7 @@ This version of the Mapbox Maps SDK for macOS corresponds to version 9.8.7-alpha
 To install this prerelease via CocoaPods, point your Podfile to either of these URLs:
 
 * https://raw.githubusercontent.com/mapbox/mapbox-gl-native/macos-v0.9.8-alpha.1/platform/macos/Mapbox-macOS-SDK.podspec
-* https://raw.githubusercontent.com/mapbox/mapbox-gl-native/macos-v0.9.8-alpha.1/platform/macos/Mapbox-macOS-SDK-symbols.podspec.
+* https://raw.githubusercontent.com/mapbox/mapbox-gl-native/macos-v0.9.8-alpha.1/platform/macos/Mapbox-macOS-SDK-symbols.podspec
 
 Documentation is [available online](https://mapbox.github.io/mapbox-gl-native/macos/0.9.8-alpha.1/) or as part of the download.
 ```
