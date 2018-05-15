@@ -4,7 +4,7 @@ Follow [these guidelines](Release-notes-style-guide) for drafting release notes 
 * Replace `9.8.7` with the corresponding iOS SDK release version.
 * Replace `0.9.7` with the previous macOS SDK release version.
 * Insert the most recent section of [this changelog](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/CHANGELOG.md) into the middle portion of the template.
-* There’s no need to use `[link](syntax)`; GitHub automatically links issue numbers.
+* There’s no need to use `[link](syntax)`; GitHub automatically links issue numbers. Replace `\[#(\d+)\]\(https://github.com/mapbox/mapbox-gl-native/pull/\1\)` in the changelog with `#\1`.
 
 ```markdown
 This version of the Mapbox Maps SDK for macOS corresponds to version 9.8.7 of the Mapbox Maps SDK for iOS. [Changes](https://github.com/mapbox/mapbox-gl-native/compare/macos-v0.9.7...macos-v0.9.8) since [macos-v0.9.7](https://github.com/mapbox/mapbox-gl-native/releases/tag/macos-v0.9.7):
