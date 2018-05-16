@@ -8,10 +8,10 @@ The following terms in the Mapbox Style Specification have different meanings on
 | --- | --- | --- | --- |
 | annotation | Directions API metadata | a point or shape overlay | _Java language feature_; Directions API metadata |
 | attribute | part of an HTML element | vector tile metadata; Directions API metadata | — |
-| bindings | Node something-something | _reactive programming built into Objective-C_ | _reactive programming in Java?_ |
+| bindings | Node something-something | _reactive programming built into Objective-C/Swift_ | _reactive programming in Java?_ |
 | class | a way to toggle paint properties | _language feature_ | _language feature_ |
 | filter | a way to hide features in a layer | _Apple compositing feature_ | a way to hide features in a layer |
-| function | _JavaScript language feature_; a variable property value | _Objective-C language feature_ | _Java language feature_; a variable property value
+| function | _JavaScript language feature_; a variable property value | _2 different Objective-C/Swift language features_ | _Java language feature_; a variable property value
 | id | unique identifier | _Objective-C language keyword_ | unique identifier |
 | layer | similar to an overlay, but part of the map | _Apple animation feature_ | similar to an overlay, but part of the map |
 | map view | an occasion a map is viewed | a container for a map | a container for a map |
@@ -36,6 +36,9 @@ These differences in terminology have led to a number of differences in the libr
 | geometry | shape | geometry annotation | shape |
 | source | content source | source | data source |
 | GeoJSON source | shape source | GeoJSON source | GeoJSON data source |
+| raster source | raster tile source | raster source | raster data source |
+| vector source | vector tile source | vector source | vector data source |
+| — | computed shape source | custom source | — |
 | layer | style layer | layer | layer, style layer |
 | — | OpenGL style layer | custom layer | custom layer |
 | property | attribute | property | property |
@@ -43,10 +46,8 @@ These differences in terminology have led to a number of differences in the libr
 | class | style class | — | class |
 | image | style image | image | image |
 | SDF icon | template image | — | — |
-| function | style function | function | — |
-| zoom function | camera style function | camera function | — |
-| property function | source style function | source function | — |
-| zoom-and-property function | composite style function | composite function | — |
+| expression operator | expression function, predicate operator | expression operator | — |
+| function | — | — | — |
 | filter | predicate | filter | — |
 | rendered features | visible features | rendered features | — |
 | source features | features in source | source features | — |
