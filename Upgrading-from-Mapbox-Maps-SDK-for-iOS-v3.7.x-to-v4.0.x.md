@@ -25,6 +25,8 @@ Old | New
 
 Any classes, methods, or properties that were deprecated in v3.7.6 are no longer available. See your project’s build errors for details about replacements.
 
+The `MGLStyle.localizesLabels` property has been replaced by an `-[MGLStyle localizeLabelsIntoLocale:]` method that applies the same effect. See [this guide](https://www.mapbox.com/help/change-language/#mapbox-maps-sdk-for-ios) for more details.
+
 The SDK no longer supports 32-bit simulators, such as the iPhone 5 and iPad 2 simulators. The SDK continues to support 32-bit devices, but note that the minimum iOS deployment version will increase to iOS 9.0 in a future release.
 
 If you have any questions, please [contact Mapbox’s support team](https://www.mapbox.com/contact/support/).
