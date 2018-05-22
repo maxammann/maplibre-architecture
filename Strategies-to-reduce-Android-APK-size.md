@@ -35,6 +35,6 @@ This app is [open source](https://github.com/mapbox/mapbox-android-demo) and ben
 
 ### Next
 
-The Mapbox team is actively looking at other ways to reduce the SDK size ([for example](https://github.com/mapbox/mapbox-gl-native/issues/5656)).
+The Mapbox team is actively looking at other ways to reduce the SDK size (e.g. [dropping support for deprecated architectures](https://github.com/mapbox/mapbox-gl-native/pull/11458)).
 
 If you have questions or ideas that you'd like to share, please [get in touch with us](https://github.com/mapbox/mapbox-gl-native/issues/new).
