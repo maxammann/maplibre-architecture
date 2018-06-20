@@ -1,4 +1,4 @@
-Congratulations, you’re the proud owner of a new release of the Mapbox Maps SDK for macOS! The process below takes 20–30 minutes.
+Congratulations, you’re the proud owner of a new release of the Mapbox Maps SDK for macOS! The process below takes 20–30 minutes, most of it [babysitting the compiler](https://xkcd.com/303/).
 
 ## When to release
 
