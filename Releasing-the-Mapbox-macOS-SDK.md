@@ -64,7 +64,7 @@ _Takes under 5 minutes_
 1. If this is your first time releasing the Mapbox Maps SDK for macOS:
    1. [Sign up for a CocoaPods trunk account](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#getting-started).
    1. Get one of the [Mapbox-macOS-SDK pod](https://guides.cocoapods.org/making/getting-setup-with-trunk.html#adding-other-people-as-contributors)’s owners to [add you as an owner](https://cocoapods.org/pods/Mapbox-macOS-SDK).
-1. Push the podspecs to CocoaPods trunk:
+1. Once the documentation site finishes publishing the updates, push the podspecs to CocoaPods trunk:
    ```bash
    pod trunk push platform/macos/Mapbox-macOS-SDK.podspec
    pod trunk push platform/macos/Mapbox-macOS-SDK-symbols.podspec
