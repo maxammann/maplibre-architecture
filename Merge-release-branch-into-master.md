@@ -1,7 +1,7 @@
 # Git workflow.
 * `git checkout master`
 * `git pull`
-* `git checkout -b [user]-merge-relase-[tag version]` e.g. `git checkout -b fabian-merge-release-ios-v3.6.0`
+* `git checkout -b [user]-merge-release-[tag version]` e.g. `git checkout -b fabian-merge-release-ios-v3.6.0`
 * `git checkout [release branch]`
 * `git pull`
 * `git checkout [user]-merge-relase-[tag version]` e.g. `git checkout fabian-merge-release-ios-v3.6.0`
