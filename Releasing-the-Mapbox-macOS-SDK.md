@@ -52,7 +52,7 @@ _Takes 5–10 minutes_
    1. If this is your first time updating the style specification documentation, install `yarn` from Homebrew.
    1. Update the `sdk-support` objects in [v8.json](https://github.com/mapbox/mapbox-gl-js/blob/master/src/style-spec/reference/v8.json). The `macos` key in an `sdk-support` object for a particular property indicates the minimum macOS SDK version that supports that property. If the `sdk-support` object is missing a `macos` key, the property is assumed to be unsupported in the macOS SDK.
    1. If the release adds support for features other than properties, update [docs/style-spec/_generate/index.html](https://github.com/mapbox/mapbox-gl-js/blob/master/docs/style-spec/_generate/index.html).
-   1. Run `yarn install && yarn run build-docs` to generate the style specification site.
+   1. Run `yarn install && yarn run build-style-spec` to generate the style specification site.
    1. Commit these changes and open a PR in the mapbox-gl-js repository to get them reviewed and merged. (Keep going while you wait for a review.)
    1. Once the PR is merged, cherry-pick the changes into the mb-pages branch, so that they go live on mapbox.com ahead of the next Mapbox GL JS release.
 1. Edit [this table](https://wiki.openstreetmap.org/wiki/Mapbox_GL#Features) at the OpenStreetMap Wiki to correctly indicate the status of any new features.
