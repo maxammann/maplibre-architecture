@@ -22,7 +22,7 @@ The following terms in the Mapbox Style Specification have different meanings on
 
 ## Platform-specific naming conventions
 
-These differences in terminology have led to a number of differences in the libraries’ public APIs, as illustrated in the following table. 🛣 denotes a term used in a client of the Mapbox Directions API that is used together with a GL library (Mapbox GL Directions, MapboxDirections.swift, Mapbox Java Services).
+These differences in terminology have led to a number of differences in the libraries’ public APIs, as illustrated in the following table. 🛣 denotes a term used in a client of the Mapbox Directions API that is used together with a GL library (Mapbox GL Directions, MapboxDirections.swift, Mapbox Java SDK).
 
 | Web | iOS/macOS | Android | Qt |
 | --- | --- | --- | --- |
