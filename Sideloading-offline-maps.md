@@ -34,11 +34,28 @@ Bundle this cache.db file with your application.
 
 ### Load the offline database
 
-In your iOS or macOS application, identify the portion of your code that runs before any `MGLMapView` is initialized and before the shared `MGLOfflineStorage` object is first invoked. This may be very early in your appication’s life cycle, especially if your user interface is managed by a storyboard. The most likely method would be `-[UIApplicationDelegate application:didFinishLaunchingWithOptions:]` (iOS) or `-[NSApplicationDelegate applicationDidFinishLaunching:]` (macOS). In this method, copy the bundled cache.db to this location ([source](https://github.com/mapbox/mapbox-gl-native/blob/33faa3811e1833ef99e7e9b5be835793c81892f7/platform/darwin/src/MGLOfflineStorage.mm#L139)):
+In your iOS or macOS application, identify the portion of your code that runs before any `MGLMapView` is initialized and before the shared `MGLOfflineStorage` object is first invoked. This may be very early in your appication’s life cycle, especially if your user interface is managed by a storyboard. The most likely method would be `-[UIApplicationDelegate application:didFinishLaunchingWithOptions:]` (iOS) or `-[NSApplicationDelegate applicationDidFinishLaunching:]` (macOS). In this method, copy the bundled cache.db to this location ([source](https://github.com/mapbox/mapbox-gl-native/blob/fdc287ec3608850654196e3b3a682ca3c5039676/platform/darwin/src/MGLOfflineStorage.mm#L142-L169)):
 
 > ~/Library/Application Support/_tld.app.bundle.id_/.mapbox/cache.db
 
 where _tld.app.bundle.id_ is your application’s bundle identifier.
+
+<details> 
+<summary>Code sample (swift): get cache.db path </summary>
+```swift
+  do {
+    let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+    guard let bundleId = Bundle.main.bundleIdentifier else { return }
+    let appSupportDirUrl = URL(fileURLWithPath: paths[0] + "/\(bundleId)")
+    let mapboxDir = appSupportDirUrl.appendingPathComponent(".mapbox")
+    try FileManager.default.createDirectory(at: mapboxDir, withIntermediateDirectories: true, attributes: nil);
+    try FileManager.default.copyItem(at: URL(fileURLWithPath: "<path_to_your_cache.db>"), to: mapboxDir)
+  } catch let error {
+    print("Error: \(error.localizedDescription)");
+  }
+```
+</details>
+
 
 If you set a custom context on your sideloaded offline pack, for example to distinguish it from conventional offline packs, unarchive the `MGLOfflinePack.context` property’s value:
 
