@@ -42,6 +42,7 @@ where _tld.app.bundle.id_ is your application’s bundle identifier.
 
 <details> 
 <summary>Code sample (swift): get cache.db path </summary>
+
 ```swift
   do {
     let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
@@ -54,6 +55,7 @@ where _tld.app.bundle.id_ is your application’s bundle identifier.
     print("Error: \(error.localizedDescription)");
   }
 ```
+
 </details>
 
 
