@@ -17,11 +17,27 @@ Mapbox GL.app is an application that demonstrates the Mapbox Maps SDK for macOS.
 1. Go to Window ‣ Offline Packs.
 1. Click the + button. Enter a name for this offline pack, then click Add. Repeat this step for any offline pack you want to download.
 
-Mapbox GL.app does not allow you to customize the offline packs other than choosing a name. If you need to accompany an offline pack with metadata, then you need to create a custom macOS application using the macOS SDK. Follow [the installation instructions](http://mapbox.github.io/mapbox-gl-native/macos/0.6.0/#installation), then consult the [`MGLOfflineStorage`](http://mapbox.github.io/mapbox-gl-native/macos/0.6.0/Classes/MGLOfflineStorage.html) documentation and/or [this fancy example](https://www.mapbox.com/ios-sdk/examples/offline-pack/) to build the offline downloading harness. When you create the offline pack, create an object and archive it:
+Mapbox GL.app does not allow you to customize the offline packs other than choosing a name and zoom levels. If you need to accompany an offline pack with additional metadata, then you need to create a custom macOS application using the macOS SDK. Follow [the installation instructions](http://mapbox.github.io/mapbox-gl-native/macos/0.6.0/#installation), then consult the [`MGLOfflineStorage`](http://mapbox.github.io/mapbox-gl-native/macos/0.6.0/Classes/MGLOfflineStorage.html) documentation and/or [this fancy example](https://www.mapbox.com/ios-sdk/examples/offline-pack/) to build the offline downloading harness. When you create the offline pack, create an object and archive it:
 
 ```objc
-NSDictionary *userInfo = @{ @"name": @"Wapakoneta and Vicinity", @"sideLoaded": @YES };
-NSData *context = [NSKeyedArchiver archivedDataWithRootObject:userInfo];
+// OfflineMapsViewController.m
+NSDictionary *userInfo = @{
+    @"name": @"Wapakoneta and Vicinity",
+    @"sideLoaded": @YES,
+};
+NSData *context = [NSKeyedArchiver archivedDataWithRootObject:userInfo
+                                        requiringSecureCoding:YES
+                                                        error:NULL];
+```
+
+```swift
+// OfflineMapsViewController.swift
+let userInfo = [
+    "name": "Wapakoneta and Vicinity",
+    "sideLoaded": true,
+]
+let context = try! NSKeyedArchiver.archivedData(withRootObject: userInfo,
+                                                requiringSecureCoding: true)
 ```
 
 ### Bundle the offline database
@@ -40,20 +56,69 @@ In your iOS or macOS application, identify the portion of your code that runs be
 
 where _tld.app.bundle.id_ is your application’s bundle identifier.
 
-<details> 
-<summary>Code sample (swift): get cache.db path </summary>
+```objc
+// AppDelegate.m
+
+// Get the database’s current URL. This code assumes the database is bundled with the application.
+NSURL *sourceURL = [[NSBundle mainBundle] URLForResource:@"cache"
+                                           withExtension:@"db"];
+
+// Get the destination folder URL. This code assumes your application has a bundle identifier set in Info.plist.
+NSURL *appSupportURL = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory
+                                                              inDomain:NSUserDomainMask
+                                                     appropriateForURL:nil
+                                                                create:YES
+                                                                 error:NULL];
+NSString *bundleIdentifier = [[NSBundle main] bundleIdentifier];
+NSURL *mapboxDirectoryURL = [[[NSURL fileURLWithPath:appSupportURL]
+                              URLByAppendingPathComponent:bundleIdentifier isDirectory:YES]
+                             URLByAppendingPathComponent:@".mapbox" isDirectory:YES];
+
+// Create the destination folder if it doesn’t exist.
+[[NSFileManager defaultManager] createDirectoryAtURL:mapboxDirectoryURL
+                         withIntermediateDirectories:YES
+                                          attributes:nil
+                                               error:nil];
+
+// Avoid backing up the offline cache onto iCloud, because it can be redownloaded.
+[mapboxDirectoryURL setResourceValue:@YES
+                              forKey:NSURLIsExcludedFromBackupKey
+                               error:NULL];
+
+// Copy the database to the destination folder.
+NSURL *destinationURL = [mapboxDirectoryURL URLByAppendingPathComponent:@"cache.db"];
+[[NSFileManager defaultManager] copyItemAtURL:sourceURL
+                                        toURL:destinationURL
+                                        error:NULL];
+```
 
 ```swift
-  do {
-    let paths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
-    guard let bundleId = Bundle.main.bundleIdentifier else { return }
-    let appSupportDirUrl = URL(fileURLWithPath: paths[0] + "/\(bundleId)")
-    let mapboxDir = appSupportDirUrl.appendingPathComponent(".mapbox")
-    try FileManager.default.createDirectory(at: mapboxDir, withIntermediateDirectories: true, attributes: nil);
-    try FileManager.default.copyItem(at: URL(fileURLWithPath: "<path_to_your_cache.db>"), to: mapboxDir)
-  } catch let error {
-    print("Error: \(error.localizedDescription)");
-  }
+// AppDelegate.swift
+
+// Get the database’s current URL. This code assumes the database is bundled with the application.
+let sourceURL = Bundle.main.url(forResource: "cache", withExtension: "db")!
+
+// Get the destination folder URL. This code assumes your application has a bundle identifier set in Info.plist.
+let appSupportURL = try! FileManager.default.url(for: .applicationSupportDirectory,
+                                                 in: .userDomainMask,
+                                                 appropriateFor: nil,
+                                                 create: true)
+let bundleIdentifier = Bundle.main.bundleIdentifier!
+let mapboxDirectoryURL = URL(fileURLWithPath: appSupportURL)
+    .appendingPathComponent(bundleIdentifier, isDirectory: true)
+    .appendingPathComponent(".mapbox", isDirectory: true)
+
+// Create the destination folder if it doesn’t exist.
+try! FileManager.default.createDirectory(at: mapboxDirectoryURL,
+                                         withIntermediateDirectories: true,
+                                         attributes: nil)
+
+// Avoid backing up the offline cache onto iCloud, because it can be redownloaded.
+try! (mapboxDirectoryURL as NSURL).setResourceValue(true, forKey: .isExcludedFromBackupKey)
+
+// Copy the database to the destination folder.
+let destinationURL = mapboxDirectoryURL.appendingPathComponent("cache.db")
+try! FileManager.default.copyItem(at: sourceURL, to: destinationURL)
 ```
 
 </details>
@@ -62,8 +127,18 @@ where _tld.app.bundle.id_ is your application’s bundle identifier.
 If you set a custom context on your sideloaded offline pack, for example to distinguish it from conventional offline packs, unarchive the `MGLOfflinePack.context` property’s value:
 
 ```objc
-NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:pack.context];
+// AppDelegate.m
+NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectOfClass:[NSDictionary class]
+                                                          fromData:pack.context
+                                                             error:NULL];
 BOOL wasSideLoaded = [userInfo[@"sideLoaded"] boolValue];
+```
+
+```swift
+// AppDelegate.swift
+let userInfo = try! NSKeyedUnarchiver.unarchiveObject(ofClass: [String: Any].self,
+                                                      from: pack.context)
+let wasSideLoaded = userInfo?["sideLoaded"] as? Bool ?? false
 ```
 
 Note that our SDKs currently do not support sideloading at an arbitrary point after launch. There is only a small window of opportunity during which the offline packs can be sideloaded (in this rather kludgy way).
