@@ -50,7 +50,7 @@ Bundle this cache.db file with your application.
 
 ### Load the offline database
 
-In your iOS or macOS application, download or copy the bundled `cache.db` to a temporary or other writeable location and [add the contents of the file](https://www.mapbox.com/ios-sdk/api/4.5.0/Classes/MGLOfflineStorage.html#/Adding%20Contents%20of%20File) to the offline storage. Use the `[MGLOfflineStorage addContentsOfFile:withCompletionHandler:]` or `[MGLOfflineStorage addContentsOfURL:withCompletionHandler:]` method to merge the offline database into the applications main map cache database.
+In your iOS or macOS application, download or copy the bundled `cache.db` to a temporary or other writeable location and [add the contents of the file](https://www.mapbox.com/ios-sdk/api/4.5.0/Classes/MGLOfflineStorage.html#/Adding%20Contents%20of%20File) to the offline storage. Use the `-[MGLOfflineStorage addContentsOfFile:withCompletionHandler:]` or `-[MGLOfflineStorage addContentsOfURL:withCompletionHandler:]` method to merge the offline database into the applications main map cache database.
 
 ```objc
 // Copy the database to a temporary folder.
