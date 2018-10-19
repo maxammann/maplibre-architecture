@@ -59,7 +59,7 @@ NSURL *databaseURL = [temporaryPathURL URLByAppendingPathComponent:@"cache.db"];
                                         toURL:databaseURL
                                         error:NULL];
 
-[[MGLOfflineStorage sharedOfflineStorage] addContentsOfUrl:destinationURL withCompletionHandler:nil];
+[[MGLOfflineStorage sharedOfflineStorage] addContentsOfURL:databaseURL withCompletionHandler:nil];
 ```
 
 ```swift
@@ -67,7 +67,7 @@ NSURL *databaseURL = [temporaryPathURL URLByAppendingPathComponent:@"cache.db"];
 let databaseURL = temporaryPathURL.appendingPathComponent("cache.db")
 try! FileManager.default.copyItem(at: sourceURL, to: databaseURL)
 
-MGLOfflineStorage.shared.addContents(of:databaseUrl withCompletionHandler: nil)
+MGLOfflineStorage.shared.addContents(of: databaseURL withCompletionHandler: nil)
 ```
 
 </details>
