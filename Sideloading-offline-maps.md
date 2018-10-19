@@ -1,4 +1,4 @@
-For some specific use cases, it may be desirable to [sideload](https://en.wikipedia.org/wiki/Sideloading) one or more offline packs with an application. Mapbox does not officially support the techniques below; they are described here for your convenience.
+For some specific use cases, it may be desirable to [sideload](https://en.wikipedia.org/wiki/Sideloading) one or more offline packs with an application.
 
 ## iOS and macOS
 
