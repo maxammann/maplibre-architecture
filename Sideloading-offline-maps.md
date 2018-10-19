@@ -67,7 +67,7 @@ NSURL *databaseURL = [temporaryPathURL URLByAppendingPathComponent:@"cache.db"];
 let databaseURL = temporaryPathURL.appendingPathComponent("cache.db")
 try! FileManager.default.copyItem(at: sourceURL, to: databaseURL)
 
-MGLOfflineStorage.shared.addContents(of: databaseURL withCompletionHandler: nil)
+MGLOfflineStorage.shared.addContents(of: databaseURL, withCompletionHandler: nil)
 ```
 
 </details>
