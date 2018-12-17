@@ -15,7 +15,8 @@
 
 **Architecture:**
 [[Threads|Threading structure]],
-[[Immutability|Immutability concepts]]
+[[Immutability|Immutability concepts]],
+[[Expressions|Expression Architecture]]
 
 
 **Rendering:**
