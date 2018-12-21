@@ -55,6 +55,7 @@ _Takes 5–10 minutes_
    1. Run `yarn install && yarn run build-style-spec` to generate the style specification site.
    1. Commit these changes and open a PR in the mapbox-gl-js repository to get them reviewed and merged. (Keep going while you wait for a review.)
    1. Once the PR is merged, cherry-pick the changes into the mb-pages branch, so that they go live on mapbox.com ahead of the next Mapbox GL JS release.
+1. Update the [`VERSION_MACOS_MAPS_SDK`](https://github.com/mapbox/ios-sdk/blob/mb-pages/src/constants.js) site variable in the mapbox/ios-sdk repository, or ask for help in the `#gl-collab` Slack channel if you don’t work for Mapbox. This variable affects links to the macOS map SDK release page in the iOS map SDK’s “[Offline sideloading](https://www.mapbox.com/ios-sdk/maps/overview/offline/)” tutorial.
 1. Edit [this table](https://wiki.openstreetmap.org/wiki/Mapbox_GL#Features) at the OpenStreetMap Wiki to correctly indicate the status of any new features.
 
 ## Tell your friends!
