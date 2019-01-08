@@ -27,7 +27,7 @@
 [[JNI|JNI]],
 [[Studio|Android Studio]],
 [[checkstyle|Setting up Mapbox checkstyle]],
-[[APK Size|Strategies to reduce Android APK size]], [[4→5|Android 4.x to 5.0 update]], [[5→6|Android 5.x to 6.x migration guide]],
+[[APK Size|Strategies to reduce Android APK size]], [[4→5|Android 4.x to 5.0 update]], [[5→6|Android 5.x to 6.x migration guide]], [[6→7|Android 6.x to 7.x migration guide]],
 [[Symbolication|Getting line numbers from an Android crash with ndk stack]]
 
 
