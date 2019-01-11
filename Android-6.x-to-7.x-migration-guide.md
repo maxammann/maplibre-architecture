@@ -4,7 +4,7 @@ This document describes the required changes needed to update your code base fro
 
 The default Mapbox style URLs in the `Style` class have been bumped to their new versions. These visually improved map styles also bring changes to the names of layers. If your project queries for a certain map layer ID, make sure the layer is still present in the new version of `Mapbox Streets`, `Mapbox Light`, etc. [Logging each map style name with a `for` loop once the map has been loaded](https://www.mapbox.com/android-docs/maps/overview/styling-map/#retrieving-a-map-layer), is a great way to to view the names of the style’s layers. You can also use Mapbox Studio in a non-mobile browser to view the z-index order and the names of the style’s layers.
 
-## Style object API
+## Style object
 
 `7.0.0` of the Maps SDK introduces the `Style` class. A `Style` object is a representation of the actively shown style on a map. Using the `Style`  class provides more flexibility to create and adjust styles. The relationship between the map and the underlying style, becomes clearer with a dedicated `Style` too.
 
