@@ -87,17 +87,17 @@ Get the map’s `Style` to add a source or layer at a later point in your projec
 The `mapbox_styleUrl` and `mapbox_styleJson` XML attributes have been removed from [the list of useable XML attributes.](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/android/MapboxGLAndroidSDK/src/main/res/values/attrs.xml)  As described above, set the map style URL or JSON inside of the `onMapReady()` callback.
 
 
-## New LatLng & LatLngBounds wrapping
+## New `LatLng` & `LatLngBounds` wrapping
 
 Beginning in `7.0.0`, `LatLng` and `LatLngBounds` longitude values are no longer wrapped from -180 to 180. In order to represent bounds which cross the International Date Line, create longitude pairs of 170 and 190 or -170 and -190.
 
 
-## Listener API removal
+## Listener removal
 
-A couple of releases before `7.0.0`, singular callback methods have been deprecated. Starting in `7.0.0`, we are removing all deprecated listeners from the Maps SDK for Android. You can now register multiple callbacks at the same time for specific events. Some example include registering multiple camera callbacks or map change events. [More about map events](https://www.mapbox.com/android-docs/maps/overview/events/).
+A couple of releases before `7.0.0`, singular callback methods have been deprecated. Starting in `7.0.0`, we are removing all deprecated listeners from the Maps SDK for Android. You can now register multiple callbacks at the same time for specific events. Some examples include registering multiple camera callbacks or map change events. [More about map events](https://www.mapbox.com/android-docs/maps/overview/events/).
 
 
-## Dedicated map change event API
+## Dedicated map change events
 
 Instead of capturing and transmitting all map events to listeners, the `7.0.0` release introduces a callback for each map change event which we support. This limits the overhead caused by the construct as well make it more easy to integrate map change event listeners.
 
@@ -107,18 +107,18 @@ Instead of capturing and transmitting all map events to listeners, the `7.0.0` r
 The `OnMapClickListener` and `OnMapLongClickListener` interfaces now return a `boolean`. Add `return true` if the click should be consumed and not passed further to other listeners registered afterwards. Otherwise, add `return false`.
 
 
-## MarkerView API removal
+## MarkerView removal
 
 The `MarkerView` has been deprecated for a while and with `7.0.0`, it has been removed from the Maps SDK. The Maps SDK `MarkerView` renders and synchronizes an Android SDK View on top of a map. `MarkerView` functionality is now provided in the [Mapbox MarkerView Plugin for Android](https://www.mapbox.com/android-docs/plugins/overview/markerview/).
 
-## Annotations API deprecation
+## Annotations deprecation
 
 Starting in `7.0.0`, the old concept of annotations is deprecated. Classes such as `Polygon`, `Polyline`, and `Marker` will not longer be maintained. This also means classes such as `PolygonOptions` and `PolylineOptions` should not be used. Lastly, this also means that methods such as `addPolygon()`, `addPolyline()`, or `addMarker()` should not be used.
 
 The Maps SDK is now using a more powerful, low-level layer system for adding annotations. A `FillLayer` should be used to create a polygon, a `CircleLayer`  to create a circle, a `LineLayer` to create a polyline, and a `SymbolLayer` to create marker icons and text. To help interact with this annotation system, Mapbox now offers and recommends [the Mapbox Annotation Plugin for Android](https://www.mapbox.com/android-docs/plugins/overview/annotation/). The plugin obfuscates the boilerplate code which is needed to adjust various properties of map text, icons, lines, circles, and polygons.
 
 
-## LocationComponent API
+## LocationComponent
 
 The Maps SDK now has a [`LocationComponent`](https://www.mapbox.com/android-docs/maps/overview/location-component/). It’s responsible for displaying and customizing a device’s location on a Mapbox map. In the past, [the Location Layer Plugin](https://www.mapbox.com/android-docs/plugins/overview/location-layer/) was used for this, but the plugin has now been deprecated. No further work is being put into the plugin and we strongly recommend that you use the `LocationComponent`. 
 
