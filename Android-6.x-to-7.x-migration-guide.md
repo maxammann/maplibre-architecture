@@ -126,6 +126,8 @@ The Maps SDK now has a [`LocationComponent`](https://www.mapbox.com/android-docs
 
 In order to avoid `java.lang.NullPointerException: Attempt to invoke virtual method 'boolean com.mapbox.mapboxsdk.maps.Style.isFullyLoaded()' on a null object reference`, [the provided style parameter in the LocationComponent#activate method](https://github.com/mapbox/mapbox-android-demo/blob/b5970d57e5dac225093ec5923ec92446f3e79146/MapboxAndroidDemo/src/main/java/com/mapbox/mapboxandroiddemo/examples/location/LocationComponentActivity.java#L67) has to be `@NonNull` and fully loaded. The best way is to [pass the style provided in the OnStyleLoaded callback](https://github.com/mapbox/mapbox-android-demo/blob/b5970d57e5dac225093ec5923ec92446f3e79146/MapboxAndroidDemo/src/main/java/com/mapbox/mapboxandroiddemo/examples/location/LocationComponentActivity.java#L54-L55).
 
+The component is no longer restricting the max/min zoom levels of the map to ZL18-ZL2 on activation. This can be achieved with the `MapboxMapOptions#maxZoomPreference` or `MapboxMap#setMaxZoomPreference` and the equivalent `minZoomPreference`.
+
 
 ## Java 7 
 
