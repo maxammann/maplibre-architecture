@@ -162,7 +162,7 @@ A new type of offline region was introduced several releases before `7.0.0`. Thi
     mapbox-android-plugin-places-v7:0.7.0
     mapbox-android-plugin-traffic-v7:0.8.0
 
-
+[https://search.maven.org/#search%7Cga%7C1%7Cg%3A"com.mapbox.mapboxsdk"](https://search.maven.org/#search%7Cga%7C1%7Cg%3A"com.mapbox.mapboxsdk") will show you the latest versions of the plugins.
 
 ## Miscellaneous
 
