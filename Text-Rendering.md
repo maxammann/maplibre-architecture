@@ -160,8 +160,9 @@ We originally did collision detection and line label layout on the background (a
 
 The cumulative effect of the "pitched label quest" of 2017 was a dramatic improvement in the legibility of our maps in pitched views:
 
-![Before: gl-js v0.37, streets-v9](https://camo.githubusercontent.com/3e7ee3a49eaf0b926a275166182bfc18622482a0/68747470733a2f2f64326d787565667165616137736a2e636c6f756466726f6e742e6e65742f735f303033393745384641303744413146443434363441303935343834454542313633443034434239414230333833324435463735423437393435354141454432465f313530373332393436333234315f3337726f746174696f6e2d6c6f6f702e676966)
-![After: gl-js v0.42, streets-v10](https://camo.githubusercontent.com/8d326f41278b19b6938cd614d9c18c027a326ae0/68747470733a2f2f64326d787565667165616137736a2e636c6f756466726f6e742e6e65742f735f303033393745384641303744413146443434363441303935343834454542313633443034434239414230333833324435463735423437393435354141454432465f313530373332393436333339315f3431726f746174696f6e2d6c6f6f702e676966)
+| Before: gl-js v0.37, streets-v9 | After: gl-js v0.42, streets-v10 |
+|---|---|
+| ![Before: gl-js v0.37, streets-v9](https://d2mxuefqeaa7sj.cloudfront.net/s_00397E8FA07DA1FD4464A095484EEB163D04CB9AB03832D5F75B479455AAED2F_1507329463241_37rotation-loop.gif) | ![After: gl-js v0.42, streets-v10](https://d2mxuefqeaa7sj.cloudfront.net/s_00397E8FA07DA1FD4464A095484EEB163D04CB9AB03832D5F75B479455AAED2F_1507329463391_41rotation-loop.gif) |
 
 ## Basics of Collision Detection (aka “Placement”)
 
@@ -220,9 +221,9 @@ It’s a technique for making far-away text somewhat easier to read, and to keep
 
 In the formula, “camera to center” is the distance (don’t worry about the units, although they’re kind of pixel-based) to the point in the center of the viewport. This is a function of the viewport height and the field of view. “camera to anchor” is the distance to the anchor point of a symbol, in the same units. In an un-pitched map, “camera to anchor” is the same as “camera to center” for every point (if you think about this, it’s not actually the same as if you were staring down at a paper map flat on the table!).
 
-
-![Before: Dense, hard-to-read labels in the distance](https://camo.githubusercontent.com/f0f8667baa40ae23ac15c731d1fc42718556005d/68747470733a2f2f64326d787565667165616137736a2e636c6f756466726f6e742e6e65742f735f303033393745384641303744413146443434363441303935343834454542313633443034434239414230333833324435463735423437393435354141454432465f313530373332343130333137355f53637265656e73686f742b323031372d31302d30362b31342e30372e33352e706e67)
-![After: Fewer but larger labels in the distance](https://camo.githubusercontent.com/b0b055dcf437dbbdd1919a39bf106a661ec5b30c/68747470733a2f2f64326d787565667165616137736a2e636c6f756466726f6e742e6e65742f735f303033393745384641303744413146443434363441303935343834454542313633443034434239414230333833324435463735423437393435354141454432465f313530373332343130333136345f53637265656e73686f742b323031372d31302d30362b31342e30382e30312e706e67)
+| Before: Dense, hard-to-read labels in the distance | After: Fewer but larger labels in the distance |
+|---|---|
+![Before: Dense, hard-to-read labels in the distance](https://d2mxuefqeaa7sj.cloudfront.net/s_00397E8FA07DA1FD4464A095484EEB163D04CB9AB03832D5F75B479455AAED2F_1507324103175_Screenshot+2017-10-06+14.07.35.png) | ![After: Fewer but larger labels in the distance](https://d2mxuefqeaa7sj.cloudfront.net/s_00397E8FA07DA1FD4464A095484EEB163D04CB9AB03832D5F75B479455AAED2F_1507324103164_Screenshot+2017-10-06+14.08.01.png)
 
 ## Units, planes, and projections
 
