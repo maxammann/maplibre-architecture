@@ -47,11 +47,11 @@ Once all the dependencies for a tile have been gathered, we send a `getGlyphs` m
 
 *native*
 
-   `SymbolLayout` constructor: [https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/layout/symbol_layout.cpp]()
+   `SymbolLayout` constructor: [symbol_layout.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/layout/symbol_layout.cpp)
 
 *js*
 
-   `SymbolBucket#populate`: [https://github.com/mapbox/mapbox-gl-js/blob/master/src/data/bucket/symbol_bucket.js]()
+   `SymbolBucket#populate`: [symbol_bucket.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/data/bucket/symbol_bucket.js)
 ## GlyphManager
 
 The `GlyphManager` lives on the foreground and its responsibility is responding to `getGlyphs` requests with an SDF bitmap and glyph metrics for every requested glyph. The GlyphManager maintains an in-memory cache, and if all the requested glyphs are already cached, it will return them immediately. If not, it will request them.
@@ -61,7 +61,7 @@ Every style with text has a line like this:
 
 `"glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf"`
 
-This tells the GlyphManager where to request the fonts from (`mapbox://fonts/…` will resolve to something like `https://api.mapbox.com/…`). For each missing glyph, the GlyphManager will request a 256-glyph block containing that glyph. The server is responsible for providing the block of glyphs in a Protobuf-encoded format. Requests to api.mapbox.com (and probably most requests to custom-hosted font servers) are ultimately served by [https://github.com/mapbox/node-fontnik]().
+This tells the GlyphManager where to request the fonts from (`mapbox://fonts/…` will resolve to something like `https://api.mapbox.com/…`). For each missing glyph, the GlyphManager will request a 256-glyph block containing that glyph. The server is responsible for providing the block of glyphs in a Protobuf-encoded format. Requests to api.mapbox.com (and probably most requests to custom-hosted font servers) are ultimately served by [node-fontnik](https://github.com/mapbox/node-fontnik).
 
 When the response comes back over the network, the GlyphManager will upload all the glyphs in the block to its local cache (including ones that weren’t explicitly requested). Once all dependencies are satisfied, it will send a response back to the worker.
 
@@ -92,11 +92,11 @@ At the time we parsed the tile, we created one `SymbolBucket` for each set of sy
 
 *native*
 
-   `SymbolLayout::prepareSymbols`: h[ttps://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/layout/symbol_layout.cpp]()
+   `SymbolLayout::prepareSymbols`: [symbol_layout.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/layout/symbol_layout.cpp)
 
 *js*
 
-   `performSymbolLayout`: [https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/symbol_layout.js]()
+   `performSymbolLayout`: [symbol_layout.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/symbol_layout.js)
 ## Shaping
 
 *Shaping* is the process of choosing how to position glyphs relative to each other. This can be a complicated process, but the basics are pretty simple — we start by placing our first glyph at some origin point, then we advance our “x” coordinate by the “advance” of the glyph, and place our second glyph. When we come to a line break, we reset our “x” coordinate and increment our “y” coordinate by the line height.
@@ -120,11 +120,11 @@ We’ve just added the ability for symbols to automatically change their anchor 
 
 *native*
 
-  `getShaping`: [https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/shaping.cpp]()
+  `getShaping`: [shaping.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/shaping.cpp)
 
 *js*
 
-  `shapeText`: [https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/shaping.js]()
+  `shapeText`: [shaping.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/shaping.js)
 
 
 ## Generating Quads
@@ -135,11 +135,11 @@ After the buffers are generated, background work is essentially done, and we tra
 
 *native*
 
-  [https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/quads.cpp]() and `SymbolLayout::addSymbol`
+  [quads.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/quads.cpp) and `SymbolLayout::addSymbol`
 
 *js*
 
-  [https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/quads.js]() and `SymbolBucket::addSymbol`
+  [quads.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/quads.js) and `SymbolBucket::addSymbol`
 
 
 ## The Foreground
@@ -186,11 +186,11 @@ We have a long tradition of implementing new features and only when we think we�
 
 *native*
 
-  [https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/placement.cpp]() and [https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/cross_tile_symbol_index.cpp]()
+  [placement.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/placement.cpp) and [cross_tile_symbol_index.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/text/cross_tile_symbol_index.cpp)
 
 *js*
 
-  [https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/placement.js]() and [https://github.com/mapbox/mapbox-gl-js/blob/master/test/unit/symbol/cross_tile_symbol_index.js]()
+  [placement.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/placement.js) and [cross_tile_symbol_index.js](https://github.com/mapbox/mapbox-gl-js/blob/master/test/unit/symbol/cross_tile_symbol_index.js)
 
 
 ## Render-time layout for line labels
@@ -207,11 +207,11 @@ We also use this render-time line projection logic to determine which “collisi
 
 *native*
 
-  See `reprojectLineLabels` in [https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/renderer/layers/render_symbol_layer.cpp]()
+  See `reprojectLineLabels` in [render_symbol_layer.cpp](https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/renderer/layers/render_symbol_layer.cp)
 
 *js*
 
-  See `symbolProjection.updateLineLabels` in [https://github.com/mapbox/mapbox-gl-js/blob/master/src/render/draw_symbol.js]()
+  See `symbolProjection.updateLineLabels` in [draw_symbol.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/render/draw_symbol.js)
 ## Perspective Scaling
 
 What’s up with this formula: `0.5 + 0.5 * camera_to_center / camera_to_anchor`?
@@ -266,7 +266,7 @@ In the text rendering code, the `labelPlaneMatrix` takes you from tile units to 
 - Viewport-aligned line labels: use `labelPlaneMatrix` to project to viewport-pixel coordinate space in CPU, do layout, pass “identity” `labelPlaneMatrix` to shader, then apply `glCoordMatrix` in shader.
 - Viewport-aligned point labels: pass tile→viewport-pixel `labelPlaneMatrix` to shader, which applies projection, does pixel-based layout, then projects to GL coords.
 
-For more details on the coordinate systems, see the comments at the header of: [https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/projection.js]()
+For more details on the coordinate systems, see the comments at the header of: [projection.js](https://github.com/mapbox/mapbox-gl-js/blob/master/src/symbol/projection.js)
 
 
 ![cat coordinates](https://camo.githubusercontent.com/ce0887db54be49be6b2a12abc45ec2ee2b170335/68747470733a2f2f64326d787565667165616137736a2e636c6f756466726f6e742e6e65742f735f303234304346304338433645414534434533453530453344464546383235453232333843363132364245374142394231433646313431413638393739363035425f313439373536343031333931345f57617368696e67746f6e2b4d6f6e756d656e742b53637265656e2b436f6f7264696e617465732e706e67)
