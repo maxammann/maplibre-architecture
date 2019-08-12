@@ -4,16 +4,16 @@ This document describes how to generate these offline packages and how to make t
 
 ## Android
 
-#### How is sideloading different than downloading maps?"
+#### How is sideloading different than downloading maps?
  
 Applications built with the <a href="https://docs.mapbox.com/android/maps/overview/">Mapbox Maps SDK for Android</a> can download maps of pre-selected regions for use when the device does not have network connectivity. This process is documented in detail in the <a href="https://www.mapbox.com/help/mobile-offline">Offline maps troubleshooting page</a>.
 
-This system works well for smaller regions where you don’t have a large number of resources to download. (You can use the <a href="https://www.mapbox.com/help/offline-estimator/">offline tile count estimator</a> to understand the number of tiles in a specific region.) But, because tiles are downloaded individually, this approach can be too slow for larger regions and might result in poor user experience. In cases like this, offline sideloading can provide a better solution.
+This system works well for smaller regions where you don’t have a large number of resources to download. You can use the [offline tile count estimator](https://www.mapbox.com/help/offline-estimator) to understand the number of tiles in a specific region. But, because tiles are downloaded individually, this approach can be too slow for larger regions and might result in poor user experience. In cases like this, offline sideloading can provide a better solution.
 
 ### Generate the offline package
 To generate the offline package that contains the tiles and resources for a specific region, you have two options. You can either use a command-line tool, or you can use the macOS graphical interface. The CLI option is appropriate for any operating system, while the macOS option is only available in macOS environments.
 
-Note that the extent of offline capabilities in your mobile app is limited to **6,000 tiles**. For more details on this "tile ceiling", see the [Limitations section](#limitations) of this documentation.
+Note that the extent of offline capabilities in your mobile app is limited to **6,000 tiles**. For more details on this "tile ceiling", see the [limitations section](https://docs.mapbox.com/android/maps/overview/offline/#limitations) of the Maps SDK documentation.
 
 #### Use the command-line tool
 Using a command-line tool is ideal if you want to build your offline packages server-side (for example, in a container) or as part of an automated system like CI in which a graphical interface is either not necessary or not desirable.
