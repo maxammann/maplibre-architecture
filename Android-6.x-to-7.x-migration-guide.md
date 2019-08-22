@@ -47,10 +47,10 @@ Here’s the setup for a `Mapbox Streets` map if Java 8 lambdas are available:
       })
     );
 
-Use the `fromUrl()` method if you’d like to load a custom map style URL, rather than a default Mapbox style (e.g. Streets, Light, Satellite Streets, etc.):
+Use the `fromUri()` method if you’d like to load a custom map style URL, rather than a default Mapbox style (e.g. Streets, Light, Satellite Streets, etc.):
 
 Using a URL:
-`mapboxMap.setStyle(new Style.Builder().fromUrl(UNIQUE_STYLE_URL));`
+`mapboxMap.setStyle(new Style.Builder().fromUri(UNIQUE_STYLE_URL));`
 
 Using JSON:
 `mapboxMap.setStyle(new Style.Builder().fromJson(UNIQUE_STYLE_JSON));`
