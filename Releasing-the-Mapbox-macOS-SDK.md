@@ -19,7 +19,7 @@ _Takes under 5 minutes_
 _Takes under 5 minutes_
 
 1. Decide on a semver-compliant version number according to [these guidelines](https://github.com/mapbox/mapbox-gl-native/wiki/Versions-and-tagging). The version number should be of the form 0.9.8-alpha.1, 0.9.8-beta.1, 0.9.8-rc.1 (for a release candidate), or 0.9.8 (for a final release).
-1. Update the `version` variable in [Mapbox-macOS-SDK.podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/Mapbox-macOS-SDK.podspec) and [Mapbox-macOS-SDK-symbols.podspec](https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/Mapbox-macOS-SDK-symbols.podspec). Commit this change with a commit message like `macos-v0.9.8` and open a PR to get it reviewed and merged.
+1. Run `./platform/macos/scripts/update-version.sh v0.9.8`, where _0.9.8_ is the semver-compliant version you chose in step 1. Commit the resulting changes with a commit message like `macos-v0.9.8` and open a PR to get it reviewed and merged.
 1. Tag the merged podspec changes as `macos-v0.9.8`, where _0.9.8_ is the semver-compliant version you chose in step 1. Push the tag.
 
 ## Publish the release
