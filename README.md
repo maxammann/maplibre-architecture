@@ -6,3 +6,9 @@ This was forked from the mapbox-gl-native [wiki](https://github.com/mapbox/mapbo
 maplibre-gl-native was forked from [d60fd30](d60fd302b1f6563e7d16952f8855122fdcc85f73) which happened on Apr 30, 2020.
 
 The documentation is also valid for maplibre-gl-native. Most of it is also valid for maplibre-gl-js.
+
+## License
+
+```js
+console.log([][[]])
+```
