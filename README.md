@@ -7,8 +7,18 @@ maplibre-gl-native was forked from [d60fd30](d60fd302b1f6563e7d16952f8855122fdcc
 
 The documentation is also valid for maplibre-gl-native. Most of it is also valid for maplibre-gl-js.
 
+## Contributing
+
+Issues are disabled in this repo. If you want to contribute directly create a PR.
+
 ## License
+
+Up until commit 1640f7f:
 
 ```js
 console.log([][[]])
 ```
+
+Changes after 1640f7f:
+
+MIT
