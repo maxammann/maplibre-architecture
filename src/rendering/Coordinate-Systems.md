@@ -16,7 +16,7 @@ I'll start where @lyzidiamond's [awesome devlog on projections and coordinate sy
 
 Let's follow how one point gets transformed through our different coordinate systems. The Washington Monument is located at approximately `(longitude: -77.035915, latitude: 38.889814)` in the WGS84 coordinate system. What happens if we ask Mapbox GL to draw a cat at just that point?
 
-![google made this easy](https://s-media-cache-ak0.pinimg.com/736x/ec/1e/21/ec1e2155bfe783a3e6af18614351eb50.jpg)
+![google made this easy](./google-made-this-easy.jpg)
 
 There are five coordinate systems we'll move through:
 

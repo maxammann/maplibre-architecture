@@ -8,4 +8,4 @@ Each platform is required to provide its own implementation of concurrency/threa
 
 ## Geometry Tile Worker
 
-![geometrytileworker5](https://user-images.githubusercontent.com/375121/51411171-bec29180-1b1b-11e9-9a3e-0214fe8291bd.png)
+![geometrytileworker5](./geometrytileworker5.png)

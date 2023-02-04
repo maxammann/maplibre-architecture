@@ -74,12 +74,12 @@ When local glyph generation is enabled, it’s the glyph manager who’s respons
 
 Once the worker receives glyph information from the foreground, it builds a `GlyphAtlas` out of every glyph that will be used on a tile. The glyph atlas is a single image that will be uploaded as a texture to the GPU along with the rest of the data for the tile. Here’s a visual representation of a glyph atlas:
 
-![GlyphAtlas texture](https://camo.githubusercontent.com/01bda1ad23b4d2197ab00ad84b99cefde41d60e2/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f35323339392f313138313238332f65313261353039322d323230352d313165332d396464662d6534666332306232326233392e706e67)
+![GlyphAtlas texture](./glyphatlastexture.png)
 
 
 Once we’ve uploaded the glyph atlas to the GPU, we can represent each glyph we want to draw as two triangles, where the vertices encode both physical locations on the map but also a “lookup” location within the glyph atlas texture.
 
-![Making a glyph out of two triangles](https://camo.githubusercontent.com/f2d33902255587f99509d05bf41ef932735b3b7e/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f35323339392f313138313238362f65373538633262652d323230352d313165332d386266362d3530336238303763373736612e706e67)
+![Making a glyph out of two triangles](./triangles)
 
 
 The raster format of the glyph is not a typical grayscale encoding — instead, it’s a “signed distance field” (SDF),  a raster format in which the value of each pixel encodes how far away it is from the “edge” of the glyph. SDFs make it easier for us to do things like dynamically resize text or draw “halos” behind text. For an in-depth description, read [Konstantin’s SDF devlog](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817).
@@ -101,7 +101,7 @@ At the time we parsed the tile, we created one `SymbolBucket` for each set of sy
 
 *Shaping* is the process of choosing how to position glyphs relative to each other. This can be a complicated process, but the basics are pretty simple — we start by placing our first glyph at some origin point, then we advance our “x” coordinate by the “advance” of the glyph, and place our second glyph. When we come to a line break, we reset our “x” coordinate and increment our “y” coordinate by the line height.
 
-![Shaping "Hey"](https://cloud.githubusercontent.com/assets/375121/22094138/068c663a-ddc0-11e6-8b70-3866cb8af02a.gif)
+![Shaping "Hey"](./hey.gif)
 
 
 We do shaping in a coordinate system that’s independent for each symbol — basically the positions are always *relative to the symbol anchor.* For `symbol-placement: point`, each glyph gets an “x” and “y” coordinate. For `symbol-placement: line`, we always lay out in a single line and essentially collapse to just “x” coordinates (at render time, we use the line geometry to calculate the actual position of each glyph).
