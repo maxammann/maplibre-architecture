@@ -8,19 +8,19 @@
   * [7: Accelerating 2D rendering using OpenGL ES](https://community.arm.com/graphics/b/blog/posts/mali-performance-7-accelerating-2d-rendering-using-opengl-es)
 * [Mali GPU Application Optimization Guide](https://developer.arm.com/-/media/Files/pdf/graphics-and-multimedia/Guides/DUI0555C_mali_optimization_guide.pdf)
 * [ARM/Mali Performance and Optimization Tutorials](https://developer.arm.com/graphics/tutorials/performance-and-optimization-tutorials)
-* [Adreno OpenGL ES Developer Guide](https://developer.qualcomm.com/download/adrenosdk/adreno-opengl-es-developer-guide.pdf)
+* [Adreno OpenGL ES Developer Guide](https://web.archive.org/web/20160316190830/https://developer.qualcomm.com/qfile/28557/80-nu141-1_b_adreno_opengl_es_developer_guide.pdf)
 * [Mozilla list of Mobile GPU optimization](https://wiki.mozilla.org/Platform/GFX/MobileGPUs) (older)
-* [Optimizations for Tile based deferred GPUs](https://developer.oculus.com/blog/carmacks-critiques-graphics-optimization-for-gear-vr/)
+* [Optimizations for Tile based deferred GPUs](https://web.archive.org/web/20170507011928/https://developer.oculus.com/blog/carmacks-critiques-graphics-optimization-for-gear-vr/)
 * [PowerVR Performance Recommendations](https://community.imgtec.com/?do-download=powervr-performance-recommendations)
-* [PowerVR Presentations](https://community.imgtec.com/developers/powervr/presentations/)
-* [PowerVR Documentation](https://community.imgtec.com/developers/powervr/documentation/)
+* [PowerVR Presentations](https://web.archive.org/web/20140831022302/https://community.imgtec.com/developers/powervr/presentations/)
+* [PowerVR Documentation](https://web.archive.org/web/20140618214946/https://community.imgtec.com/developers/powervr/documentation/)
 * Older PowerVR blog entries
-  * http://blog.imgtec.com/powervr/a-look-at-the-powervr-graphics-architecture-tile-based-rendering
-  * http://blog.imgtec.com/powervr/optimizing-graphics-applications-for-powervr-gpus
-  * http://blog.imgtec.com/powervr/graphics-cores-trying-compare-apples-apples
-  * http://blog.imgtec.com/powervr/understanding-opengl-es-multi-thread-multi-window-rendering
-  * http://blog.imgtec.com/powervr/powervr-gpu-opengl-es-graphics-mobile-for-ten-years-p1
-  * http://blog.imgtec.com/powervr/powervr-gpu-opengl-es-graphics-mobile-for-ten-years-p2
-  * http://blog.imgtec.com/powervr/how-to-improve-your-renderer-on-powervr-based-platforms
-  * http://blog.imgtec.com/powervr/micro-benchmark-your-render-on-powervr-series5-series5xt-and-series6-gpus
-  * http://blog.imgtec.com/powervr/powervr-graphics-we-render-funny
+  * [http://blog.imgtec.com/powervr/a-look-at-the-powervr-graphics-architecture-tile-based-rendering](https://web.archive.org/web/20150405010019/http://blog.imgtec.com/powervr/a-look-at-the-powervr-graphics-architecture-tile-based-rendering)
+  * [http://blog.imgtec.com/powervr/optimizing-graphics-applications-for-powervr-gpus](https://web.archive.org/web/20141230011840/http://blog.imgtec.com/powervr/optimizing-graphics-applications-for-powervr-gpus)
+  * [http://blog.imgtec.com/powervr/graphics-cores-trying-compare-apples-apples](https://web.archive.org/web/20140318032908/http://blog.imgtec.com/powervr/graphics-cores-trying-compare-apples-apples)
+  * [http://blog.imgtec.com/powervr/understanding-opengl-es-multi-thread-multi-window-rendering](https://web.archive.org/web/20140422200753/http://blog.imgtec.com/powervr/understanding-opengl-es-multi-thread-multi-window-rendering)
+  * [http://blog.imgtec.com/powervr/powervr-gpu-opengl-es-graphics-mobile-for-ten-years-p1](https://web.archive.org/web/20140915103848/http://blog.imgtec.com/powervr/powervr-gpu-opengl-es-graphics-mobile-for-ten-years-p1)
+  * [http://blog.imgtec.com/powervr/powervr-gpu-opengl-es-graphics-mobile-for-ten-years-p2](https://web.archive.org/web/20150512102802/http://blog.imgtec.com/powervr/powervr-gpu-opengl-es-graphics-mobile-for-ten-years-p2)
+  * [http://blog.imgtec.com/powervr/how-to-improve-your-renderer-on-powervr-based-platforms](https://web.archive.org/web/20150512092225/http://blog.imgtec.com/powervr/how-to-improve-your-renderer-on-powervr-based-platforms)
+  * [http://blog.imgtec.com/powervr/micro-benchmark-your-render-on-powervr-series5-series5xt-and-series6-gpus](https://web.archive.org/web/20140424015848/http://blog.imgtec.com/powervr/micro-benchmark-your-render-on-powervr-series5-series5xt-and-series6-gpus)
+  * [http://blog.imgtec.com/powervr/powervr-graphics-we-render-funny](https://web.archive.org/web/20150213202741/http://blog.imgtec.com/powervr/powervr-graphics-we-render-funny)
