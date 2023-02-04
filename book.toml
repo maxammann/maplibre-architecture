@@ -1,6 +1,6 @@
 [book]
-authors = ["Maximilian Ammann"]
+authors = ["MapLibre"]
 language = "en"
 multilingual = false
 src = "src"
-title = "MapLibre internals"
+title = "MapLibre Internals"
