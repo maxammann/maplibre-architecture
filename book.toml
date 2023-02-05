@@ -3,4 +3,4 @@ authors = ["MapLibre"]
 language = "en"
 multilingual = false
 src = "src"
-title = "MapLibre Internals"
+title = "MapLibre Architecture"
