@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Android 5.x to 6.x migration guide - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html" class="active"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>This document describes the required changes needed to update your codebase using v5 of the SDK to the 6.0.0 version.</p>
+<h3 id="java-8"><a class="header" href="#java-8">Java 8:</a></h3>
+<p>The 6.0.0 version of the Mapbox Maps SDK for Android introduces the use of Java 8. To fix any Java versioning issues, ensure that you are using Gradle version of <code>3.0</code> or greater. Once you’ve done that, add the following <code>compileOptions</code>  to the <code>android</code> section of your app-level <code>build.gradle</code> file like so:</p>
+<pre><code>android {
+  ...
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+</code></pre>
+<p>This can also be done via your project settings (File &gt; Project Structure &gt; Your_Module &gt; Source Compatibility / Target Compatibility). This is no longer required with Android Studio 3.1.0, as the new dex compiler <a href="https://android-developers.googleblog.com/2017/08/next-generation-dex-compiler-now-in.html">D8</a> will be enabled by default.</p>
+<p>Adding the <code>compileOptions</code> section above also solves the following error when updating the Maps SDK version: </p>
+<pre><code>Static interface methods are only supported starting with Android N (--min-api 24): com.mapbox.geojson.Geometry com.mapbox.geojson.Geometry.fromJson(java.lang.String)
+Message{kind=ERROR, text=Static interface methods are only supported starting with Android N (--min-api 24): com.mapbox.geojson.Geometry com.mapbox.geojson.Geometry.fromJson(java.lang.String), sources=[Unknown source file], tool name=Optional.of(D8)}
+</code></pre>
+<p>The static interface method used in <code>com.mapbox.geojson.Geometry</code> is compatible with any minSdkVersion (see <a href="https://developer.android.com/studio/write/java8-support.html#supported_features">Supported Java 8 Language Features and APIs</a>).</p>
+<h3 id="using-expressions-vs-functions--filters"><a class="header" href="#using-expressions-vs-functions--filters">Using expressions vs functions / filters</a></h3>
+<p>You don't need to worry about using expressions in your project if:</p>
+<ul>
+<li>you don't style any part of your map at runtime</li>
+<li>your project only uses <a href="https://www.mapbox.com/maps/">professionally-designed Mapbox map styles</a> (Streets, Outdoors, Satellite Streets, etc.)</li>
+<li>your project only uses a style that you've designed via Mapbox Studio</li>
+</ul>
+<p>We've removed the old way of using <code>Stop</code> functions for runtime styling in the 6.0.0 release of the Maps SDK, so you must use expressions going forward.</p>
+<p>If you don't want to re-write your code with runtime styling expressions, you don't have to stop using Mapbox and stop building your project. Just use a version of the Mapbox Maps SDK for Android that is below 6.0.0 and you'll be completely fine until you decide to use 6.0.0 or higher!</p>
+<p>The 6.0.0 release changes the syntax used to perform apply data-driven styling of the map. Functions and filters have been replaced by <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions">expressions</a>. Any <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#layout-property">layout property</a>, <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#paint-property">paint property</a>, or <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#layer-filter">filter</a> can now be specified as an <em>expression</em>. An expression defines a formula for computing the value of the property using the <em>operators</em> described below. The set of expression operators provided by Mapbox GL includes:</p>
+<ul>
+<li>Mathematical operators for performing arithmetic and other operations on numeric values</li>
+<li>Logical operators for manipulating boolean values and making conditional decisions</li>
+<li>String operators for manipulating strings</li>
+<li>Data operators, providing access to the properties of source features</li>
+<li>Camera operators, providing access to the parameters defining the current map view</li>
+</ul>
+<h3 id="expressions-tips--tricks"><a class="header" href="#expressions-tips--tricks">Expressions tips &amp; tricks:</a></h3>
+<ul>
+<li>Stops should be listed in ascending order
+<ul>
+<li>If you’ve got a list of stops where the <code>Object</code> value for each stop is a number, the stops must be in the order of their values from lowest to highest. In the example below, the two stops that affect the radius of the <code>CircleLayer</code>'s circles, are placed in the correct order because 2 is less than 180:</li>
+</ul>
+</li>
+</ul>
+<pre><code>    circleRadius(
+      interpolate(
+        exponential(1.75f),
+        zoom(),
+        stop(12, 2),
+        stop(22, 180)
+    )),
+</code></pre>
+<ul>
+<li>Wrap Android <code>int</code> colors with the color expression
+<ul>
+<li><a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions">The</a> <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions">Mapbox</a> <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions">style specif</a><a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions">i</a><a href="https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions">cation</a> exposes the <code>rgb()</code> and <code>rgba()</code> color expressions. To convert an Android <code>int</code> color to a color expression, you need to wrap it with <code>color(int color)</code>. For example:</li>
+</ul>
+</li>
+</ul>
+<pre><code>stop(0, color(Color.parseColor(&quot;#F2F12D&quot;))).
+</code></pre>
+<ul>
+<li>When you don’t type your <code>get()</code> expressions explicitly, it is likely that the expression will implicitly <em>expect</em> them to be a certain type — and fail at runtime. They fall back to the style-spec default if they aren’t the expected type. To alter this behavior, use <code>toString()</code>, <code>toNumber()</code>, <code>toColor()</code>, or <code>toBoolean()</code> to explicitly <em>coerce</em> them to the desired type.</li>
+</ul>
+<h3 id="plugin-support"><a class="header" href="#plugin-support">Plugin support:</a></h3>
+<ul>
+<li>Deprecation of setXListener
+<ul>
+<li>With the 6.0.0 release we are allowing listeners to be set through <code>addXListener</code> to support notifying multiple listeners for plugin support. Passing a <code>null</code> in the add method will listener not result in clearing any listeners. Please use equivalent <code>remove</code>XListener method instead.</li>
+</ul>
+</li>
+</ul>
+<h3 id="location-layer-vs-locationviewtrackingsettings"><a class="header" href="#location-layer-vs-locationviewtrackingsettings">Location layer vs LocationView/trackingsettings:</a></h3>
+<p>With the 6.0.0 release, we are removing the deprecated LocationView and related tracking modes from the Maps SDK. These were deprecated in favor of <a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer">the Location</a> <a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer"></a><a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer">Layer</a> <a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer"></a><a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer">Plugin in</a> <a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer">th</a>e <a href="https://github.com/mapbox/mapbox-plugins-android/tree/master/plugin-locationlayer">plugins repository</a>. The plugin directly renders the user’s location in GL instead of relying on a synchronized Android SDK View. The 0.5.0 version of the Location Layer Plugin is compatible with the 6.0.0 release of the Maps SDK.</p>
+<h3 id="latlngbounds"><a class="header" href="#latlngbounds"><code>LatLngBounds</code>:</a></h3>
+<ul>
+<li>The latitude values should be within a range of -90 to 90 when a  <code>LatLngBounds</code> object is created.</li>
+<li>LatLngBounds.Builder will create bounds with the shortest possible span.</li>
+</ul>
+<pre><code>     // The following bounds will be crossing the antimeridian (new date line)
+     LatLngBounds latLngBounds = new LatLngBounds.Builder()
+      .include(new LatLng(10, -170))
+      .include(new LatLng(-10, 170))
+      .build();
+    
+      // latlngBounds.getSpan() will be 20, 20  
+    
+      // The same could be done with
+      latLngBounds = LatLngBounds.from(10, -170, -10, 170); 
+    
+</code></pre>
+<p>Note that if you need bounds created out of the same points but spanning around different part of the earth (forming a much wider bounds)  you can use:</p>
+<pre><code>    LatLngBounds latLngBounds = LatLngBounds.from(10, 170, -10, -170);
+    // latlngBounds.getSpan() will be 20, 340  
+</code></pre>
+<ul>
+<li>The order of parameters for <code>LatLngBounds.union()</code> has changed. The parameter order for the <code>union()</code> method has been made consistent with other methods. That is: North, East, South, West.</li>
+</ul>
+<h3 id="geojson-changes"><a class="header" href="#geojson-changes">GeoJSON changes:</a></h3>
+<ul>
+<li>GeoJSON objects are immutable</li>
+<li>All <code>setCoordinates()</code> methods are deprecated</li>
+<li>Geometry instantiation methods. </li>
+</ul>
+<p>The <code>fromCoordinates()</code> method on classes which implement  <code>Geometry</code>, were renamed to <code>fromLngLat()</code>. The method name for the <code>Point</code>  class is <code>fromLngLat()</code>.</p>
+<p>The <code>Point</code>, <code>MultiPoint</code>, <code>LineString</code>, <code>MultiLineString</code>, <code>Polygon</code>, and <code>MultiPolygon</code> classes can no longer can be instantiated from an array of <code>double</code>. A  <code>List&lt;Point&gt;</code> should be used instead.</p>
+<p>Pre-6.0.0 way:</p>
+<pre><code>// release 5.x.x:
+ Polygon domTower = Polygon.fromLngLats(new double[][][] {
+          new double[][] {
+              new double[] {
+                  5.12112557888031,
+                  52.09071040847704
+                  },
+              new double[] {
+                  5.121227502822875,
+                  52.09053901776669
+                  },
+              new double[] {
+                  5.121484994888306,
+                  52.090601641371805
+                  },
+              new double[] {
+                  5.1213884353637695,
+                  52.090766439912635
+                  },
+              new double[] {
+                  5.12112557888031,
+                  52.09071040847704
+                  }
+              }
+          });
+</code></pre>
+<p>6.0.0+ way:</p>
+<pre><code>  // release 6.0.0
+  List&lt;List&lt;Point&gt;&gt; lngLats = Arrays.asList(
+    Arrays.asList(
+      Point.fromLngLat(5.12112557888031, 52.09071040847704),
+      Point.fromLngLat(5.121227502822875, 52.09053901776669),
+      Point.fromLngLat(5.121484994888306, 52.090601641371805),
+      Point.fromLngLat(5.1213884353637695, 52.090766439912635),
+      Point.fromLngLat(5.12112557888031, 52.09071040847704)
+    )
+);
+Polygon domTower = Polygon.fromLngLats(lngLats);
+</code></pre>
+<ul>
+<li>Changes to getter methods’ names:</li>
+</ul>
+<p><code>Feature</code> and <code>FeatureCollection</code> getter methods don’t start with the word <code>get</code> any more. For example:</p>
+<ul>
+<li>
+<p><code>Feature.getId()</code> → <code>Feature.id()</code></p>
+</li>
+<li>
+<p><code>Feature.getProperty()</code> → <code>Feature.property()</code></p>
+</li>
+<li>
+<p><code>FeatureCollection.getFeatures()</code> → <code>FeatureCollection.features()</code>, etc</p>
+</li>
+<li>
+<p>The <code>Position</code> class has been removed from the API.  The <code>Point</code> model class was simplified. A <code>Point</code> no longer holds a <code>Point</code>’s coordinates in a <code>Position</code> object.</p>
+</li>
+</ul>
+<p>Before the 6.0.0 release:</p>
+<pre><code>  Position position = Position.fromCoordinates(10, 10);
+  Point point = Point.fromCoordinates(position);
+  Point anotherPoint = Poin.fromCoordinates(new double[]{10d, 10d});
+  double latitude = point.getCoordinates().getLatitude();
+  double longitude = point.getCoordinates().getLongitude();
+</code></pre>
+<p>With the 6.0.0 release, you should do:</p>
+<pre><code>Point point = Point.fromLngLat(10, 10);
+double latitude = point.getLatitude(); // no longer need to getCoordinates() first
+double longitude = point.getLongitude();
+</code></pre>
+<h3 id="plugin-support-1"><a class="header" href="#plugin-support-1">Plugin support:</a></h3>
+<ul>
+<li>Deprecation of setXListener
+<ul>
+<li>With the 6.0.0 release we are allowing listeners to be set through <code>addXListener</code> to support notifying multiple listeners for plugin support. Passing a <code>null</code> in the add method will listener not result in clearing any listeners. Please use equivalent <code>remove</code>XListener method instead.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../android/Setting-up-Mapbox-checkstyle.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../android/Android-6.x-to-7.x-migration-guide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../android/Setting-up-Mapbox-checkstyle.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../android/Android-6.x-to-7.x-migration-guide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Collision Detection - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html" class="active"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="mapbox-gl-collision-detection"><a class="header" href="#mapbox-gl-collision-detection">Mapbox GL Collision Detection</a></h1>
+<p>This document is meant to capture the overall architecture of symbol collision detection at the end of 2017, after making the change to global (e.g. cross-source) viewport-based collision detection.</p>
+<p>Mapbox vector tiles contain a collection of features to draw on a map, along with labels (either text or icons, generically called “symbols”) to attach to those features. Generally, the set of labels in a tile is larger than the set of labels that can be displayed on the screen at one time without overlap. To preserve legibility, we automatically choose subsets of those labels to display on the screen for any given frame: this is what we call “collision detection”. The set of labels that we choose can change dramatically as camera parameters change (pitch/rotation/zoom/etc.) because in general the shape of text itself will not be affected the same way as the underlying geometry the text is attached to.</p>
+<p><strong>Collision Detection Desiderata</strong></p>
+<ul>
+<li>Correct: Labels don’t overlap!</li>
+<li>Prioritized: More important labels are chosen before less important labels</li>
+<li>Deterministic: viewing the same map data from the same camera perspective will always generate the same results</li>
+<li>Stable: During camera operations such as panning/zooming/rotating, labels should not disappear unless there’s no longer space for them on the screen</li>
+<li>Global: collision detection should account for all labels on the screen, no matter their source</li>
+<li>Smooth: when collisions happen, we should be able to animate fade transitions to remove “collided” labels</li>
+<li>Fast: collision detection should be integrated into a 60 FPS rendering loop, which means synchronous calculations that take more than a few milliseconds are unacceptable. On the other hand, latency of a couple hundred milliseconds in actually detecting a new collision is perceptually acceptable.</li>
+</ul>
+<h2 id="basic-strategy"><a class="header" href="#basic-strategy">Basic Strategy</a></h2>
+<p>The core of our collision detection algorithm uses a two-dimensional spatial data structure we call a <code>GridIndex</code> that is optimized for fast insertion and fast querying of “bounding geometries” for symbols on the map. Every time we run collision detection, we go through the set of all items we’d like to display, in order of their importance:</p>
+<ol>
+<li>We use information about the size/style/position of the label, along with the current camera position, to calculate a bounding geometry for the symbol as it will display on the current screen</li>
+<li>We check if the bounding geometry for the symbol fits in unused space in the <code>GridIndex</code>.</li>
+<li>If there’s room, we insert the geometry, thereby marking the space as “used”. Otherwise, we mark this label “collided” and move on to the next label</li>
+</ol>
+<p>The “global”, “smooth”, and “fast” desiderata add an important challenge for Mapbox GL because Mapbox maps are frequently combining data from multiple sources, and any change in any of the sources can potentially affect symbols from all of the other sources (because of “cascade” effects, introducing a symbol B that blocks symbol A could open up room for symbol C to display, which could in turn block a previously-showing symbol D…). To manage this challenge, we use a data structure we call the <code>CrossTileSymbolIndex</code> which allows us to globally synchronize collision detection (and symbol fade animation).</p>
+<h2 id="gridindex"><a class="header" href="#gridindex"><code>GridIndex</code></a></h2>
+<p>The <code>GridIndex</code> is a two-dimensional spatial data structure. Although the data structure itself is context-agnostic, in practice we use a <code>GridIndex</code> in which the 2D plane is the “viewport” — that is, the plane of the device’s screen. This is in contrast to the “tile” or “map” plane used to represent our underlying data. While most map-drawing logic is easiest to process in “map” coordinates, “viewport” coordinates are a better fit for text because in general we prefer text that is aligned flat relative to the screen.</p>
+<p><code>GridIndex</code> holds two types of geometries:</p>
+<ul>
+<li>Rectangles: used to represent “point” labels (e.g. a city name)</li>
+<li>Circles: used to represent “line” labels (e.g. a street name that follows the curve of the street)</li>
+</ul>
+<p>We limit ourselves to these two geometry types because it easy to quickly test for the three possible types of intersection (rectangle-rectangle, circle-circle, and rectangle-circle).</p>
+<p><strong>Rectangles</strong>
+Rectangles are a fairly good fit for point labels because:</p>
+<ul>
+<li>Text in point labels is laid out in a straight line</li>
+<li>Point labels are <em>generally</em> oriented to the viewport, which means their orientation won’t change during map rotation (although their position will change)</li>
+<li>Multi-line point labels are, as much as possible, balanced so that the lines approximate a rectangle: https://github.com/mapbox/hey/issues/6079</li>
+<li>Text is <em>generally</em> drawn on the viewport plane (i.e. flat relative to the screen). When it is drawn “pitched” (i.e. flat relative to the map), a viewport-aligned rectangle can still serve as a reasonable approximation, because the pitched projection of the text will be a trapezoid circumscribed by the rectangle.</li>
+</ul>
+<p><strong>Circles</strong>
+Line labels are represented as a series of circles that follow the course of the underlying line geometry across the length of the label. The circles are chosen so that (1) both the beginning and end of the label will be covered by circles, (2) along the line, the gap between adjacent circles will never be too large, (3) for performance reasons, adjacent circles won’t significantly overlap. The code that chooses which circles to use for a label is tightly integrated with the line label rendering code, and it’s also code we’re thinking of changing: I’ll consider it out of scope for this document.</p>
+<p>Representing a label as several circles is more expensive than representing it as a single rectangle, but still relatively cheap. Using multiple circles allows us to approximate arbitrary line geometries (and in fact there are outstanding feature requests that would require us to support other arbitrary collision geometries such as “don’t let labels get drawn over this lake” — we would probably implement support by converting those geometries into circles first).</p>
+<p>The key benefit of circles relative to rectangles is that they are <em>stable under rotation</em>. Since line labels are attached to map geometry, they necessarily rotate with the map, unlike point labels, which are usually fixed to the viewport orientation. If we were using small rectangles to represent line labels (as we did before the most recent changes), then the <em>viewport-aligned</em> rectangles would rotate relative to the map during map rotation. The rotation change alone could cause two adjacent line labels to collide, violating our “stability” desideratum. Circles, on the other hand, are conveniently totally unaffected by rotation.</p>
+<p><strong>The Grid</strong>
+The “grid” part of <code>GridIndex</code> is a technique for making queries faster that relies on the assumption that most geometries that are stored in the index will only occupy a relatively small portion of the plane. When we use the <code>GridIndex</code> to represent a (for example) 600px by 600px viewport, we split the 600x600px plane into a grid of 400 (20x20) 30px-square “cells”.</p>
+<p>For each bounding geometry we insert, we check to see which cells the geometry intersects with, and make an entry in that cell representing a pointer to the bounding geometry. So for example a rectangle that spans from [x: 10, y: 10] to [x: 70, y: 20] would be inserted into the first three cells in the grid (which would span from [0,0] to [90, 30]).</p>
+<p>When we want to test if a bounding geometry intersects with something already in the <code>GridIndex</code>, we first find the set of cells it intersects with. Then, for each of the cells it intersects with, we look up the set of bounding geometries contained in that cell, and directly test the geometries for intersection.</p>
+<p>Given the assumption that bounding geometries are relatively uniformly distributed (which is a reasonable assumption for map labels), this approach has an attractive algorithmic property: doubling the dimensions of the index (and thus roughly doubling the number of entries) is not expected to have a significant impact on the cost of a query against the index. This is because for any given query the cost of finding the right cells is near constant, and the number of comparisons to run against each cell is a function of the <em>density</em> of the index, but not its overall size. Since our collision detection algorithm has to test every label for collision against every other label, near-constant-time queries allow us to keep collision detection time linear in the number of labels.</p>
+<p>If the cell size is too small, the “fixed” part of a query (looking up cells) becomes too expensive, while if the cell size is too large, the index degenerates towards a case in which every geometry has to be compared against every other geometry on every query. We derived the 30px-square cell size by experimental profiling of common map animations. Conceptually, this is roughly the smallest size at which individual “collision circles” for 16px-high are <em>likely</em> to fit within a single cell and at most four cells. Optimizing for individual circles makes sense because the most expensive collision detection scenario for us is a dense network of road labels, which will be almost entirely represented with circles.</p>
+<h2 id="crosstilesymbolindex"><a class="header" href="#crosstilesymbolindex"><code>CrossTileSymbolIndex</code></a></h2>
+<p>We satisfy the  “smooth” desideratum by using animations to fade symbols in (when they’re newly allowed to appear) and out (when they collide with another label). However, our tile-based map presents a challenge: symbols that are logically separate (e.g. “San Francisco” at zoom level 10 and “San Francisco” at z11) may be <em>conceptually</em> tied together, and the user expects consistent animation between the them (i.e. “San Francisco” should not fade out and fade back in when the z10 version is replaced by the z11 version, and if “San Francisco” is fading in while the zoom level is changing, the animation shouldn’t be interrupted by the zoom level change).</p>
+<p>The <code>CrossTileSymbolIndex</code> solves this problem by providing a global index of all symbols, which identifies “duplicate” symbols across different zoom levels and assigns them a shared unique identifier called a <code>crossTileID</code>.</p>
+<p><strong>Opacities</strong>
+Uploading data to the GPU is expensive, so to satisfy the “fast” desideratum, the only data we upload as a result of collision detection is a small “symbol opacity”, which is a “current opacity” between 0 and 1, and a “target opacity” of either 0 or 1.  The shader running on the GPU is responsible for interpolating between the current opacity and the target opacity using a clock parameter passed in as an argument.</p>
+<p>The output of the collision detection algorithm is used to set the target opacity of every symbol to either 0 or 1. Every time the opacities are updated by collision detection, the “clock parameter” is essentially reset to zero, and the CPU re-calculates the baseline “current opacity”. One way to conceptualize this is “if the current opacity is different from the target opacity, a fade animation is in progress”.</p>
+<p>Working with the shared, unique <code>crossTileID</code> makes it easy to handle smooth animations between zoom levels — instead of storing the current/target opacity for each symbol, we store it once per <code>crossTileID</code>. Then, at render time, we assign that opacity state to the “front-most” symbol, and assign the rest of the symbols the “invisible” opacity state [0,0].</p>
+<p>Consider the “San Francisco” example, in which the label starts a 300ms fade-in while we are at zoom 10, and then we cross over into zoom 11 while the fade is still in progress.</p>
+<ol>
+<li>“San Francisco” at z10 is given <code>crossTileID</code> 12345. It starts fading in, so is given opacity state [0,1].</li>
+<li>z11 tile loads, “San Francisco” is given ID 12345, but at render time given opacity [0,0]</li>
+<li>After 150 ms collision detection runs and opacities are updated. 12345 opacity is updated to [.5,1]</li>
+<li>z10 tile is unloaded. At this point z11 version of “San Francisco” is the front-most symbol for 12345, so it is rendered with [.5,1], allowing the fade-in animation to continue</li>
+<li>After another 150ms, the fade in animation completes (without requiring any opacity updates)</li>
+<li>After another 150ms, collision detection runs again and 12345’s opacity is updated to the “finished” state of [1,1].</li>
+</ol>
+<p>This opacity strategy also gives us a way to start showing the data from newly loaded tiles before we’ve had a chance to re-run the global collision detection algorithm with data from that tile: for symbols that share a cross-tile ID with an already existing symbol, we just pick up the pre-existing opacity state, while we assign all new cross-tile IDs an opacity state of [0,0]. The general effect while zooming in is that a tile will start showing with its most important POIs (the ones shared with the previous zoom level), and then some short period of time after the tile loads, the smaller POIs and road labels will start fading in.</p>
+<p><strong>Detecting Duplicates</strong>
+The <code>CrossTileSymbolIndex</code> is a collection of <code>CrossTileSymbolLayerIndex</code>es: duplicates can only exist within a single layer. Each <code>CrossTileSymbolLayerIndex</code> contains, for each integer zoom level, a map of tile coordinates to a <code>TileLayerIndex</code>. A <code>TileLayerIndex</code> represents all the symbols for a given layer and tile. It has a <code>findMatches</code> method that can identify symbols in its tile/layer that are duplicate with symbols in another tile/layer. The query logic is, for each symbol:</p>
+<ol>
+<li>If the query symbol is text, load the set of symbols that have the exact same text (often just one symbol). If the query symbol is an icon, load the set of all icons.</li>
+<li>Convert the query symbol into “world coordinates” (see https://github.com/mapbox/hey/issues/6350) at the zoom level of the index. If the index is at z11 and the query symbol is at z10, the conversion essentially looks like a doubling of the query coordinates.</li>
+<li>Reduce the precision of the coordinates — this is a type of rounding operation that allows us to detect “very close” coordinates as matches</li>
+<li>For each local symbol, test if the scaled coordinates of the query are within a small “tolerance” limit of each other. If so, mark the query symbol as a duplicate by copying the <code>crossTileID</code> into it.</li>
+</ol>
+<p>The index is updated every time a tile is added to the render tree. On adding a tile, the algorithm is:</p>
+<ol>
+<li>Iterate over all children of the tile in the index, starting from the highest resolution zoom, and find any duplicates. Then, iterate over all parents of this tile, still in order of decreasing zoom. For each symbol in this tile, assign the first duplicate <code>crossTileID</code> you find.</li>
+<li>For each symbol that didn’t get assigned a duplicate <code>crossTileID</code> create a new unique <code>crossTileID</code></li>
+<li>Remove index entries for any tiles that have been removed from the render tree.</li>
+</ol>
+<p>A common operation is to replace a tile at one zoom level with a tile at a higher or lower zoom level. In many cases, the two tiles will both render simultaneously for some period before the old tile is removed, but it is also possible for there to be an instantaneous (i.e. single frame) swap between tiles in the render tree. In this case, an important property of the above algorithm is that the duplicate detection in step (1) happens <em>before</em> the unused tile pruning in step (3).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../architecture/Threading-structure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../architecture/Threading-structure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

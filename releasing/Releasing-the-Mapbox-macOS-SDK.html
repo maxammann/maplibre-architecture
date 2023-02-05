@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Releasing the Mapbox macOS SDK - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html" class="active"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Congratulations, you’re the proud owner of a new release of the Mapbox Maps SDK for macOS! The process below takes 20–30 minutes, most of it <a href="https://xkcd.com/303/">babysitting the compiler</a>.</p>
+<h2 id="when-to-release"><a class="header" href="#when-to-release">When to release</a></h2>
+<p>To the extent possible, we release the Mapbox Maps SDK for macOS in tandem with the <a href="https://github.com/mapbox/mapbox-gl-native/wiki/Releasing-the-Mapbox-iOS-SDK">Mapbox Maps SDK for iOS</a>, so that developers who work on both platforms can count on feature parity and the same bug fixes between the two SDKs. However, if a critical bug fix affects only macOS, we may issue an out-of-band release of the macOS SDK; conversely, we may delay the macOS SDK release if a critical issue arises in the iOS SDK.</p>
+<h2 id="prepare-for-release"><a class="header" href="#prepare-for-release">Prepare for release</a></h2>
+<p><em>Takes under 5 minutes</em></p>
+<ol>
+<li>Skim the <a href="https://github.com/mapbox/mapbox-gl-native/issues?q=is%3Aopen+is%3Aissue+label%3AmacOS">issues tagged <kbd>macOS</kbd></a> or <a href="https://github.com/mapbox/mapbox-gl-native/issues?utf8=%E2%9C%93&amp;q=is%3Aopen%20is%3Aissue%20macOS%20">issues mentioning “macOS”</a> in case there are any showstoppers.</li>
+<li>Run <code>tx pull -a</code> to <a href="https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/DEVELOPING.md#adding-a-localization">add or update translations</a>.</li>
+<li>Update the first section of <a href="https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/CHANGELOG.md">the changelog</a> to reflect any notable changes to the SDK, shared iOS/macOS code, or mbgl since the previous release. <a href="https://github.com/mapbox/mapbox-gl-native/compare/">Compare</a> the previous release tag with master or the release branch to find notable changes. Look in particular for commit messages prefixed with <code>[macos]</code>, <code>[ios, macos]</code>, or <code>[core]</code>.</li>
+<li>If <a href="https://github.com/mapbox/mapbox-gl-native/blob/master/platform/macos/docs/img/screenshot.jpg">the screenshot</a> hasn’t been updated in awhile, compose a new version that shows off the new release’s features. Try to show styles, cities, or features <a href="https://github.com/mapbox/mapbox-gl-native/issues/7877">that haven’t been depicted</a> in the macOS SDK screenshot before.</li>
+<li>Commit these changes and open a PR to get them reviewed and merged.</li>
+</ol>
+<h2 id="tag-the-release"><a class="header" href="#tag-the-release">Tag the release</a></h2>
+<p><em>Takes under 5 minutes</em></p>
+<ol>
+<li>Decide on a semver-compliant version number according to <a href="https://github.com/mapbox/mapbox-gl-native/wiki/Versions-and-tagging">these guidelines</a>. The version number should be of the form 0.9.8-alpha.1, 0.9.8-beta.1, 0.9.8-rc.1 (for a release candidate), or 0.9.8 (for a final release).</li>
+<li>Run <code>./platform/macos/scripts/update-version.sh v0.9.8</code>, where <em>0.9.8</em> is the semver-compliant version you chose in step 1. Commit the resulting changes with a commit message like <code>macos-v0.9.8</code> and open a PR to get it reviewed and merged.</li>
+<li>Tag the merged podspec changes as <code>macos-v0.9.8</code>, where <em>0.9.8</em> is the semver-compliant version you chose in step 1. Push the tag.</li>
+</ol>
+<h2 id="publish-the-release"><a class="header" href="#publish-the-release">Publish the release</a></h2>
+<p><em>Takes 10–15 minutes</em></p>
+<ol>
+<li>Run <code>xcodebuild -version</code> or <code>xcode-select -p</code> to make sure you’re building with the right version of Xcode.</li>
+<li>If this is your first time releasing the Mapbox Maps SDK for macOS:
+<ol>
+<li>Install <code>wget</code> and <a href="https://github.com/aktau/github-release/"><code>github-release</code></a> from Homebrew and <a href="https://rubygems.org/gems/caffeinate"><code>caffeinate</code></a> from RubyGems.</li>
+<li>Add <code>export GITHUB_TOKEN='8BADF00DDEADBEEFC00010FF'</code> to your .bash_profile, where <em>8BADF00DDEADBEEFC00010FF</em> is a <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">new GitHub personal access token</a>.</li>
+<li>Optionally, to code-sign Mapbox GL.app, you’ll need to install a provisioning profile for your Mac Developer Program membership.</li>
+</ol>
+</li>
+<li>Make sure your Mac is plugged in, then run <code>make xdeploy</code>. A script will build the SDK, package it up, and finally upload the package to a new GitHub release, all the while keeping your computer from falling asleep.</li>
+<li>While you wait, <a href="https://github.com/mapbox/mapbox-gl-native/releases/new/">draft a new release</a>. Add release notes based on the release’s section in the changelog. (Unlike the changelog, release notes accept <code>#123</code> syntax for linking to PRs.) Use one of these templates:
+<ul>
+<li><a href="Release-notes-template-for-macOS">Release notes template</a></li>
+<li><a href="Prerelease-notes-template-for-macOS">Prerelease notes template</a></li>
+</ul>
+</li>
+<li>Once the script runs to completion, it should have drafted a new <a href="https://github.com/mapbox/mapbox-gl-native/releases/">GitHub release</a> with binary packages attached. Copy the release notes you drafted above into the new release. Title the release <code>macos-v0.9.8</code> (where <em>0.9.8</em> is the new version). Save the draft.</li>
+<li>Check “This is a pre-release” if applicable, then click “Publish release”. Delete the other draft you made.</li>
+</ol>
+<h2 id="update-the-documentation"><a class="header" href="#update-the-documentation">Update the documentation</a></h2>
+<p><em>Takes 5–10 minutes</em></p>
+<ol>
+<li>Update the <a href="https://mapbox.github.io/mapbox-gl-native/macos/">Mapbox Maps SDK for macOS documentation site</a> (which is also bundled with the SDK):
+<ol>
+<li>Clone mapbox-gl-native to a mapbox-gl-native-pages folder alongside your main mapbox-gl-native clone, and check out the <code>gh-pages</code> branch.</li>
+<li>In your main mapbox-gl-native clone, check out the release branch and run <code>make xdocument STANDALONE=1 OUTPUT=../mapbox-gl-native-pages/macos/0.9.8</code>, where <em>0.9.8</em> is the new SDK version.</li>
+<li>In mapbox-gl-native-pages, edit <a href="https://github.com/mapbox/mapbox-gl-native/blob/gh-pages/macos/index.html">macos/index.html</a> and macos/docsets/Mapbox.xml to refer to the new SDK version.</li>
+<li>In mapbox-gl-native-pages, edit <a href="https://github.com/mapbox/mapbox-gl-native/blob/gh-pages/macos/Mapbox-macOS-SDK.json">macos/Mapbox-macOS-SDK.json</a> and <a href="https://github.com/mapbox/mapbox-gl-native/blob/gh-pages/macos/Mapbox-macOS-SDK-symbols.json">macos/Mapbox-macOS-SDK-symbols.json</a>.</li>
+<li>Commit and push your changes to the <code>gh-pages</code> branch.</li>
+</ol>
+</li>
+<li>If any new style properties or features are supported in the new release, update the “SDK support” tables in the <a href="https://www.mapbox.com/mapbox-gl-js/style-spec/">style specification documentation</a>:
+<ol>
+<li>If this is your first time updating the style specification documentation, install <code>yarn</code> from Homebrew.</li>
+<li>Update the <code>sdk-support</code> objects in <a href="https://github.com/mapbox/mapbox-gl-js/blob/master/src/style-spec/reference/v8.json">v8.json</a>. The <code>macos</code> key in an <code>sdk-support</code> object for a particular property indicates the minimum macOS SDK version that supports that property. If the <code>sdk-support</code> object is missing a <code>macos</code> key, the property is assumed to be unsupported in the macOS SDK.</li>
+<li>If the release adds support for features other than properties, update <a href="https://github.com/mapbox/mapbox-gl-js/blob/master/docs/style-spec/_generate/index.html">docs/style-spec/_generate/index.html</a>.</li>
+<li>Run <code>yarn install &amp;&amp; yarn run build-style-spec</code> to generate the style specification site.</li>
+<li>Commit these changes and open a PR in the mapbox-gl-js repository to get them reviewed and merged. (Keep going while you wait for a review.)</li>
+<li>Once the PR is merged, cherry-pick the changes into the mb-pages branch, so that they go live on mapbox.com ahead of the next Mapbox GL JS release.</li>
+</ol>
+</li>
+<li>Edit <a href="https://wiki.openstreetmap.org/wiki/Mapbox_GL#Features">this table</a> at the OpenStreetMap Wiki to correctly indicate the status of any new features.</li>
+</ol>
+<h2 id="tell-your-friends"><a class="header" href="#tell-your-friends">Tell your friends!</a></h2>
+<p><em>Takes under 5 minutes</em></p>
+<ol>
+<li>If this is your first time releasing the Mapbox Maps SDK for macOS:
+<ol>
+<li><a href="https://guides.cocoapods.org/making/getting-setup-with-trunk.html#getting-started">Sign up for a CocoaPods trunk account</a>.</li>
+<li>Get one of the <a href="https://guides.cocoapods.org/making/getting-setup-with-trunk.html#adding-other-people-as-contributors">Mapbox-macOS-SDK pod</a>’s owners to <a href="https://cocoapods.org/pods/Mapbox-macOS-SDK">add you as an owner</a>.</li>
+</ol>
+</li>
+<li>Once the documentation site finishes publishing the updates, push the podspecs to CocoaPods trunk:
+<pre><code class="language-bash">pod trunk push platform/macos/Mapbox-macOS-SDK.podspec
+pod trunk push platform/macos/Mapbox-macOS-SDK-symbols.podspec
+</code></pre>
+</li>
+<li>Copy <code>pod</code>’s success message and let Mapbox’s Mobile team know about the new release by sending this message to the <code>#mobile</code> Slack channel if you work for Mapbox or the <code>#gl-collab</code> Slack channel if you don’t.</li>
+<li>Submit an update to <a href="https://osmbc.openstreetmap.de/">OSMBC</a> to get a mention in the next issue of <a href="http://www.weeklyosm.eu/">WeeklyOSM</a>.</li>
+</ol>
+<p>Whew! Now you can close the release’s <a href="https://github.com/mapbox/mapbox-gl-native/milestones/">milestone</a> and create one for the next release!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../releasing/Merge-release-branch-into-master.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../releasing/Releasing-the-Mapbox-iOS-SDK.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../releasing/Merge-release-branch-into-master.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../releasing/Releasing-the-Mapbox-iOS-SDK.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

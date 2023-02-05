@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Terminology across platforms - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html" class="active"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Each of the GL libraries uses different terminology in its public APIs. This is because each library attempts to feel natural to developers on that platform.</p>
+<h2 id="conflicts-in-usage"><a class="header" href="#conflicts-in-usage">Conflicts in usage</a></h2>
+<p>The following terms in the Mapbox Style Specification have different meanings on the native platforms. The table below examines these terms along with a limited selection of terms from the GL libraries’ public APIs. Definitions in <em>italics</em> denote concepts that the Mapbox GL developers have no control over.</p>
+<div class="table-wrapper"><table><thead><tr><th>Term</th><th>Web</th><th>iOS/macOS</th><th>Android</th></tr></thead><tbody>
+<tr><td>annotation</td><td>Directions API metadata</td><td>a point or shape overlay</td><td><em>Java language feature</em>; Directions API metadata</td></tr>
+<tr><td>attribute</td><td>part of an HTML element</td><td>vector tile metadata; Directions API metadata</td><td>—</td></tr>
+<tr><td>bindings</td><td>Node something-something</td><td><em>reactive programming built into Objective-C/Swift</em></td><td><em>reactive programming in Java?</em></td></tr>
+<tr><td>class</td><td>a way to toggle paint properties</td><td><em>language feature</em></td><td><em>language feature</em></td></tr>
+<tr><td>filter</td><td>a way to hide features in a layer</td><td><em>Apple compositing feature</em></td><td>a way to hide features in a layer</td></tr>
+<tr><td>function</td><td><em>JavaScript language feature</em>; a variable property value</td><td><em>2 different Objective-C/Swift language features</em></td><td><em>Java language feature</em>; a variable property value</td></tr>
+<tr><td>id</td><td>unique identifier</td><td><em>Objective-C language keyword</em></td><td>unique identifier</td></tr>
+<tr><td>layer</td><td>similar to an overlay, but part of the map</td><td><em>Apple animation feature</em></td><td>similar to an overlay, but part of the map</td></tr>
+<tr><td>map view</td><td>an occasion a map is viewed</td><td>a container for a map</td><td>a container for a map</td></tr>
+<tr><td>region</td><td>—</td><td>akin to bounding box</td><td>bundle of resources for offline usage</td></tr>
+<tr><td>plugin</td><td><em>browser feature</em>; GL helper library</td><td>GL helper library; <em>obscure application extension feature</em> (macOS)</td><td>GL helper library</td></tr>
+<tr><td>point</td><td>1D shape</td><td>unit of distance; 1D shape</td><td>1D shape</td></tr>
+<tr><td>property</td><td><em>JavaScript language feature</em>; an option for a style layer or vector feature</td><td><em>Objective-C/Swift language feature</em></td><td><em>Java language feature</em>; an option for a style layer or vector feature</td></tr>
+</tbody></table>
+</div>
+<h2 id="platform-specific-naming-conventions"><a class="header" href="#platform-specific-naming-conventions">Platform-specific naming conventions</a></h2>
+<p>These differences in terminology have led to a number of differences in the libraries’ public APIs, as illustrated in the following table. 🛣 denotes a term used in a client of the Mapbox Directions API that is used together with a GL library (Mapbox GL Directions, MapboxDirections.swift, Mapbox Java SDK).</p>
+<div class="table-wrapper"><table><thead><tr><th>Web</th><th>iOS/macOS</th><th>Android</th><th>Qt</th></tr></thead><tbody>
+<tr><td>pixel</td><td>point</td><td>pixel</td><td>pixel</td></tr>
+<tr><td>—</td><td>pixel</td><td>—</td><td>—</td></tr>
+<tr><td>symbol</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>—</td><td>annotation</td><td>marker, annotation</td><td>annotation</td></tr>
+<tr><td>marker</td><td>annotation view</td><td>marker view</td><td>—</td></tr>
+<tr><td>sprite</td><td>annotation image</td><td>marker icon</td><td>annotation icon</td></tr>
+<tr><td>popup</td><td>callout, callout view; popover (macOS)</td><td>info window</td><td>—</td></tr>
+<tr><td>geometry</td><td>shape</td><td>geometry annotation</td><td>shape</td></tr>
+<tr><td>source</td><td>content source</td><td>source</td><td>data source</td></tr>
+<tr><td>GeoJSON source</td><td>shape source</td><td>GeoJSON source</td><td>GeoJSON data source</td></tr>
+<tr><td>raster source</td><td>raster tile source</td><td>raster source</td><td>raster data source</td></tr>
+<tr><td>vector source</td><td>vector tile source</td><td>vector source</td><td>vector data source</td></tr>
+<tr><td>—</td><td>computed shape source</td><td>custom source</td><td>—</td></tr>
+<tr><td>layer</td><td>style layer</td><td>layer</td><td>layer, style layer</td></tr>
+<tr><td>—</td><td>OpenGL style layer</td><td>custom layer</td><td>custom layer</td></tr>
+<tr><td>property</td><td>attribute</td><td>property</td><td>property</td></tr>
+<tr><td>id</td><td>identifier</td><td>id</td><td>id</td></tr>
+<tr><td>class</td><td>style class</td><td>—</td><td>class</td></tr>
+<tr><td>image</td><td>style image</td><td>image</td><td>image</td></tr>
+<tr><td>SDF icon</td><td>template image</td><td>—</td><td>—</td></tr>
+<tr><td>expression operator</td><td>expression function, predicate operator</td><td>expression operator</td><td>—</td></tr>
+<tr><td>function</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>filter</td><td>predicate</td><td>filter</td><td>—</td></tr>
+<tr><td>rendered features</td><td>visible features</td><td>rendered features</td><td>—</td></tr>
+<tr><td>source features</td><td>features in source</td><td>source features</td><td>—</td></tr>
+<tr><td>—</td><td>offline pack</td><td>offline region</td><td>—</td></tr>
+<tr><td>—</td><td>offline region</td><td>offline region definition</td><td>—</td></tr>
+<tr><td>—</td><td>offline storage</td><td>offline manager</td><td>offline cache database</td></tr>
+<tr><td>attribution</td><td>attribution</td><td>attribution</td><td>copyrights</td></tr>
+<tr><td>bearing</td><td>direction, heading</td><td>bearing</td><td>bearing</td></tr>
+<tr><td>padding</td><td>edge insets, edge padding</td><td>content padding</td><td>margins</td></tr>
+<tr><td>LngLat</td><td>coordinate</td><td>LatLng</td><td>coordinate</td></tr>
+<tr><td>bounds, bbox</td><td>coordinate bounds, region</td><td>LatLng bounds</td><td>bounds</td></tr>
+<tr><td>project/unproject</td><td>convert</td><td>project/unproject</td><td>—</td></tr>
+<tr><td>camera options</td><td>map camera</td><td>camera</td><td>—</td></tr>
+<tr><td>—</td><td>user location annotation view, user dot</td><td>my location view</td><td>—</td></tr>
+<tr><td>event listener</td><td>observer</td><td>listener</td><td>signal</td></tr>
+<tr><td>handler</td><td>gesture recognizer</td><td>—</td><td>—</td></tr>
+<tr><td>—</td><td>swipe</td><td>swipe, fling</td><td>—</td></tr>
+<tr><td>click</td><td>tap (iOS) / click (macOS)</td><td>click, touch</td><td>click</td></tr>
+<tr><td>double-click</td><td>double-tap (iOS) / double-click (macOS)</td><td>double-touch</td><td>double-click</td></tr>
+<tr><td>—</td><td>long tap (iOS) / press (macOS)</td><td>long click, long press</td><td>—</td></tr>
+<tr><td>pan</td><td>pan, scroll</td><td>scroll</td><td>pan</td></tr>
+<tr><td>scroll, zoom</td><td>pinch</td><td>pinch</td><td>scale</td></tr>
+<tr><td>annotation 🛣</td><td>attribute</td><td>annotation</td><td>—</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../misc/Release-notes-template-for-macOS.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../misc/Release-notes-template-for-macOS.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
