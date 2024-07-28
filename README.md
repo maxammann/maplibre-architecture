@@ -1,5 +1,7 @@
 # MapLibre Architecture
 
+View it [here](https://maxammann.github.io/maplibre-architecture/).
+
 
 This was forked from the mapbox-gl-native [wiki](https://github.com/mapbox/mapbox-gl-native/wiki) commit [1640f7f](https://github.com/mapbox/mapbox-gl-native/wiki/Text-Rendering/1640f7f5ada816e335b3b71cadaba80ce29fa7bb) (Apr 27, 2020).
 
