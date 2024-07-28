@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Android 4.x to 5.x migration guide - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html" class="active"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="upgrade-from-4x"><a class="header" href="#upgrade-from-4x">Upgrade from 4.x</a></h1>
+<p>We've been hard at work making our maps SDK work even better than previous versions. Both performance improvements and new features have been added to the SDK. This meant we had to change up some of the APIs you were using. This document walks through the steps to take when making the upgrade.</p>
+<h3 id="manifest"><a class="header" href="#manifest">Manifest</a></h3>
+<p>If your project's manifest file contains the telemetry service. <em>You can remove it</em>. It is now merged automatically using Manifest Merging.</p>
+<h3 id="adding-new-lifecycles"><a class="header" href="#adding-new-lifecycles">Adding new lifecycles</a></h3>
+<p>Part of supporting Android Nougat means we have to also support the new Multi-Window feature. This required us to move some of the logic to the <code>onStart()</code> and <code>onStop()</code> methods. When switching over to 5.0, Android Studio won't complain about these missing but when compiling your application will immediately crash if you don't add them to the activity:</p>
+<pre><code class="language-java">@Override
+protected void onStart() {
+  super.onStart();
+  mapView.onStart();
+}
+
+@Override
+protected void onStop() {
+  super.onStop();
+  mapView.onStop();
+}
+</code></pre>
+<p><strong>Note:</strong> These new map view lifecycles are in addition to all the ones required in 4.x</p>
+<h3 id="mapbox-attribution-name-changes"><a class="header" href="#mapbox-attribution-name-changes">Mapbox attribution name changes</a></h3>
+<p>We've made significant improvements to our attribution naming. All attributes now start with <code>mapbox_</code> for easier identifying and removing any potential conflicts with other libraries. In addition, many of the attributes are now named after their Java counterpart. Instead of listing all the changes that have occurred, you might find the <a href="https://github.com/mapbox/mapbox-gl-native/blob/master/platform/android/MapboxGLAndroidSDK/src/main/res/values/attrs.xml"><code>attrs.xml</code></a> file which has all the names. Some of the common attributes you might use in your XML map view are given in the table below:</p>
+<div class="table-wrapper"><table><thead><tr><th>4.x attribute names</th><th style="text-align: center">5.0 attribute names</th></tr></thead><tbody>
+<tr><td><code>center_latitude</code></td><td style="text-align: center"><code>mapbox_cameraTargetLat</code></td></tr>
+<tr><td><code>center_longitude</code></td><td style="text-align: center"><code>mapbox_cameraTargetLng</code></td></tr>
+<tr><td><code>zoom</code></td><td style="text-align: center"><code>mapbox_cameraZoom</code></td></tr>
+<tr><td><code>direction</code></td><td style="text-align: center"><code>mapbox_cameraBearing</code></td></tr>
+<tr><td><code>tilt</code></td><td style="text-align: center"><code>mapbox_cameraTilt</code></td></tr>
+<tr><td><code>style_url</code></td><td style="text-align: center"><code>mapbox_styleUrl</code></td></tr>
+<tr><td><code>zoom_max</code></td><td style="text-align: center"><code>mapbox_cameraZoomMax</code></td></tr>
+<tr><td><code>zoom_min</code></td><td style="text-align: center"><code>mapbox_cameraZoomMin</code></td></tr>
+<tr><td><code>rotate_enabled</code></td><td style="text-align: center"><code>mapbox_uiRotateGestures</code></td></tr>
+</tbody></table>
+</div>
+<p>Note that the <code>access_token</code> attribution doesn't exist anymore, more on this in the next sections.</p>
+<h4 id="style-string-name-changes"><a class="header" href="#style-string-name-changes">Style string name changes</a></h4>
+<p>You can still access the default map style urls by using <code>mapbox:mapbox_styleUrl=&quot;@string/</code> but the string id's have changed to include <code>mapbox_</code> in front of them. For example, <code>@string/style_light</code> now becomes <code>@string/mapbox_style_light</code>.</p>
+<h3 id="mapbox-access-token"><a class="header" href="#mapbox-access-token">Mapbox access token</a></h3>
+<p>There is now only one method where you should be setting your access token. If you were previously setting the access token in XML, this is no longer an option. in 4.x you'd set your access token through the <code>MapboxAccountManager</code> object which could either belong in the application class (preferred) or in your activities class before <code>setContentView</code> is called. To set the access token now, see the example below:</p>
+<pre><code class="language-java">Mapbox.getInstance(this, &quot;&lt;Access token here&gt;&quot;);
+</code></pre>
+<p>If you want to get the access token to pass into another API (common when using mapbox-java) you can get it with:</p>
+<pre><code class="language-java">Mapbox.getAccessToken()
+</code></pre>
+<h3 id="user-location-changes"><a class="header" href="#user-location-changes">User location changes</a></h3>
+<p>In 5.0 we have made significant changes to the way developers get user location information. We have introduced the <code>LocationSource</code> object and the <code>LocationEngine</code>. Inside your onCreate() method you can include this:</p>
+<pre><code>LocationEngine locationEngine = LocationSource.getLocationEngine(this);
+</code></pre>
+<p>Using the locationEngine object you can now add listeners to handle location changes, request and remove location request and much more. For more information, checkout our <a href="https://www.mapbox.com/mapbox-java/#locationengine">new documentation</a>.</p>
+<h3 id="custom-marker-icon"><a class="header" href="#custom-marker-icon">Custom marker icon</a></h3>
+<p>Starting in 5.0 we only allow creation of marker icons from a bitmap file. This means if you were creating the icon from a drawable before, you'll now need to convert it to a bitmap before creating the icon object. Which means <code>fromDrawable()</code> method of <code>IconFactory</code> is not available anymore.</p>
+<p>Old code:</p>
+<pre><code class="language-java">IconFactory iconFactory = IconFactory.getInstance(FooActivity.this);
+Drawable iconDrawable = ContextCompat.getDrawable(FooActivity.this, R.drawable.foo_icon);
+Icon icon = iconFactory.fromDrawable(iconDrawable);
+</code></pre>
+<p>New code:</p>
+<pre><code class="language-java">IconFactory iconFactory = IconFactory.getInstance(FooActivity.this);
+Icon icon = iconFactory.fromResource(R.drawable.foo_icon);
+</code></pre>
+<h3 id="runtime-zoom-function"><a class="header" href="#runtime-zoom-function">Runtime zoom function</a></h3>
+<p>With 5.0, we introduced data-driven-styling which includes changes to the zoom function you might have previously been using. In 4.x it looked like this:</p>
+<pre><code class="language-java">layer.setProperties(fillColor(zoom(0.8f,
+            stop(1, fillColor(Color.GREEN)),
+            stop(4, fillColor(Color.BLUE)),
+            stop(12, fillColor(Color.RED)),
+            stop(20, fillColor(Color.YELLOW))
+        )));
+</code></pre>
+<p>and now, you have the options of having an exponential or interval behavior, here we are using exponential:</p>
+<pre><code class="language-java">//Set a zoom function to update the color of the water
+          layer.setProperties(fillColor(zoom(exponential(
+                  stop(1f, fillColor(Color.GREEN)),
+                  stop(8.5f, fillColor(Color.BLUE)),
+                  stop(10f, fillColor(Color.RED)),
+                  stop(18f, fillColor(Color.YELLOW))
+          ))));
+</code></pre>
+<h3 id="runtime-nosuchlayerexception-removed"><a class="header" href="#runtime-nosuchlayerexception-removed">Runtime <code>NoSuchLayerException</code> removed</a></h3>
+<p>In 5.0 we have removed the <code>NoSuchLayerException</code> commonly used to check if the layer exist in the map or not. The new, more appropriate way of handling this will be first acquiring the layer and then checking if it is null before interacting with it.</p>
+<h3 id="other-methods-you-might-be-using"><a class="header" href="#other-methods-you-might-be-using">Other methods you might be using</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>4.x method names</th><th style="text-align: center">5.0 method names</th></tr></thead><tbody>
+<tr><td><code>MapboxMap.getMaxZoom()</code></td><td style="text-align: center"><code>MapboxMap.getMaxZoomLevel()</code></td></tr>
+<tr><td><code>mapView.getStyleUrl()</code></td><td style="text-align: center"><code>mapboxMap.getStyleUrl()</code></td></tr>
+<tr><td><code>map.getMarkerViewManager().scheduleViewMarkerInvalidation()</code></td><td style="text-align: center"><code>map.getMarkerViewManager().update()</code></td></tr>
+</tbody></table>
+</div>
+<hr />
+<p>This is not actually a migration issue but something you should be aware of when working with SDK and MAS in the same project. You might run into a dependencies conflict when mixing different versions of them because some depend on each other (nested dependencies). In order to avoid it you should tell Gradle what to do within the <code>build.gradle</code> file. For example:</p>
+<pre><code class="language-groovy">compile('com.mapbox.mapboxsdk:mapbox-android-sdk:5.0.0@aar') {
+        transitive = true
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-java-geojson'
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
+}
+
+compile 'com.mapbox.mapboxsdk:mapbox-android-ui:2.0.0'
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../android/Strategies-to-reduce-Android-APK-size.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../android/Strategies-to-reduce-Android-APK-size.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

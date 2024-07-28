@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Prototyping with Framer - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html" class="active"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Here's how you can prototype your mobile app in Framer.js with real Mapbox maps. This way your integrated team can move fast on design decisions and use real map styles from day 1.</p>
+<p>Mapbox is the best tool for integrated teams of mobile developers, UX designers, and graphic designers. We want to support apps that are custom to the core and tuned exactly for your app. If you already use Framer.js for this purpose, this tutorial should fit right into your process.</p>
+<p>The intent of this tutorial is to integrate Mapbox GL JS into your Framer prototypes. For your native apps, you'll use the <a href="http://mapbox.com/ios-sdk">Mapbox iOS SDK</a> and <a href="https://www.mapbox.com/android-sdk/">Mapbox Android SDK</a> for that truly native performance, but since Framer is based on web technologies, our JavaScript code will work perfectly.</p>
+<p>To get started, you'll need:</p>
+<ul>
+<li><a href="http://framerjs.com/">Framer.js</a></li>
+<li><a href="https://nodejs.org/en/">nodejs &amp; npm</a></li>
+</ul>
+<p>If you haven't used a terminal before, the first step will be the hardest, but it'll be all fun after that.</p>
+<h2 id="installing"><a class="header" href="#installing">Installing</a></h2>
+<p>You can either have an existing Framer project, or create a new, blank one. Framer projects exist on your computers as folders named something like <code>YourProject.framer</code>, and contain CoffeeScript source code and a directory called <code>modules</code>. We're going to install Mapbox GL JS into your project as a module.</p>
+<p>Open a <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">terminal</a> and navigate to your project folder. If your project is in your Documents folder instead of in your home folder, you'd type <code>~/Documents/my-framer-project</code></p>
+<pre><code class="language-sh">$ cd ~/my-framer-project
+</code></pre>
+<p>Next we'll install the latest version of Mapbox GL JS, using npm:</p>
+<pre><code class="language-sh">$ npm install mapbox-gl
+</code></pre>
+<p>Great: once this is done we have the Mapbox GL JS source code downloaded. To access it from your project, though, we'll need a file that connects it. Create a new file in the <code>modules</code> directory inside of your project and call it <code>npm.coffee</code>. Give it these contents:</p>
+<pre><code class="language-coffeescript">exports.mapboxgl = require &quot;mapbox-gl&quot;
+</code></pre>
+<p>Now your project will be able to require Mapbox GL JS. This is something you'll do at the top of your Framer project, a single line that tells the project to pull in the <code>mapboxgl</code> object, making mapping available.</p>
+<pre><code class="language-coffeescript">{ mapboxgl } = require &quot;npm&quot;
+</code></pre>
+<p>Once you have <code>mapboxgl</code> imported, you can start adding maps.</p>
+<p>Two notes before we pull together that source code:</p>
+<ul>
+<li>Maps are added in HTML elements, and by default Framer makes HTML non-interactive. This is why we add the line <code>mapboxLayer.ignoreEvents = false</code> - this turns events back on, so you can pan and zoom the map. You can omit this line if you want maps to be non-interactive.</li>
+<li>Framer scales prototypes at a number of ratios - you might look at your prototype at 75% scale to view a high-resolution mockup on a small laptop screen. Mapbox GL JS will act a little strangely at scales that aren't 100% - panning the map might seem a slower. You can count on the map behaving correctly at 100% scale.</li>
+</ul>
+<pre><code class="language-coffeescript">{ mapboxgl } = require &quot;npm&quot;
+
+
+# Here we're creating a new HTML layer
+# for the map to live inside of, and scaling
+# it to fit the entire window
+mapHeight = Screen.height
+mapWidth = Screen.width
+
+mapboxLayer = new Layer
+mapboxLayer.ignoreEvents = false
+mapboxLayer.width = mapWidth
+mapboxLayer.height = mapHeight
+mapboxLayer.html = &quot;&lt;div id='map'&gt;&lt;/div&gt;&quot;
+mapElement = mapboxLayer.querySelector(&quot;#map&quot;)
+mapElement.style.height = mapHeight + 'px'
+
+# Set your Mapbox access token here!
+mapboxgl.accessToken = '{your_access_token}'
+
+map = new mapboxgl.Map({
+    container: mapElement
+    zoom: 12.5
+    center: [-77.01866, 38.888]
+    # here we're using a default style:
+    # you can use any of the defaults or a
+    # custom style you design in Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v8'
+    hash: true
+})
+</code></pre>
+<p>That's it! The <code>map</code> object you have access to in Framer will have the same methods and properties as <a href="http://mapbox.com/mapbox-gl-js">the Mapbox GL JS API</a>.</p>
+<p>For instance, if you want to add a button that zooms the map, you can add this code to the bottom of the prototype:</p>
+<pre><code class="language-coffeescript">layerA = new Layer
+    x: 100
+    y: 100
+    width: 200
+    height: 200
+    borderRadius: 200
+    opacity: 1
+    backgroundColor: &quot;white&quot;
+
+layerA.onClick -&gt;
+    map.zoomTo 10
+</code></pre>
+<p>Have fun prototyping!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../misc/Release-notes-template-for-macOS.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../misc/Prerelease-notes-template-for-macOS.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../misc/Release-notes-template-for-macOS.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../misc/Prerelease-notes-template-for-macOS.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

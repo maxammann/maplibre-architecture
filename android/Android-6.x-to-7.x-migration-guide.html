@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Android 6.x to 7.x migration guide - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html" class="active"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>This document describes the required changes needed to update your code base from a <code>6.x.x</code> version of the Maps SDK for Android to a <code>7.x.x</code> version.</p>
+<h2 id="new-mapbox-default-styles"><a class="header" href="#new-mapbox-default-styles">New Mapbox default styles</a></h2>
+<p>The default Mapbox style URLs in the <code>Style</code> class have been bumped to their new versions. These visually improved map styles also bring changes to the names of layers. If your project queries for a certain map layer ID, make sure the layer is still present in the new version of <code>Mapbox Streets</code>, <code>Mapbox Light</code>, etc. <a href="https://www.mapbox.com/android-docs/maps/overview/styling-map/#retrieving-a-map-layer">Logging each map style name with a <code>for</code> loop once the map has been loaded</a>, is a great way to to view the names of the style’s layers. You can also use Mapbox Studio in a non-mobile browser to view the z-index order and the names of the style’s layers.</p>
+<h2 id="style-object"><a class="header" href="#style-object">Style object</a></h2>
+<p><code>7.0.0</code> of the Maps SDK introduces the <code>Style</code> class. A <code>Style</code> object is a representation of the actively shown style on a map. Using the <code>Style</code>  class provides more flexibility to create and adjust styles. The relationship between the map and the underlying style, becomes clearer with a dedicated <code>Style</code> too.</p>
+<p>A <code>Style</code>  object <em><strong>must</strong></em> be created and given to the map for the map to appear properly.  Create a <code>Style</code> by using a:</p>
+<ul>
+<li>default Mapbox style URL via the <code>Style</code> class</li>
+<li>custom map style URL from a Mapbox account</li>
+<li>JSON string</li>
+</ul>
+<p>Before <code>7.0.0</code>, the map would default to the Mapbox Streets style if no style URL was given to the Maps SDK. Beginning with <code>7.0.0</code>, there's no longer any defaulting to the Mapbox Streets style. If the style fails to load or an invalid style URL is set, the map will become blank. An error message will be logged in the Android logcat and the <code>MapView.OnDidFailLoadingMapListener</code> callback will be triggered.</p>
+<p>Here’s the setup for a <code>Mapbox Streets</code> map if Java 8 lambdas aren’t available:</p>
+<pre><code>mapView.getMapAsync(new OnMapReadyCallback() {
+  @Override
+  public void onMapReady(MapboxMap mapboxMap) {
+
+    mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+      @Override
+      public void onStyleLoaded(@NonNull Style style) {
+
+        // Map is set up and the style has loaded. Now you can add
+        // data or make other map adjustments
+
+
+
+      }
+    });
+  }
+});
+</code></pre>
+<p>Here’s the setup for a <code>Mapbox Streets</code> map if Java 8 lambdas are available:</p>
+<pre><code>mapView.getMapAsync(mapboxMap -&gt;
+  mapboxMap.setStyle(Style.MAPBOX_STREETS, style -&gt; {
+
+    // Map is set up and the style has loaded. Now you can add data or make other map adjustments
+
+
+  })
+);
+</code></pre>
+<p>Use the <code>fromUri()</code> method if you’d like to load a custom map style URL, rather than a default Mapbox style (e.g. Streets, Light, Satellite Streets, etc.):</p>
+<p>Using a URL:
+<code>mapboxMap.setStyle(new Style.Builder().fromUri(UNIQUE_STYLE_URL));</code></p>
+<p>Using JSON:
+<code>mapboxMap.setStyle(new Style.Builder().fromJson(UNIQUE_STYLE_JSON));</code></p>
+<p>Use a builder object to compose all components of a style. <code>Style.Builder()</code> provides additional style-related components such as sources, layers, images. Use the builder to configure the style transition options.</p>
+<pre><code>mapboxMap.setStyle(new Style.Builder()
+         .withLayer(
+           new BackgroundLayer(&quot;bg&quot;)
+             .withProperties(backgroundColor(rgb(120, 161, 226)))
+         )
+         .withLayer(
+           new SymbolLayer(&quot;symbols-layer&quot;, &quot;symbols-source&quot;)
+             .withProperties(iconImage(&quot;test-icon&quot;))
+         )
+         .withSource(
+           new GeoJsonSource(&quot;symbols-source&quot;, testPoints)
+         )
+         .withImage(&quot;test-icon&quot;, markerImage)
+);
+</code></pre>
+<p>Get the map’s <code>Style</code> to add a source or layer at a later point in your project:</p>
+<pre><code>mapboxMap.getStyle().addLayer(layerObject);
+
+
+mapboxMap.getStyle().addSource(sourceObject);
+</code></pre>
+<h2 id="xml-attributes"><a class="header" href="#xml-attributes">XML attributes</a></h2>
+<p>The <code>mapbox_styleUrl</code> and <code>mapbox_styleJson</code> XML attributes have been removed from <a href="https://github.com/mapbox/mapbox-gl-native/blob/master/platform/android/MapboxGLAndroidSDK/src/main/res/values/attrs.xml">the list of useable XML attributes.</a>  As described above, set the map style URL or JSON inside of the <code>onMapReady()</code> callback.</p>
+<h2 id="new-latlng--latlngbounds-wrapping"><a class="header" href="#new-latlng--latlngbounds-wrapping">New <code>LatLng</code> &amp; <code>LatLngBounds</code> wrapping</a></h2>
+<p>Beginning in <code>7.0.0</code>, <code>LatLng</code> and <code>LatLngBounds</code> longitude values are no longer wrapped from -180 to 180. In order to represent bounds which cross the International Date Line, create longitude pairs of 170 and 190 or -170 and -190.</p>
+<h2 id="listener-removal"><a class="header" href="#listener-removal">Listener removal</a></h2>
+<p>A couple of releases before <code>7.0.0</code>, singular callback methods have been deprecated. Starting in <code>7.0.0</code>, we are removing all deprecated listeners from the Maps SDK for Android. You can now register multiple callbacks at the same time for specific events. Some examples include registering multiple camera callbacks or map change events. <a href="https://www.mapbox.com/android-docs/maps/overview/events/">More about map events</a>.</p>
+<h2 id="dedicated-map-change-events"><a class="header" href="#dedicated-map-change-events">Dedicated map change events</a></h2>
+<p>Instead of capturing and transmitting all map events to listeners, the <code>7.0.0</code> release introduces a callback for each map change event which we support. This limits the overhead caused by the construct as well make it more easy to integrate map change event listeners.</p>
+<h2 id="mapclicklistener-booleans"><a class="header" href="#mapclicklistener-booleans"><code>MapClickListener</code> booleans</a></h2>
+<p>The <code>OnMapClickListener</code> and <code>OnMapLongClickListener</code> interfaces now return a <code>boolean</code>. Add <code>return true</code> if the click should be consumed and not passed further to other listeners registered afterwards. Otherwise, add <code>return false</code>.</p>
+<h2 id="markerview-removal"><a class="header" href="#markerview-removal">MarkerView removal</a></h2>
+<p>The <code>MarkerView</code> has been deprecated for a while and with <code>7.0.0</code>, it has been removed from the Maps SDK. The Maps SDK <code>MarkerView</code> renders and synchronizes an Android SDK View on top of a map. <code>MarkerView</code> functionality is now provided in the <a href="https://www.mapbox.com/android-docs/plugins/overview/markerview/">Mapbox MarkerView Plugin for Android</a>.</p>
+<h2 id="annotations-deprecation"><a class="header" href="#annotations-deprecation">Annotations deprecation</a></h2>
+<p>Starting in <code>7.0.0</code>, the old concept of annotations is deprecated. Classes such as <code>Polygon</code>, <code>Polyline</code>, and <code>Marker</code> will not longer be maintained. This also means classes such as <code>PolygonOptions</code> and <code>PolylineOptions</code> should not be used. Lastly, this also means that methods such as <code>addPolygon()</code>, <code>addPolyline()</code>, or <code>addMarker()</code> should not be used.</p>
+<p>The Maps SDK is now using a more powerful, low-level layer system for adding annotations. A <code>FillLayer</code> should be used to create a polygon, a <code>CircleLayer</code>  to create a circle, a <code>LineLayer</code> to create a polyline, and a <code>SymbolLayer</code> to create marker icons and text. To help interact with this annotation system, Mapbox now offers and recommends <a href="https://www.mapbox.com/android-docs/plugins/overview/annotation/">the Mapbox Annotation Plugin for Android</a>. The plugin obfuscates the boilerplate code which is needed to adjust various properties of map text, icons, lines, circles, and polygons.</p>
+<h2 id="locationcomponent"><a class="header" href="#locationcomponent">LocationComponent</a></h2>
+<p>The Maps SDK now has a <a href="https://www.mapbox.com/android-docs/maps/overview/location-component/"><code>LocationComponent</code></a>. It’s responsible for displaying and customizing a device’s location on a Mapbox map. In the past, <a href="https://www.mapbox.com/android-docs/plugins/overview/location-layer/">the Location Layer Plugin</a> was used for this, but the plugin has now been deprecated. No further work is being put into the plugin and we strongly recommend that you use the <code>LocationComponent</code>. </p>
+<p><a href="https://github.com/mapbox/mapbox-android-demo/tree/b5970d57e5dac225093ec5923ec92446f3e79146/MapboxAndroidDemo/src/main/java/com/mapbox/mapboxandroiddemo/examples/location">See the 7.0.0.-compatible LocationComponent examples in the Mapbox Android Demo app</a> to see correct code for using the <code>LocationComponent</code> in <code>7.0.0</code>.</p>
+<p>In order to avoid <code>java.lang.NullPointerException: Attempt to invoke virtual method 'boolean com.mapbox.mapboxsdk.maps.Style.isFullyLoaded()' on a null object reference</code>, <a href="https://github.com/mapbox/mapbox-android-demo/blob/b5970d57e5dac225093ec5923ec92446f3e79146/MapboxAndroidDemo/src/main/java/com/mapbox/mapboxandroiddemo/examples/location/LocationComponentActivity.java#L67">the provided style parameter in the LocationComponent#activate method</a> has to be <code>@NonNull</code> and fully loaded. The best way is to <a href="https://github.com/mapbox/mapbox-android-demo/blob/b5970d57e5dac225093ec5923ec92446f3e79146/MapboxAndroidDemo/src/main/java/com/mapbox/mapboxandroiddemo/examples/location/LocationComponentActivity.java#L54-L55">pass the style provided in the OnStyleLoaded callback</a>.</p>
+<p>The component is no longer restricting the max/min zoom levels of the map to ZL18-ZL2 on activation. This can be achieved with the <code>MapboxMapOptions#maxZoomPreference</code> or <code>MapboxMap#setMaxZoomPreference</code> and the equivalent <code>minZoomPreference</code>.</p>
+<h2 id="java-7"><a class="header" href="#java-7">Java 7</a></h2>
+<p>Starting in <code>7.0.0</code>, support for Java 8 language features is reverted in the Maps SDK. As result, you won’t be forced to enable Java 8 language features in your project. You can remove the following code block from the <code>android</code> section of your app’s <code>build.gradle</code> file:</p>
+<pre><code>compileOptions {
+     sourceCompatibility JavaVersion.VERSION_1_8
+     targetCompatibility JavaVersion.VERSION_1_8
+}
+</code></pre>
+<h2 id="offlineregiondefinition"><a class="header" href="#offlineregiondefinition">OfflineRegionDefinition</a></h2>
+<p>A new type of offline region was introduced several releases before <code>7.0.0</code>. This region is based on a specific geometry instead of a bounding box. Because we couldn’t change the interface definition in a minor Maps SDK release, this update was postponed until the <code>7.0.0</code> release. This update adds more common elements to the interface definition.</p>
+<h2 id="location-services-and-liblocation-1xx"><a class="header" href="#location-services-and-liblocation-1xx">Location services and liblocation <code>1.X.X</code></a></h2>
+<p><a href="https://www.mapbox.com/android-docs/core/overview/">Read the latest information and up-to-date code snippets about Mapbox’s Android Core library</a>.</p>
+<h2 id="new-plugin-naming"><a class="header" href="#new-plugin-naming">New plugin naming</a></h2>
+<p><a href="https://www.mapbox.com/android-docs/plugins/overview/">The Mapbox Plugins for Android</a> are heavily dependent on the major semantic versioning number of the Maps SDK. They either won't compile or hide runtime bugs when paired with a different major version of the Maps SDK. To make the transition between versions easier and more educated without the need to jump into changelogs and compare repositories, we used the <code>7.0.0</code> release to make a small but helpful tweak to the plugins’ dependency names. The plugins’ artifacts now have a suffix stating which major version of the Maps SDK the plugins are compatible with. You’ll notice below that <code>v7</code> has been added in front of each plugin’s version number:</p>
+<pre><code>mapbox-android-plugin-annotation-v7:0.4.0
+mapbox-android-plugin-building-v7:0.5.0
+mapbox-android-plugin-localization-v7:0.7.0
+mapbox-android-plugin-markerview-v7:0.2.0
+mapbox-android-plugin-offline-v7:0.4.0
+mapbox-android-plugin-places-v7:0.7.0
+mapbox-android-plugin-traffic-v7:0.8.0
+</code></pre>
+<p><a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.mapbox.mapboxsdk%22">https://search.maven.org/#search%7Cga%7C1%7Cg%3A&quot;com.mapbox.mapboxsdk&quot;</a> will show you the latest versions of the plugins.</p>
+<h2 id="miscellaneous"><a class="header" href="#miscellaneous">Miscellaneous</a></h2>
+<ul>
+<li>
+<p><code>colorToRgbaString</code> is no longer in the <code>PropertyFactory</code> class. It’s in <a href="https://github.com/mapbox/mapbox-gl-native/blob/release-iowaska/platform/android/MapboxGLAndroidSDK/src/main/java/com/mapbox/mapboxsdk/utils/ColorUtils.java">the new <code>ColorUtils</code> class</a>.</p>
+</li>
+<li>
+<p>The <code>STATE_STYLE_URL</code> constant is no longer available in the <code>MapboxConstants</code> class.</p>
+</li>
+<li>
+<p>The import package path for referencing the <code>Style</code> class has changed. It’s now <code>import com.mapbox.mapboxsdk.maps.Style</code> and no longer <code>import com.mapbox.mapboxsdk.constants.Style</code>.</p>
+</li>
+<li>
+<p>The <code>MapboxMap</code> class’ <code>removeSource()</code> and <code>removeLayer()</code> methods now return booleans. The booleans state whether the removal has been successful. If you’d like to hold on to the reference, fetch it beforehand with respective <code>get</code> methods.</p>
+</li>
+<li>
+<p>Map click listeners can now consume the click event and stop it from being passed to listeners down the list (registered after the current one).</p>
+</li>
+<li>
+<p>Support for the <code>ZoomButtonsController</code> was removed.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../android/Android-5.x-to-6.x-migration-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../android/Android-5.x-to-6.x-migration-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Getting line numbers from an Android crash with ndk stack - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html" class="active"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="background-information"><a class="header" href="#background-information">Background Information</a></h2>
+<p>Often when you encounter an Android native crash (i.e. one inside C++ not Java) or see a bug report with a log attached all you get is this from Android Studio's logcat:</p>
+<pre><code>10-30 10:19:20.848 24358-25130/com.mapbox.mapboxgl.testapp I/mbgl: {Map}[Sprite]: Can't find sprite named 'marsh-16'
+10-30 10:19:21.988 24358-25130/com.mapbox.mapboxgl.testapp I/mbgl: {Map}[Android]: Not activating as we are not ready
+10-30 10:19:22.008 24358-25130/com.mapbox.mapboxgl.testapp I/mbgl: {Map}[Android]: Not deactivating as we are not ready
+10-30 10:19:22.078 24358-24551/com.mapbox.mapboxgl.testapp A/libc: Fatal signal 11 (SIGSEGV), code 1, fault addr 0x3c in tid 24551 (Tkj2y_5pUcsWvCQ)
+</code></pre>
+<p>The actual crash is the last line. Beyond that it's a segment violation at virtual memory address <code>0x3c</code> we have no useful details.</p>
+<h2 id="getting-full-native-logs"><a class="header" href="#getting-full-native-logs">Getting full native logs</a></h2>
+<p>The first thing to fix is to change the logcat filter. You want to set the far right box (probably set to &quot;Show only selected application&quot;) to &quot;No Filters&quot;. This will reveal all logs the entire Android system and other apps are spewing to logcat. Some phones (Samsung) are worse than others when it comes to logcat noise.</p>
+<p>Next you want to narrow these logs to reveal the &quot;tombstone&quot; (Android speak for a crash report). I have found the easiest way it to type &quot;<code>/DEBUG</code>&quot; into the middle text box (the one with the magnifying glass icon).</p>
+<p>You should get something like this:</p>
+<pre><code>10-30 10:19:22.138 2982-2982/? E/DEBUG: unexpected waitpid response: n=24551, status=0000000b
+10-30 10:19:22.138 2982-2982/? E/DEBUG: tid exited before attach completed: tid 24551
+10-30 10:19:22.258 2969-3844/? E/: BitTube(): close sendFd (52)
+10-30 10:19:22.258 2969-3844/? E/: BitTube(): close sendFd (53)
+10-30 10:27:02.688 2982-2982/? I/DEBUG: *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-30 10:27:02.688 2982-2982/? I/DEBUG: Build fingerprint: 'samsung/zerofltedv/zeroflte:5.1.1/LMY47X/G920IDVU3DOJ6:user/release-keys'
+10-30 10:27:02.688 2982-2982/? I/DEBUG: Revision: '11'
+10-30 10:27:02.688 2982-2982/? I/DEBUG: ABI: 'arm'
+10-30 10:27:02.688 2982-2982/? I/DEBUG: pid: 25808, tid: 27889, name: Tkj2y_5pUcsWvCQ  &gt;&gt;&gt; com.mapbox.mapboxgl.testapp &lt;&lt;&lt;
+10-30 10:27:02.688 2982-2982/? I/DEBUG: signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x3c
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     r0 00000000  r1 00000000  r2 00000000  r3 0000591c
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     r4 dbb0b894  r5 d6537940  r6 dbb0b888  r7 dbb0b8c4
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     r8 dc50ca20  r9 fffff45c  sl 000000c8  fp dbb0b8b8
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     ip e1950d6c  sp dbb0b808  lr e16d386c  pc e182ecf8  cpsr 600e0010
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     #00 pc 00360cf8  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (uv_async_send+8)
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     #01 pc 00205868  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::_
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     #02 pc 002033e0  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (mbgl::nativeOnResponse(_JNIEnv*, _jobject*, long long, int, _jstring*, _jstring*, _jstring*, _jstring*, _jstring*, _jbyteArray*)+1620)
+10-30 10:27:02.688 2982-2982/? I/DEBUG:     #03 pc 002798b7  /data/dalvik-cache/arm/data@app@com.mapbox.mapboxgl.testapp-2@base.apk@classes.dex
+</code></pre>
+<p>This reveals the full native stack trace. However it reports everything using program counter addresses (<code>#00 pc 00360cf8</code>) which does not mean much to us human types. And often the C++ symbols it does helpfully provide, are not so helpful:</p>
+<p><code>mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::_</code></p>
+<h2 id="extracting-source-files-and-line-numbers"><a class="header" href="#extracting-source-files-and-line-numbers">Extracting source files and line numbers</a></h2>
+<p>To make sense of this tombstone, you need to use <code>ndk-stack</code> which is documented <a href="http://developer.android.com/ndk/guides/ndk-stack.html">here</a>. That page lists a few ways to get a tombstone into <code>ndk-stack</code> via file or piping.</p>
+<p>To make integrating ndk-stack more easy, this project exposes a couple of <code>make</code> commands such as <code>make android-ndk-stack-{abi}</code>. Since symbolication of arm-v8 doesn't always produce an actionable stacktrace, we advice building and running ndk-stack against arm-v7:</p>
+<ul>
+<li><code>make clean</code> # this will delete arm-v8 .so files</li>
+<li><code>make platform/android/gradle/configuration.gradle</code> # make clean removed this file</li>
+<li><code>make run-android-arm-v7</code></li>
+<li><code>make android-ndk-stack</code> </li>
+</ul>
+<p>The output from <code>ndk-stack</code> will be like:</p>
+<pre><code>********** Crash dump: **********
+Build fingerprint: 'samsung/zerofltedv/zeroflte:5.1.1/LMY47X/G920IDVU3DOJ6:user/release-keys'
+pid: 14778, tid: 15013, name: OkHttp https://  &gt;&gt;&gt; com.mapbox.mapboxgl.testapp &lt;&lt;&lt;
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x3c
+Stack frame #00 pc 00360cf8  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (uv_async_send+8): Routine uv_async_send at /home/travis/build/mapbox/mason/mason_packages/.build/libuv-1.7.5/src/unix/async.c:62
+Stack frame #01 pc 00205868  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::_: Routine uv::async::send() at /home/leith/mb/mapbox-gl-native/build/android-arm-v7/../../src/mbgl/util/uv_detail.hpp:124
+Stack frame #02 pc 002033e0  /data/app/com.mapbox.mapboxgl.testapp-2/lib/arm/libmapbox-gl.so (mbgl::nativeOnResponse(_JNIEnv*, _jobject*, long long, int, _jstring*, _jstring*, _jstring*, _jstring*, _jstring*, _jbyteArray*)+1620): Routine mbgl::nativeOnResponse(_JNIEnv*, _jobject*, long long, int, _jstring*, _jstring*, _jstring*, _jstring*, _jstring*, _jbyteArray*) at /home/leith/mb/mapbox-gl-native/build/android-arm-v7/../../platform/android/http_request_android.cpp:359 (discriminator 6)
+Stack frame #03 pc 002798b7  /data/dalvik-cache/arm/data@app@com.mapbox.mapboxgl.testapp-2@base.apk@classes.dex
+</code></pre>
+<p>To understand this, lets take <code>(mbgl::HTTPAndroidRequest::onResponse(int, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::_: Routine uv::async::send() at /home/leith/mb/mapbox-gl-native/build/android-arm-v7/../../src/mbgl/util/uv_detail.hpp:124</code> as an example. In this line we can see the function that crashed is <code>mbgl::HTTPAndroidRequest::onResponse</code> and the source file is <code>src/mbgl/util/uv_detail.hpp</code> on line 124.</p>
+<p>This line is <a href="https://github.com/mapbox/mapbox-gl-native/blob/master/src/mbgl/util/uv_detail.hpp#L124">here</a> which agrees with stack frame #00</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>Note that debug symbols and PC addresses are specific to the last <code>make</code> command you ran. This means you need to reproduce the crash locally if someone gives you a raw stack trace from another device/build/etc.</p>
+<p>I find 90% of the time the line numbers from <code>ndk-stack</code> is enough to spot and fix programming errors in C++. To dig deeper currently requires a complex GDB setup which is documented <a href="https://github.com/mapbox/mapbox-gl-native/wiki/Android-debugging-with-remote-GDB">here</a>. However Google provide some interesting tips on using the Qt IDE in the video I linked to from <a href="https://github.com/mapbox/mapbox-gl-native/issues/2755">here</a></p>
+<p>A older version of this guide is <a href="https://github.com/mapbox/mapbox-gl-native/wiki/Symbolicating-Android-crashes">here</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../android/Android-6.x-to-7.x-migration-guide.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../android/Android-4.x-to-5.x-migration-guide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../android/Android-6.x-to-7.x-migration-guide.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../android/Android-4.x-to-5.x-migration-guide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

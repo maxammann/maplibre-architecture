@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Expression Architecture - MapLibre Architecture</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../architecture/Collision-Detection.html"><strong aria-hidden="true">2.</strong> Collision Detection</a></li><li class="chapter-item expanded "><a href="../architecture/Threading-structure.html"><strong aria-hidden="true">3.</strong> Threading structure</a></li><li class="chapter-item expanded "><a href="../architecture/Expression-Architecture.html" class="active"><strong aria-hidden="true">4.</strong> Expression Architecture</a></li><li class="chapter-item expanded "><a href="../architecture/Text-Rendering.html"><strong aria-hidden="true">5.</strong> Text Rendering</a></li><li class="chapter-item expanded affix "><li class="part-title">Rendering</li><li class="chapter-item expanded "><a href="../rendering/Coordinate-Systems.html"><strong aria-hidden="true">6.</strong> Coordinate Systems</a></li><li class="chapter-item expanded "><a href="../rendering/OpenGL-Docs.html"><strong aria-hidden="true">7.</strong> OpenGL Docs</a></li><li class="chapter-item expanded affix "><li class="part-title">Android</li><li class="chapter-item expanded "><a href="../android/Setting-up-Mapbox-checkstyle.html"><strong aria-hidden="true">8.</strong> Setting up Mapbox checkstyle</a></li><li class="chapter-item expanded "><a href="../android/Android-5.x-to-6.x-migration-guide.html"><strong aria-hidden="true">9.</strong> Android 5.x to 6.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Android-6.x-to-7.x-migration-guide.html"><strong aria-hidden="true">10.</strong> Android 6.x to 7.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Getting-line-numbers-from-an-Android-crash-with-ndk-stack.html"><strong aria-hidden="true">11.</strong> Getting line numbers from an Android crash with ndk stack</a></li><li class="chapter-item expanded "><a href="../android/Android-4.x-to-5.x-migration-guide.html"><strong aria-hidden="true">12.</strong> Android 4.x to 5.x migration guide</a></li><li class="chapter-item expanded "><a href="../android/Strategies-to-reduce-Android-APK-size.html"><strong aria-hidden="true">13.</strong> Strategies to reduce Android APK size</a></li><li class="chapter-item expanded affix "><li class="part-title">Apple</li><li class="chapter-item expanded "><a href="../apple/GPUs.html"><strong aria-hidden="true">14.</strong> GPUs</a></li><li class="chapter-item expanded "><a href="../apple/Upgrading-from-Mapbox-Maps-SDK-for-iOS-v3.7.x-to-v4.0.x.html"><strong aria-hidden="true">15.</strong> Upgrading from Mapbox Maps SDK for iOS v3.7.x to v4.0.x</a></li><li class="chapter-item expanded affix "><li class="part-title">Releasing</li><li class="chapter-item expanded "><a href="../releasing/Merge-release-branch-into-master.html"><strong aria-hidden="true">16.</strong> Merge release branch into master</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-macOS-SDK.html"><strong aria-hidden="true">17.</strong> Releasing the Mapbox macOS SDK</a></li><li class="chapter-item expanded "><a href="../releasing/Releasing-the-Mapbox-iOS-SDK.html"><strong aria-hidden="true">18.</strong> Releasing the Mapbox iOS SDK</a></li><li class="chapter-item expanded affix "><li class="part-title">Workflow</li><li class="chapter-item expanded "><a href="../workflow/JS-Native-workflow.html"><strong aria-hidden="true">19.</strong> JS Native workflow</a></li><li class="chapter-item expanded "><a href="../workflow/Code-Structure.html"><strong aria-hidden="true">20.</strong> Code Structure</a></li><li class="chapter-item expanded "><a href="../workflow/Versions-and-tagging.html"><strong aria-hidden="true">21.</strong> Versions and tagging</a></li><li class="chapter-item expanded "><a href="../workflow/Troubleshooting.html"><strong aria-hidden="true">22.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../workflow/Building-with-Xcode.html"><strong aria-hidden="true">23.</strong> Building with Xcode</a></li><li class="chapter-item expanded affix "><li class="part-title">Misc</li><li class="chapter-item expanded "><a href="../misc/Release-notes-style-guide.html"><strong aria-hidden="true">24.</strong> Release notes style guide</a></li><li class="chapter-item expanded "><a href="../misc/Using-Mapbox-iOS-SDK-in-an-Interface-Builder-storyboard.html"><strong aria-hidden="true">25.</strong> Using Mapbox iOS SDK in an Interface Builder storyboard</a></li><li class="chapter-item expanded "><a href="../misc/Terminology-across-platforms.html"><strong aria-hidden="true">26.</strong> Terminology across platforms</a></li><li class="chapter-item expanded "><a href="../misc/Release-notes-template-for-macOS.html"><strong aria-hidden="true">27.</strong> Release notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Prototyping-with-Framer.js.html"><strong aria-hidden="true">28.</strong> Prototyping with Framer</a></li><li class="chapter-item expanded "><a href="../misc/Prerelease-notes-template-for-macOS.html"><strong aria-hidden="true">29.</strong> Prerelease notes template for macOS</a></li><li class="chapter-item expanded "><a href="../misc/Bitrise-workflow-details.html"><strong aria-hidden="true">30.</strong> Bitrise workflow details</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MapLibre Architecture</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="expression-architecture"><a class="header" href="#expression-architecture">Expression Architecture</a></h1>
+<p>This document is meant to be an introduction to working with “expressions” in the Mapbox GL codebase. It uses gl-js examples, but the gl-native implementation is usually closely analogous (with a few layers of templating on top). I wasn’t very involved in the original design discussions, so this is mostly a distillation of what I’ve learned in the process of extending the expression language with the “collator” and “format” types. In my experience, the expression language itself is not as hard to understand as its embedding within the rest of the map.</p>
+<h1 id="background"><a class="header" href="#background">Background</a></h1>
+<p>Key Mapbox GL concepts from pre-expression days:</p>
+<ul>
+<li>“<strong>Layout</strong>” properties in the style spec are properties that are calculated at tile generation time, in the background. e.g.
+'text-font': [&quot;DIN Office Pro&quot;, &quot;Arial Unicode MS&quot;]</li>
+<li>“<strong>Paint</strong>” properties are calculated at render time, and can generally be updated much more quickly. Whether something is a paint or layout property often just depends on the implementation difficulty of calculating the property at run time. e.g.
+'circle-radius': 20</li>
+<li>There are monster hybrids, like <code>text-size</code>, which is a “layout” property but is also evaluated at render time.</li>
+<li>“<strong>Data-Driven Styling (DDS)</strong>” This is the ability to generate layout and paint properties separately for each individual feature in a layer, based on (1) zoom and (2) feature properties.</li>
+<li>“<strong>Run-Time Styling</strong>” The ability to change the style at run-time. Not directly relevant to expressions except that changes require re-evaluating expressions. Changes to paint properties can be made immediately, while changes to layout properties require re-parsing tiles.</li>
+<li>“<strong>Function</strong>” This is the pre-expression syntax for DDS. “functions” exposed a fixed set of interpolation functions that could map input parameters to output parameters. Functions are still supported, but under the hood we simply convert them into equivalent general purpose “expressions”.  Example:
+'circle-radius': {
+property: 'population',
+stops: [
+[{zoom: 8, value: 0}, 0],
+[{zoom: 8, value: 250}, 1],
+[{zoom: 11, value: 0}, 0],
+[{zoom: 11, value: 250}, 6],
+[{zoom: 16, value: 0}, 0],
+[{zoom: 16, value: 250}, 40]
+]
+}</li>
+<li>“<strong>Layer</strong>” Know your “source layer” (this is a layer of data in a vector tile) from your “style layer” (this is a layer in the style sheet, you could also think of this as a “rendered” layer)</li>
+<li>“<strong>Filter</strong>” A filter expresses rules for filtering features from a source layer to be included or excluded from a style layer. Before expressions, filters used their own mini-language in the style spec JSON. Pre-expression filters are now converted into expressions before being evaluated.</li>
+<li>“<strong>Interpolation</strong>” We support linear, categorical, exponential, and cubic-bezier interpolation functions, both before and after expressions.</li>
+<li>“<strong>Constant</strong>&quot; vs. “<strong>Zoom-Dependent</strong>” vs. “<strong>Property-Dependent</strong>” vs. “<strong>Zoom-and-Property-Dependent</strong>” Every property falls into one of these categories, both before and after expressions. Typically different code pathways are used for each category, with the most complex/expensive code pathway for zoom-and-property-dependent paint properties. In expression terms, you will see the equivalent <strong>isFeatureConstant</strong> or <strong>isZoomConstant</strong>, and also <strong>CameraExpression</strong> (zoom) <strong>SourceExpression</strong> (property), and <strong>CompositeExpression</strong> (zoom-and-property).</li>
+<li>“<strong>Paint Property Binders</strong>&quot; These are a complex piece of <del>magic</del> logic that support rendering of property-dependent and zoom-and-property-dependent features within minimal render-time calculation. Hand-wavy, not-quite-accurate explanation: For each “bound” property (for example: <code>circle-radius</code>), and for each feature in the layer, there’s an entry recording the value for that feature evaluated at <code>tileZoom</code> and also evaluated at <code>tileZoom + 1</code>. At render time, an interpolation parameter is calculated based on the current zoom and the interpolation curve, and then passed to the shader.
+<ul>
+<li>This approach <strong>doesn’t change</strong> with expressions, which explains this limitation from the docs: “… in layout or paint properties, <code>[&quot;zoom&quot;]</code> may appear only as the input to an outer <code>[interpolate](https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-interpolate)</code>or <code>[step](https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)</code> expression, or such an expression within a <code>[let](https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-let)</code> expression.”</li>
+<li>For more detail, see <code>program_configuration.js</code>, specifically the <code>Binder</code> interface</li>
+</ul>
+</li>
+<li>“<strong>Tokens</strong>” e.g. <code>{name_en}</code>. The pre-expression way to refer to per-feature data in vector tiles. Before expressions, these could only be used in specialized contexts (like the <code>text-field</code> property). After expressions, tokens are automatically converted into “get” expressions, e.g. <code>[``&quot;``get``&quot;``,</code> <code>&quot;``name_en``&quot;``]</code>.</li>
+</ul>
+<h1 id="design-goals"><a class="header" href="#design-goals">Design Goals</a></h1>
+<ul>
+<li>Complete the work of DDS in exposing data in vector tiles as input for styling, without falling back to implementing one specialized “function” after another. The original name for this feature was “arbitrary expressions” — representing the alternative of implementing one expression at a time.
+<ul>
+<li>See https://github.com/mapbox/mapbox-gl-js/issues/4077 for some background</li>
+</ul>
+</li>
+<li>Allow arbitrary logical and mathematical operations on per-feature data</li>
+<li>Do <em>not</em> allow looping, turing-completeness, etc. The idea is to make a declarative language in which it should be relatively difficult to shoot yourself in the foot. We don’t want style authors to be able to make a layer whose cost to evaluate scales super-linearly with the number of features in the layer.</li>
+<li>Can easily be extended with new “vocabulary” over time</li>
+<li>Can be embedded in existing style spec</li>
+<li>Can port all existing functionality to expressions</li>
+<li>Minimal evaluation overhead</li>
+</ul>
+<p>The JSON/”lispy” syntax we went with satisfied the above goals, and had the attraction that the written form of expressions stayed close to the underlying AST. Our users are generally not excited about learning a new DSL to modify styling options — but one way to think of this is that the expression language itself can be a target of other, more appropriate DSLs. For example, on the iOS SDK, we wrap expressions in the platform-appropriate <code>[NSExpression](https://www.mapbox.com/ios-sdk/api/4.6.0/predicates-and-expressions.html)</code> <a href="https://www.mapbox.com/ios-sdk/api/4.6.0/predicates-and-expressions.html">syntax</a>. In Studio, we use <a href="https://github.com/mapbox/expression-jamsession">Jamsession</a> to make a simplified expression builder.</p>
+<h1 id="implementation"><a class="header" href="#implementation">Implementation</a></h1>
+<p>For each filter or property that uses an expression, we parse the raw JSON using a “parsing context” for that property. The result is a parsed expression tree, which is then embedded in a <code>PropertyValue</code>. At evaluation time, we provide an “evaluation context” and then evaluate the expression tree starting from the root. The result will be a constant value matching the property’s type.</p>
+<h2 id="parsing"><a class="header" href="#parsing">Parsing</a></h2>
+<p>The root of the parsing logic is in <code>parsing_context.js</code>. You start parsing with a mostly empty context (it contains information such as the expected type of the result, which is used in some automatic coercion logic). The first item in an expression array is the name (or “operator”) of the expression (e.g. <code>&quot;``concat``&quot;</code>). The parser looks up the <code>Expression</code>  implementation for that operator, and then hands parsing off to the class. Each implementation has its own logic for parsing children: if it accepts arguments that are themselves expressions, it will recurse into the root parsing logic, but with added context (for instance, expected types, bound <code>&quot;``let``&quot;</code> variables, etc.).</p>
+<p><strong>CompoundExpression</strong>
+Most expressions don’t need any special parsing rules beyond knowing their return type, their argument types, and any argument type overloads. All of these expressions are implemented using <code>CompoundExpression</code>. Example (from <code>definitions/index.js</code>):</p>
+<pre><code>    '^': [
+        NumberType,
+        [NumberType, NumberType],
+        (ctx, [b, e]) =&gt; Math.pow(b.evaluate(ctx), e.evaluate(ctx))
+    ],
+</code></pre>
+<p>This says <code>&quot;``^``&quot;</code>  is an expression that returns a number, and it expects as arguments two expressions that return numbers (they could be constant expressions). The evaluator evaluates both child expressions, and then applies <code>Math.pow</code> to the results. <code>ctx</code> is the “evaluation context” getting passed through — a child expression might use it to know the current zoom level, or to look up a feature property, etc.</p>
+<p><strong>Types, Assertions, and Coercions</strong>
+The expression language has parse time and run-time type checking, based on this set of types:</p>
+<pre><code>export type Type =
+    NullTypeT |
+    NumberTypeT |
+    StringTypeT |
+    BooleanTypeT |
+    ColorTypeT |
+    ObjectTypeT |
+    ValueTypeT |
+    ArrayType |
+    ErrorTypeT |
+    CollatorTypeT |
+    FormattedTypeT
+</code></pre>
+<p>An <strong>assertion</strong> is a type of expression that allows you to give a return type to something that doesn’t have a type. So for instance <code>[``&quot;``get``&quot;``,</code> <code>&quot;``feature_property``&quot;``]</code> returns the generic <code>ValueType</code>, but if you want to pass it to an expression that requires a string argument, you can use an assertion: <code>[``&quot;``string``&quot;``, [``&quot;``get``&quot;``,</code> <code>&quot;``feature_property``&quot;``]]</code>. Assertions throw an evaluation-time error if the types don’t match during evaluation.</p>
+<p>A <strong>coercion</strong> is a type of expression that allows you to convert return types. You can provide fallbacks in case coercion fails. e.g. <code>[``&quot;``to-number``&quot;``, [``&quot;``get``&quot;``,</code> <code>&quot;``feature_property``&quot;``], 0]</code>.</p>
+<p>The initial implementation of the expression language erred on the side of requiring users to be explicit about types — for instance, <code>&quot;``get``&quot;</code> expressions very frequently had to be wrapped in assertions. In response to user feedbacks, we started building more “implicit” typing into the parsing engine. This is accomplished by automatically adding <code>Assertion</code> and <code>Coercion</code> expressions at parse time (they are called “annotations”). The basic rules are:</p>
+<pre><code>// When we expect a number, string, boolean, or array but have a value, wrap it in an assertion.
+// When we expect a color or formatted string, but have a string or value, wrap it in a coercion.
+</code></pre>
+<p><strong>Constant Folding</strong>
+There’s not much compile-time optimization in expressions, but one thing we do at compile time whenever we parse a sub-expression, we check if it’s “constant” (i.e. it doesn’t depend on any evaluation context). If so, we evaluate the expression, and then replace it with a <code>Literal</code> expression containing the result of the evaluation.</p>
+<h2 id="evaluation"><a class="header" href="#evaluation">Evaluation</a></h2>
+<p>Evaluation is really pretty simple — you call “evaluate” on the root expression, it recurses, and eventually gives you back either a result or an error. The somewhat tricky part is the provided  <code>EvaluationContext</code>, which hooks the expression language up to actual data on the map. It contains:</p>
+<ul>
+<li><code>GlobalProperties</code>: global map state, like the current zoom level</li>
+<li><code>Feature</code>: if this expression is being evaluated per-feature, this is the actual data for the feature from the underlying vector-tile</li>
+<li><code>FeatureState</code>: Global “feature state” index, if necessary for this expression</li>
+</ul>
+<h2 id="property-propertyvalue-and-possiblyevaluatedvalue-oh-my"><a class="header" href="#property-propertyvalue-and-possiblyevaluatedvalue-oh-my">Property, PropertyValue, and PossiblyEvaluatedValue, oh my…</a></h2>
+<p>This is technically outside the expression language, but understanding how style properties are hooked up to expressions is key to understanding how expressions are actually used. <code>properties.js</code> has lots of documentation! To start getting oriented:</p>
+<ul>
+<li><code>Property</code> refers to a property in the style specification. e.g. <code>'``circle-radius``'</code></li>
+<li><code>PropertyValue</code> refers to the right hand-side of a property in the style <em>sheet</em>. e.g. <code>'``circle-radius``'``: 20</code>. It can be a constant value or an expression.</li>
+<li><code>PossiblyEvaluatedValue</code> is all about not re-evaluating when you don’t need to. So if you have a “Property” that’s of type “DataDrivenProperty”, it will have a “PossiblyEvaluatedValue”. But for instance if that value is an expression and it’s “feature-constant”, then we can just store the value here and return it in future calls to <code>possiblyEvaluate</code> instead of continually re-evaluating the expression.</li>
+</ul>
+<h1 id="adding-a-new-expression"><a class="header" href="#adding-a-new-expression">Adding a New Expression</a></h1>
+<p>Adding a new expression is actually pretty easy, as long as you don’t have to modify the type system. If it fits the parsing pattern of <code>CompoundExpression</code>, then you can just add it to the CompoundExpression registry, with a custom evaluation function. If not, well let’s see how to implement a “Foo” expression!</p>
+<p>Register the operator in <code>definitions/index.js</code>:</p>
+<pre><code>const expressions: ExpressionRegistry = {
+    ...,
+    'foo', FooExpression
+  };
+</code></pre>
+<p>Create an implementation file at <code>definitions/foo.js</code>:</p>
+<pre><code>export default class FooExpression implements Expression
+</code></pre>
+<p>Implement static <code>parse</code> logic that’s used to create instances of the expression:</p>
+<pre><code>static parse(args: Array&lt;mixed&gt;, context: ParsingContext) {
+    // Here's where you enforce syntax -- if type checking fails, you pass
+    // the error back up the chain with context.error
+    if (args.length !== 2)
+        return context.error(`'foo' expression requires exactly one argument.`);
+
+    if (!isValue(args[1]))
+        return context.error(`invalid value`);
+
+    const child = (args[1]: any);
+    return new FooExpression(child);
+}
+</code></pre>
+<p>Implement the <code>evaluate</code> method:</p>
+<pre><code>evaluate(ctx: EvaluationContext) {
+    // We don't use the context, but pass it through to our child
+    return &quot;bar&quot; + this.child.evaluate(ctx);
+}
+</code></pre>
+<p>Implement the <code>eachChild</code> method — this is necessary for various algorithms that traverse the expression tree:</p>
+<pre><code>eachChild(fn: (Expression) =&gt; void) {
+    fn(this.child);
+}
+</code></pre>
+<p>Implement the <code>possibleOutputs</code> method — this is used to do a simple type of static analysis for expressions that have a finite number of possible outputs (for instance, if the top-level expression is a <code>&quot;``match``&quot;</code>  expression with three literal outputs, the only possible outputs are those three, no matter what goes on in the sub-expressions. Some properties are required to have a defined set of possible outputs (for instance <code>text-font</code>), because we need to be able to fetch them ahead of evaluation time. If your expression depends on external state, it could very easily have an infinite number of potential outputs, in which case simply return <code>[undefined]</code>.</p>
+<pre><code>possibleOutputs() {
+    // Cop-out!
+    return [undefined];
+}
+</code></pre>
+<p>Finally, implement the <code>serialize</code> method — this is basically the inverse of the <code>parse</code> method. The serialized result may not look identical to the original input that created an expression (because of changes like constant folding), but when evaluated it should give the same result (and in fact our test harness asserts that):</p>
+<pre><code>serialize() {
+    return [&quot;foo&quot;, this.child.serialize()];
+}
+</code></pre>
+<p>You’re done! Although you should head straight over to <code>test/integration/expression-tests</code>, find an expression that’s similar to yours, copy its tests, and modify them to fit yours. An expression test has an:</p>
+<ul>
+<li>“expression”: of course</li>
+<li>“inputs”: array of Feature/GlobalProperties pairs</li>
+<li>“expected”
+<ul>
+<li>“compiled”: type information</li>
+<li>“outputs”: evaluation results or errors</li>
+<li>“serialized”: result of round-tripping the expression through parse/serialize</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../architecture/Threading-structure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../architecture/Text-Rendering.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../architecture/Threading-structure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../architecture/Text-Rendering.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
